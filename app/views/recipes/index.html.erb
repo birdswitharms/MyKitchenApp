@@ -1,0 +1,12 @@
+<h3>Recipes</h3>
+<hr>
+
+<% @recipes.each do |recipe| %>
+  <%= link_to recipe_path(recipe.id) do %>
+    <article>
+      <p>Recipe name: <%= recipe.name %></p>
+      <p>Calories per serving: <%= recipe.calories %></p>
+    </article>
+  <% end %>
+  <hr>
+<% end %>
