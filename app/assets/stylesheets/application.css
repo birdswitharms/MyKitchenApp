@@ -35,11 +35,16 @@ nav h1 {
 nav a {
   font-size: 26px;
   text-decoration: none;
-  color: white;
+  color: crimson;
   padding: 18px 10px;
 }
 
 nav a:hover {
   color: crimson;
   background-color: white;
+}
+
+.flexbox-container a {
+  text-decoration: none;
+  color: black;
 }

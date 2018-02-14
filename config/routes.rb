@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'food/index'
 
   get 'recipe/:id' => 'recipe#show'
+  post 'recipes/new' => 'recipes#create'
 
   resources :recipes do
     resources :ingredients, only: [:new, :create]

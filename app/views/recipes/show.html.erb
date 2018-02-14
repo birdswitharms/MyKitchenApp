@@ -1,6 +1,12 @@
 <h3>Recipe</h3>
 
 <article>
-  <p>Recipe name: <%= @recipe.name %></p>
+  <p><h3><%= @recipe.name %></h3></p>
+  <p><%= @recipe.instructions %></p>
   <p>Calories per serving: <%= @recipe.calories %></p>
+  <br>
+  <p><strong>Ingredients</strong></p>
+  <% @ingredients.each do |ingredient| %>
+    <p><%= ingredient.quantity %> <%= ingredient.measurement_unit %>: <%= ingredient.food.name %></p>
+  <% end %>
 </article>

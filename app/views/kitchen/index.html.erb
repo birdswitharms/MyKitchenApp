@@ -2,6 +2,12 @@
 
 <div class="kitchen">
 <% @kitchen.each do |food| %>
-  <%= food.name %>
+  <article>
+    <%= food.name %>
+  </article>
 <% end %>
 </div>
+
+<br><br><br>
+
+<h3><%= link_to "Add to your kitchen!", edit_kitchen_path(current_user) %></h3>

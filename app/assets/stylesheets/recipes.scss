@@ -9,12 +9,25 @@ h3 {
 }
 
 article {
-  padding: 10px;
-  text-decoration: none;
-
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: wheat;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 article p {
   text-decoration: none;
   padding: 10px;
+  text-align: center;
+}
+
+.flexbox-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.flexbox-container a {
+  width: 25%;
 }
