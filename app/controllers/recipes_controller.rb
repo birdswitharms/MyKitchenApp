@@ -12,6 +12,7 @@ class RecipesController < ApplicationController
 
   def show
     @ingredients = load_recipe.ingredients
+    @steps = load_recipe.steps
   end
 
   def new
@@ -25,6 +26,9 @@ class RecipesController < ApplicationController
        redirect_to root_path
       else
         redirect_to root_path
+        puts "="*20
+        puts "#{@recipe.errors.full_messages}"
+        puts "="*20
       end
   end
 
@@ -35,9 +39,8 @@ def load_recipe
 end
 
 def recipe_params
-  params.require(:recipe).permit(:name, :calories, :instructions)
+  params.require(:recipe).permit(:name, :calories, :steps)
 end
-
 
 
 

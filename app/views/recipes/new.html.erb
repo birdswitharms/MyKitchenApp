@@ -1,19 +1,23 @@
+<br>
 <h3>Create a new Recipe!</h3>
-
-<%= form_for :recipe do |f| %>
-  <p>
-    <%= f.label :name  %>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :calories  %>
-    <%= f.number_field :calories %>
-  </p>
-  <p>
-    <%= f.label :instructions  %>
-    <%= f.text_area :instructions %>
-  </p>
-  <p>
-  <%= f.submit %>
-  </p>
-<% end %>
+<br>
+<div class="form kitchen">
+  <%= form_for :recipe do |f| %>
+    <p>
+      <%= f.label :name  %>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :calories  %>
+      <%= f.number_field :calories %>
+    </p>
+    <p>Step 1:</p>
+    <div id="step-div">
+      <input type="textarea" name="recipe[steps][1]" id="step1" >
+    </div>
+    <button type="button" name="button" id="add-step-button">Add a new Step</button>
+    <p>
+    <%= f.submit %>
+    </p>
+  <% end %>
+</div>

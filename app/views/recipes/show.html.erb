@@ -1,12 +1,16 @@
+<br>
 <h3>Recipe</h3>
-
+<br>
 <article>
   <p><h3><%= @recipe.name %></h3></p>
-  <p><%= @recipe.instructions %></p>
   <p>Calories per serving: <%= @recipe.calories %></p>
   <br>
   <p><strong>Ingredients</strong></p>
   <% @ingredients.each do |ingredient| %>
     <p><%= ingredient.quantity %> <%= ingredient.measurement_unit %>: <%= ingredient.food.name %></p>
+  <% end %>
+  <p><strong>Steps</strong></p>
+  <% @steps.each_with_index do |step, i| %>
+    <p>Step <%= i+1 %>: <%= step.step %></p>
   <% end %>
 </article>
