@@ -2,29 +2,12 @@
 <h3>Recipes</h3>
 <br>
 <div class="flexbox-container">
-<% if current_user %>
-  <% if current_user.kitchen.recipes.count == 0 %>
-    <p><center>Please add food to your kitchen to show avaliable recipes</center></p>
-    <p><center><%= link_to "Add to your kitchen!", edit_kitchen_path(current_user) %></center></p>
-  <% end %>
-  <% @recipes.each do |recipe| %>
-  <%= link_to recipe_path(recipe.id) do %>
-    <article>
-      <p><h3><%= recipe.name %></h3></p>
-      <p>Calories per serving: <%= recipe.calories %></p>
-      <br>
-    </article>
-    <% end %>
-  <% end %>
-<% else %>
   <% @all_recipes.each do |recipe| %>
     <%= link_to recipe_path(recipe.id) do %>
       <article>
         <p><h3><%= recipe.name %></h3></p>
-        <p>Calories per serving: <%= recipe.calories %></p>
         <br>
       </article>
     <% end %>
-  <% end %>
 <% end %>
 <div>

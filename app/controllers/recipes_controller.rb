@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
     @all_recipes = Recipe.all
 
     if current_user
-      @recipes = current_user.kitchen.recipes.uniq
+      @recipes = Recipe.all # << Needs to be changed
     end
   end
 
@@ -21,7 +21,8 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-      if @recipe.save
+    @step = Step.new(step_params)
+      if @recipe.save && @step.save
         flash[:notice] = "New recipe successfully added"
        redirect_to root_path
       else
@@ -39,7 +40,11 @@ def load_recipe
 end
 
 def recipe_params
-  params.require(:recipe).permit(:name, :calories, :steps)
+  params.require(:recipe).permit(:name, :steps)
+end
+
+def step_params
+  params.require(:recipe).permit(:recipe_id, :steps)
 end
 
 

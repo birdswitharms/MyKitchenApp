@@ -5,15 +5,15 @@ document.addEventListener('DOMContentLoaded', function(){
   var step_div = document.getElementById('step-div');
 
   add_step_button.addEventListener('click', function() {
-    var step_field = document.createElement('input')
-    step_field.name = "recipe[steps]["+count+"]";
+    var step_field = document.createElement('input');
     step_field.type = "textarea";
-    step_field.id = "step"+count
+    step_field.name = "recipe[steps]["+count+"]";
+    step_field.id = "step"+count;
     var p = document.createElement('p');
     p.innerText = "Step "+count+" :"
-    count++
+    count++;
     step_div.append(p);
-    step_div.append(step_field);
+    p.append(step_field);
 
 
 

@@ -3,7 +3,6 @@
 <br>
 <article>
   <p><h3><%= @recipe.name %></h3></p>
-  <p>Calories per serving: <%= @recipe.calories %></p>
   <br>
   <p><strong>Ingredients</strong></p>
   <% @ingredients.each do |ingredient| %>
@@ -11,6 +10,6 @@
   <% end %>
   <p><strong>Steps</strong></p>
   <% @steps.each_with_index do |step, i| %>
-    <p>Step <%= i+1 %>: <%= step.step %></p>
+    <p>Step <%= i+1 %>: <%= step.content %></p>
   <% end %>
 </article>

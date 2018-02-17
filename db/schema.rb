@@ -10,17 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180215142604) do
+ActiveRecord::Schema.define(version: 20180217225524) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "foods", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id"
   end
 
-  create_table "foods_kitchens", force: :cascade do |t|
-    t.integer "food_id"
-    t.integer "kitchen_id"
+  create_table "foods_users", force: :cascade do |t|
+    t.integer "user_id_id"
+    t.integer "food_id_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_id_id"], name: "index_foods_users_on_food_id_id"
+    t.index ["user_id_id"], name: "index_foods_users_on_user_id_id"
   end
 
   create_table "ingredients", force: :cascade do |t|
@@ -39,23 +48,22 @@ ActiveRecord::Schema.define(version: 20180215142604) do
     t.integer "recipe_id"
   end
 
-  create_table "kitchens", force: :cascade do |t|
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_kitchens_on_user_id"
-  end
-
   create_table "recipes", force: :cascade do |t|
     t.string "name"
-    t.integer "calories"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "steps", force: :cascade do |t|
-    t.text "step"
+    t.text "content"
     t.integer "recipe_id"
+  end
+
+  create_table "table_foods_users", force: :cascade do |t|
+    t.integer "food_id_id"
+    t.integer "user_id_id"
+    t.index ["food_id_id"], name: "index_table_foods_users_on_food_id_id"
+    t.index ["user_id_id"], name: "index_table_foods_users_on_user_id_id"
   end
 
   create_table "users", force: :cascade do |t|
