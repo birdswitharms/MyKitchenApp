@@ -19,14 +19,25 @@ class Recipe < ApplicationRecord
       # ap recipe
 
       new_recipe = Recipe.new(name: recipe['strMeal'])
-      new_recipe.save
+
+      puts "*"*20
+      if new_recipe.save
+        puts "Recipe Successful"
+      else
+        puts "Recipe Failed"
+        puts new_recipe.errors.full_messages
+      end
 
       20.times{ |n|
         measurement = recipe['strMeasure' + (n + 1).to_s].split(' ')
         ingredient = recipe['strIngredient' + (n + 1).to_s]
-
+        # binding.pry
         if (measurement == '') || (ingredient == '')
           break
+        end
+
+        if measurement[0] == 'pinch'
+          measurement.unshift(1)
         end
 
         new_food = Food.new(name: ingredient)
@@ -36,7 +47,13 @@ class Recipe < ApplicationRecord
         if matched_food && matched_food.any?
           new_food = matched_food
         else
-          new_food.save
+          puts "*"*20
+          if new_food.save
+            puts "Food Successful"
+          else
+            puts "Food Failed"
+            puts new_food.errors.full_messages
+          end
         end
 
         if measurement.count >= 2
@@ -45,7 +62,14 @@ class Recipe < ApplicationRecord
           new_ingredient = Ingredient.new(food_id: new_food.id, quantity: measurement[0], measurement_unit: 'whole' )
         end
 
-        new_ingredient.save
+        puts "*"*20
+        if new_ingredient.save
+          puts "Ingredient Successful"
+        else
+          puts "Ingredient Failed"
+          puts new_ingredient.errors.full_messages
+        end
+
         new_recipe.ingredients << new_ingredient
         # puts measurement + ' ' + ingredient
 
