@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   get 'users/kitchen' => 'users#kitchen'
+  get 'users/pantry' => 'users#pantry'
+  patch 'users/kitchen' => 'users#update'
 
   get 'food' => 'food#index'
 
