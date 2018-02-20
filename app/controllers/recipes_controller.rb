@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
     @all_recipes = Recipe.all
 
     if current_user
-      @recipes = Recipe.all # << Needs to be changed
+      @all_recipes = Recipe.valid_recipes_with_pantry(current_user)
     end
   end
 
