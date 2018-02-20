@@ -20,13 +20,36 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    foods = Food.all
+
+    foods.each do |food|
+      param = params[food.name.downcase.to_sym]
+      p param
+
+      if param == "1"
+        unless current_user.foods.include?(food)
+          current_user.foods << food
+        end
+      end
+    end
+
+    p current_user.foods
+
+    redirect_to users_kitchen_path
+  end
+
   def show
     @user = User.find(session[:user_id])
   end
 
   def kitchen
     @foods = current_user.foods
-
   end
+
+  def pantry
+    @foods = Food.all
+  end
+
 
 end
