@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   end
 
   def pantry
-    @foods = Food.all
+    @foods = Food.order(:name)
   end
 
 

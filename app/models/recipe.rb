@@ -12,13 +12,12 @@ class Recipe < ApplicationRecord
     # auth_key = {api_key: "#{ENV['TEMP_WORDNIK_KEY']}"}
     # response = HTTParty.get('http://api.wordnik.com:80/v4/words.json/randomWords?limit=10', headers: auth_key )
 
-    url = 'http://www.themealdb.com/api/json/v1/1/search.php?s=avocado'
+    url = 'http://www.themealdb.com/api/json/v1/1/search.php?s=chicken'
     response = HTTParty.get(url)
     response_json = JSON.parse(response.body)
 
     response_json['meals'].each {|recipe|
       # ap recipe
-
       new_recipe = Recipe.new(name: recipe['strMeal'])
 
       puts "*"*20
@@ -30,22 +29,24 @@ class Recipe < ApplicationRecord
       end
 
       20.times{ |n|
-        measurement = recipe['strMeasure' + (n + 1).to_s].split(' ')
-        ingredient = recipe['strIngredient' + (n + 1).to_s]
+        measurement = recipe['strMeasure' + (n + 1).to_s].capitalize
+        ingredient = recipe['strIngredient' + (n + 1).to_s].capitalize
         # binding.pry
         if (measurement == '') || (ingredient == '')
-          break
+          next
         end
 
-        if measurement[0] == 'pinch'
-          measurement.unshift(1)
-        end
+        # if measurement == 'pinch'
+        #   measurement.unshift(1)
+        # end
 
         new_food = Food.new(name: ingredient)
 
         matched_food = Food.find_by(name: new_food.name)
-
-        if matched_food && matched_food.any?
+        # binding.pry
+        if matched_food
+          puts "*"*20
+          puts "FOUND MATCH"
           new_food = matched_food
         else
           puts "*"*20
@@ -57,11 +58,10 @@ class Recipe < ApplicationRecord
           end
         end
 
-        if measurement.count >= 2
-          new_ingredient = Ingredient.new(food_id: new_food.id, quantity: measurement[0], measurement_unit: measurement[1] )
-        else
-          new_ingredient = Ingredient.new(food_id: new_food.id, quantity: measurement[0], measurement_unit: 'whole' )
-        end
+        # if measurement.count >= 2
+        #   new_ingredient = Ingredient.new(food_id: new_food.id, quantity: measurement[0], measurement_unit: measurement[1] )
+          new_ingredient = Ingredient.new(food_id: new_food.id, measurement_unit: measurement )
+
 
         puts "*"*20
         if new_ingredient.save
@@ -104,6 +104,6 @@ class Recipe < ApplicationRecord
     #   Recipe.all.where()
     # }
     # all.select { |recipe| (recipe.foods - user.foods).empty? }
-    select { |recipe| (recipe.foods & user.foods).empty? }
+    select { |recipe| (recipe.foods - user.foods).empty? }
   end
 end
