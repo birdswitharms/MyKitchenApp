@@ -16,7 +16,7 @@ class RecipesController < ApplicationController
   end
 
   def new
-
+    @foods = Food.all.to_a
   end
 
   def create

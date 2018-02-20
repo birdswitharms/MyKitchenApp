@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180217225524) do
+ActiveRecord::Schema.define(version: 20180220160759) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -23,24 +23,13 @@ ActiveRecord::Schema.define(version: 20180217225524) do
     t.integer "category_id"
   end
 
-  create_table "foods_users", force: :cascade do |t|
-    t.integer "user_id_id"
-    t.integer "food_id_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["food_id_id"], name: "index_foods_users_on_food_id_id"
-    t.index ["user_id_id"], name: "index_foods_users_on_user_id_id"
-  end
-
   create_table "ingredients", force: :cascade do |t|
     t.integer "food_id"
-    t.integer "recipe_id"
     t.string "measurement_unit"
     t.float "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["food_id"], name: "index_ingredients_on_food_id"
-    t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
   end
 
   create_table "ingredients_recipes", force: :cascade do |t|
@@ -48,22 +37,23 @@ ActiveRecord::Schema.define(version: 20180217225524) do
     t.integer "recipe_id"
   end
 
+  create_table "pantries", force: :cascade do |t|
+    t.integer "food_id"
+    t.integer "user_id"
+    t.index ["food_id"], name: "index_pantries_on_food_id"
+    t.index ["user_id"], name: "index_pantries_on_user_id"
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
   end
 
   create_table "steps", force: :cascade do |t|
     t.text "content"
     t.integer "recipe_id"
-  end
-
-  create_table "table_foods_users", force: :cascade do |t|
-    t.integer "food_id_id"
-    t.integer "user_id_id"
-    t.index ["food_id_id"], name: "index_table_foods_users_on_food_id_id"
-    t.index ["user_id_id"], name: "index_table_foods_users_on_user_id_id"
   end
 
   create_table "users", force: :cascade do |t|

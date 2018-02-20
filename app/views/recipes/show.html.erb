@@ -4,6 +4,7 @@
 <article>
   <p><h3><%= @recipe.name %></h3></p>
   <br>
+  <p><h3>Description: </h3><%= @recipe.description %></p>
   <p><strong>Ingredients</strong></p>
   <% @ingredients.each do |ingredient| %>
     <p><%= ingredient.quantity %> <%= ingredient.measurement_unit %>: <%= ingredient.food.name %></p>

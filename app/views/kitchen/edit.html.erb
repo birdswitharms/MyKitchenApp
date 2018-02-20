@@ -1,0 +1,20 @@
+<br>
+<p><strong><h3>Add to kitchen</h3></strong></p>
+<br>
+  <div class="form kitchen">
+    <%= form_tag kitchen_path(@kitchen), method: :patch do %>
+    <% @food.each do |food| %>
+    <article>
+      <p>
+        <%= check_box_tag food.name.downcase %>
+        <%= label_tag food.name %>
+      </p>
+    </article>
+    <% end %>
+    <p>
+      <%= submit_tag "Add to my Kitchen!" %>
+    </p>
+  <% end %>
+  <br>
+
+</div>

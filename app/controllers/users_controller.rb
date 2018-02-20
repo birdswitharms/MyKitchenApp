@@ -24,5 +24,9 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
   end
 
+  def kitchen
+    @foods = current_user.foods
+
+  end
 
 end

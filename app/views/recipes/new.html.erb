@@ -8,14 +8,17 @@
       <%= f.text_field :name %>
     </p>
     <p>
-      <%= f.label :calories  %>
-      <%= f.number_field :calories %>
+      <%= f.label :description  %>
+      <%= f.text_field :description %>
     </p>
     <div id="step-div">
       <p>Step 1: <input type="textarea" name="recipe[steps][1]" id="step1" ></p>
     </div>
     <button type="button" name="button" id="add-step-button">Add a new Step</button>
-    <p>
+    <div id="ingredient-div">
+      <p>Ingredient 1: <input type="textarea" name="recipe[ingredient][1]" id="ingredient1" ></p>
+    </div>
+    <p><button type="button" name="button" id="add-ingredient-button">Add a new Ingredient</button></p>
     <%= f.submit %>
     </p>
   <% end %>

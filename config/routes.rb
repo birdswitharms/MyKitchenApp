@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :users, only: [:new, :create]
+  get 'users/kitchen' => 'users#kitchen'
 
   get 'food' => 'food#index'
 

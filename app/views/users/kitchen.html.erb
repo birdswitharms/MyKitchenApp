@@ -1,0 +1,10 @@
+<br>
+<center><h1><%= current_user.name %>'s Kitchen</h1></center>
+<br>
+<div class="food-div">
+  <% @foods.each do |food| %>
+    <article>
+      <p><%= food.name %></p>
+    </article>
+  <% end %>
+</div>
