@@ -30,7 +30,30 @@ document.addEventListener('DOMContentLoaded', function(e){
     ingredient_div.append(p);
     p.append(ingredient_field);
   });
-
-
+//
+// link = 'http://www.recipepuppy.com/api/?i=avocado,toast&p=1&q:avocado+toast'
+// $.ajax({
+//       url: link,
+//       method: 'GET',
+//       dataType: 'JSON'
+//     }).done(function(response) {
+//         // roboDetails.innerHTML = response;
+//         // roboDetails.innerHTML = '';
+//         // // console.log(response);
+//         // var div = document.createElement('div');
+//         // var img = document.createElement('img');
+//         // img.src = 'http://robohash.org/' + response.address;
+//         // var p = document.createElement('p');
+//         // p.innerText = response.name;
+//         //
+//         // div.append(img);
+//         // div.append(p);
+//         // roboDetails.append(div);
+//
+//         var source   = document.getElementById("entry-template").innerHTML;
+//         var template = Handlebars.compile(source);
+//
+//         roboDetails.innerHTML = template(response);
+//     });
 
 });
