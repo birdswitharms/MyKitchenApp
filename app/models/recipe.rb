@@ -4,6 +4,7 @@ class Recipe < ApplicationRecord
 
   has_and_belongs_to_many :ingredients
   has_many :steps
+  has_many :foods, through: :ingredients
 
   def self.add_recipes()
 
@@ -93,5 +94,16 @@ class Recipe < ApplicationRecord
     #   ap recipe
     # }
 
+  end
+
+  def self.valid_recipes_with_pantry(user)
+    # recipe_foods = Recipe.first.ingredients.map(&:food).pluck(:name)
+    # Recipe.first.ingredients.includes(:food).pluck(:name)
+    # binding.pry
+    # all.each { |recipe|
+    #   Recipe.all.where()
+    # }
+    # all.select { |recipe| (recipe.foods - user.foods).empty? }
+    select { |recipe| (recipe.foods & user.foods).empty? }
   end
 end
