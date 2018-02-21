@@ -39,6 +39,17 @@ class RecipesController < ApplicationController
       end
   end
 
+  def favorite
+    favorite = Favorite.new(user: current_user, recipe: Recipe.find(params[:id]))
+    if favorite.save
+      puts "="*20
+      puts "Favorite Successfull"
+    else
+      puts "="*20
+      puts "Facorite Failed"
+    end
+  end
+
 private
 
 def load_recipe
