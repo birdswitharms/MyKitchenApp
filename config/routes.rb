@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post 'recipes/new' => 'recipes#create'
 
   get 'recipes/search' => 'recipes#search'
-  post 'recipes/search' => 'recipes#search'
+  post 'recipes/search' => 'recipes#searchaction'
 
   resources :recipes do
     resources :ingredients, only: [:new, :create]

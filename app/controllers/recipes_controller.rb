@@ -22,7 +22,27 @@ class RecipesController < ApplicationController
   end
 
   def search
-    render :search
+    
+  end
+
+  def searchaction
+    included = []
+    excluded = []
+
+    params[:include].each do |key, value|
+      unless value == ""
+        included << value.capitalize
+      end
+    end
+
+    params[:exclude].each do |key, value|
+      unless value == ""
+        excluded << value.capitalize
+      end
+    end
+
+    @all_recipes = Recipe.find_ingredient(included, excluded)
+    render :index
   end
 
   def new
@@ -94,6 +114,9 @@ def recipe_params
   params.require(:recipe).permit(:name, :ingredient, :image_url, :term)
 end
 
+def search_params
+  params.require(:include, :exclude)
+end
 
 
 
