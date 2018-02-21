@@ -19,4 +19,6 @@ Rails.application.routes.draw do
 
   get 'food' => 'food#index'
 
+  post 'recipe/:id/favorite' => 'recipes#favorite', as: 'favorite_recipe'
+
 end
