@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function(e){
     ingredient_div.append(p);
     p.append(ingredient_field);
   });
-//
+
 // link = 'http://www.recipepuppy.com/api/?i=avocado,toast&p=1&q:avocado+toast'
 // $.ajax({
 //       url: link,

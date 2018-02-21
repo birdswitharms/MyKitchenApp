@@ -4,13 +4,14 @@
 <article>
   <p><h3><%= @recipe.name %></h3></p>
   <br>
-  <p><h3>Description: </h3><%= @recipe.description %></p>
-  <p><strong>Ingredients</strong></p>
-  <% @ingredients.each do |ingredient| %>
-    <p><%= ingredient.measurement_unit %>: <%= ingredient.food.name %></p>
-  <% end %>
   <p><strong>Steps</strong></p>
   <% @steps.each_with_index do |step, i| %>
     <p>Step <%= i+1 %>: <%= step.content %></p>
   <% end %>
+  <br>
+  <p><strong>Ingredients</strong></p>
+  <% @ingredients.each do |ingredient| %>
+    <p><%= ingredient.measurement_unit %>: <%= ingredient.food.name %></p>
+  <% end %>
+
 </article>

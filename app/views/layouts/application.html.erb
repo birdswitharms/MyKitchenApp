@@ -4,14 +4,19 @@
     <title>MyKitchenApp</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
     <nav>
       <center><h1>MyKitchenApp</h1></center>
-      <br>
+      <center>
+      <%= form_tag(recipes_path, method: :get) do %>
+        <%= text_field_tag :term, params[:term] %>
+        <%= submit_tag 'Search' %>
+      <% end %>
+      <br></center>
       <%= link_to("Home", root_path) %>
               <% if current_user %>
               <%= link_to "Logout", session_path("current"), method: :delete %>

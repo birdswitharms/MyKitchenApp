@@ -8,6 +8,12 @@ class RecipesController < ApplicationController
     if current_user
       @all_recipes = Recipe.valid_recipes_with_pantry(current_user)
     end
+
+    @all_recipes = if params[:term]
+      Recipe.where('name LIKE ?', "%#{params[:term]}%")
+    else
+      Recipe.all
+    end
   end
 
   def show
@@ -40,7 +46,7 @@ def load_recipe
 end
 
 def recipe_params
-  params.require(:recipe).permit(:name, :steps)
+  params.require(:recipe).permit(:name, :steps, :term)
 end
 
 def step_params

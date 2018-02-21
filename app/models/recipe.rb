@@ -5,20 +5,19 @@ class Recipe < ApplicationRecord
   has_and_belongs_to_many :ingredients
   has_many :steps
   has_many :foods, through: :ingredients
+  has_many :favorites
 
   def self.add_recipes()
-
     # Set env variable using example api_key from wordnik website
     # auth_key = {api_key: "#{ENV['TEMP_WORDNIK_KEY']}"}
     # response = HTTParty.get('http://api.wordnik.com:80/v4/words.json/randomWords?limit=10', headers: auth_key )
-
     url = 'http://www.themealdb.com/api/json/v1/1/search.php?s=chicken'
     response = HTTParty.get(url)
     response_json = JSON.parse(response.body)
 
     response_json['meals'].each {|recipe|
       # ap recipe
-      new_recipe = Recipe.new(name: recipe['strMeal'])
+      new_recipe = Recipe.new(name: recipe['strMeal'], youtube_url: recipe['strYoutube'], image_url: recipe['strMealThumb'])
 
       puts "*"*20
       if new_recipe.save
