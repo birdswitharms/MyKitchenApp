@@ -89,6 +89,11 @@ class Recipe < ApplicationRecord
     end
   end
 
+  def find_ingredient
+
+
+  end
+
   def self.valid_recipes_with_pantry(user)
     select { |recipe| (recipe.foods - user.foods).empty? }
   end
