@@ -11,6 +11,7 @@
   <body>
     <nav>
       <center><h1>MyKitchenApp</h1></center>
+        <%= link_to "Advance Search", recipes_search_path %>
       <center>
       <%= form_tag(recipes_path, method: :get) do %>
         <%= text_field_tag :term, params[:term] %>

@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'recipe/:id' => 'recipe#show'
   post 'recipes/new' => 'recipes#create'
 
+  get 'recipes/search' => 'recipes#search'
+  post 'recipes/search' => 'recipes#search'
+
   resources :recipes do
     resources :ingredients, only: [:new, :create]
   end
