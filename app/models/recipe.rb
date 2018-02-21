@@ -8,12 +8,12 @@ class Recipe < ApplicationRecord
   has_many :favorites
 
   def self.add_recipes()
-    url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=pork'
+    url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=chicken'
     response = HTTParty.get(url)
     response_json = JSON.parse(response.body)
 
     response_json['meals'].each {|recipe|
-      new_recipe = Recipe.new(name: recipe['strMeal'], youtube_url: recipe['strYoutube'], image_url: recipe['strMealThumb'])
+      new_recipe = Recipe.new(name: recipe['strMeal'].chomp, youtube_url: recipe['strYoutube'].chomp, image_url: recipe['strMealThumb'].chomp)
 
       puts "*"*20
       if new_recipe.save
@@ -41,7 +41,7 @@ class Recipe < ApplicationRecord
           next
         end
 
-        new_food = Food.new(name: ingredient)
+        new_food = Food.new(name: ingredient.capitalize.chomp)
 
         matched_food = Food.find_by(name: new_food.name)
         if matched_food
@@ -58,7 +58,7 @@ class Recipe < ApplicationRecord
           end
         end
 
-          new_ingredient = Ingredient.new(food_id: new_food.id, measurement_unit: measurement )
+          new_ingredient = Ingredient.new(food_id: new_food.id, measurement_unit: measurement.capitalize.chomp )
 
         puts "*"*20
         if new_ingredient.save
@@ -90,11 +90,23 @@ class Recipe < ApplicationRecord
   end
 
   def self.find_ingredient(included = [], excluded = [])
-    select { |recipe|
-      (recipe.foods.map(&:name) & included).any?
-    }.select { |recipe|
-      (recipe.foods.map(&:name) & excluded).empty?
+    recipes = []
+    included.each { |food|
+      recipes << select { |recipe|
+        recipe.foods.map(&:name).each {|fooditem|
+          fooditem.include?(food)
+        }
+      }
+      # Recipe.where("food.name = ?", food)
     }
+    ap recipes
+    return recipes
+    # recipes = select { |recipe|
+    #   (recipe.foods.map(&:name) & included).any?
+    # }
+    # .select { |recipe|
+    #   (recipe.foods.map(&:name) & excluded).empty?
+    # }
   end
 
 
