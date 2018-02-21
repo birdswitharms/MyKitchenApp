@@ -21,6 +21,10 @@ class RecipesController < ApplicationController
     @steps = load_recipe.steps
   end
 
+  def search
+    render :search
+  end
+
   def new
     @foods = Food.all.to_a
   end

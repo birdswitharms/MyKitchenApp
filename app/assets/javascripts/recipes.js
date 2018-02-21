@@ -6,6 +6,12 @@ document.addEventListener('DOMContentLoaded', function(e){
   var step_div = document.getElementById('step-div');
   var ingredient_button = document.getElementById('add-ingredient-button');
   var ingredient_div = document.getElementById('ingredient-div');
+  var include_ingredient_div = document.getElementById('include-ingredient-div');
+  var exclude_ingredient_div = document.getElementById('exclude-ingredient-div');
+  var include_ingredient_button = document.getElementById('include-ingredient-button');
+  var exclude_ingredient_button = document.getElementById('exclude-ingredient-button');
+
+if (step_button && ingredient_button) {
 
   step_button.addEventListener('click', function() {
     var step_field = document.createElement('input');
@@ -30,6 +36,34 @@ document.addEventListener('DOMContentLoaded', function(e){
     ingredient_div.append(p);
     p.append(ingredient_field);
   });
+}
+
+if (include_ingredient_button && exclude_ingredient_button) {
+
+  include_ingredient_button.addEventListener('click', function() {
+    var step_field = document.createElement('input');
+    step_field.type = "textarea";
+    step_field.name = "recipe[ingredient]["+step_counter+"]";
+    step_field.id = "include-ingredient"+step_counter;
+    var p = document.createElement('p');
+    step_counter++;
+    include_ingredient_div.append(p);
+    p.append(step_field);
+  });
+
+  // exclude_ingredient_button.addEventListener('click', function() {
+  //   var step_field = document.createElement('input');
+  //   step_field.type = "textarea";
+  //   step_field.name = "recipe[ingredient]["+step_counter+"]";
+  //   step_field.id = "exclude-ingredient"+step_counter;
+  //   var p = document.createElement('p');
+  //   step_counter++;
+  //   exclude_ingredient_div.append(p);
+  //   p.append(step_field);
+  // });
+
+
+}
 
 // link = 'http://www.recipepuppy.com/api/?i=avocado,toast&p=1&q:avocado+toast'
 // $.ajax({
