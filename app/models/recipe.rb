@@ -11,7 +11,7 @@ class Recipe < ApplicationRecord
     # Set env variable using example api_key from wordnik website
     # auth_key = {api_key: "#{ENV['TEMP_WORDNIK_KEY']}"}
     # response = HTTParty.get('http://api.wordnik.com:80/v4/words.json/randomWords?limit=10', headers: auth_key )
-    url = 'http://www.themealdb.com/api/json/v1/1/search.php?s=chicken'
+    url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=chicken'
     response = HTTParty.get(url)
     response_json = JSON.parse(response.body)
 
@@ -92,6 +92,11 @@ class Recipe < ApplicationRecord
     # response_json['results'].each {|recipe|
     #   ap recipe
     # }
+
+  end
+
+  def find_ingredient
+
 
   end
 
