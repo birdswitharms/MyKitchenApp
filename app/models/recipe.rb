@@ -89,9 +89,12 @@ class Recipe < ApplicationRecord
     end
   end
 
-  def find_ingredient
-
-
+  def self.find_ingredient(included = [], excluded = [])
+    select { |recipe|
+      (recipe.foods.map(&:name) & included).any?
+    }.select { |recipe|
+      (recipe.foods.map(&:name) & excluded).empty?
+    }
   end
 
 

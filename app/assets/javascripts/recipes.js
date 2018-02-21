@@ -44,7 +44,6 @@ if (include_ingredient_button && exclude_ingredient_button) {
     var step_field = document.createElement('input');
     step_field.type = "textarea";
     step_field.name = "recipe[ingredient]["+step_counter+"]";
-    step_field.id = "include-ingredient"+step_counter;
     var p = document.createElement('p');
     step_counter++;
     include_ingredient_div.append(p);
