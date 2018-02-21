@@ -3,11 +3,11 @@
 <br>
 <div class="flexbox-container">
   <% @all_recipes.each do |recipe| %>
-    <%= link_to recipe_path(recipe.id) do %>
-      <article>
-        <p><h3><%= recipe.name %></h3></p>
-        <br>
-      </article>
+      <%= link_to recipe_path(recipe.id) do %>
+        <article>
+          <p><h3><%= recipe.name %></h3></p>
+          <br>
+        </article>
+      <% end %>
     <% end %>
-  <% end %>
 <div>

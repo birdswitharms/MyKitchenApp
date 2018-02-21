@@ -93,14 +93,18 @@ class Recipe < ApplicationRecord
     recipes = []
     included.each { |food|
       recipes << select { |recipe|
+        is_included = false
         recipe.foods.map(&:name).each {|fooditem|
-          fooditem.include?(food)
+          if fooditem.include?(food)
+            is_included = true
+          end
         }
+        is_included
       }
       # Recipe.where("food.name = ?", food)
     }
-    ap recipes
-    return recipes
+    # ap recipes.reduce(:|)
+    return recipes.reduce(:|)
     # recipes = select { |recipe|
     #   (recipe.foods.map(&:name) & included).any?
     # }
