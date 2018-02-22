@@ -1,15 +1,13 @@
 <br>
 <p><strong><h3>Add to Pantry</h3></strong></p>
 <br>
-  <div class="">
+  <div class="pantry">
     <%= form_tag users_kitchen_path(@users), method: :patch do %>
     <% @foods.each do |food| %>
-    <!-- <article> -->
       <p>
         <%= check_box_tag food.name.downcase %>
         <%= label_tag food.name %>
       </p>
-    <!-- </article> -->
     <% end %>
     <p>
       <%= submit_tag "Add to my Kitchen!" %>

@@ -1,0 +1,16 @@
+<br>
+<h3>Shopping List</h3>
+<br>
+<center>
+<%= form_tag removed_foods_path do %>
+  <%= submit_tag 'Clear my Shopping List!' %>
+<% end %>
+</center>
+<br><br>
+<div class="pantry">
+  <% @list.each do |listitem| %>
+  <%= check_box_tag listitem.food.name %>
+  <%= label_tag listitem.food.name %>
+  <br>
+  <% end %>
+</div>

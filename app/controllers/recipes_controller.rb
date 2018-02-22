@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
-  before_action :load_recipe, only: [:show, :review]
 
+  before_action :load_recipe, only: [:show, :review, :add_shoppinglist]
 
   def index
     @all_recipes = Recipe.all
@@ -127,6 +127,22 @@ class RecipesController < ApplicationController
       puts "="*20
       puts "Review Failed"
     end
+  end
+
+  def add_shoppinglist
+    @recipe.foods.each do |food|
+      shoppinglist = Shoppinglist.new(food: food, user: current_user)
+      if shoppinglist.save
+        puts "="*20
+        puts "ShoppingList Saved Successfull"
+      else
+        puts "="*20
+        puts "ShoppingList Failed to Save"
+        puts shoppinglist.errors.full_messages
+        puts "="*20
+      end
+    end
+    redirect_to root_path
   end
 
 private

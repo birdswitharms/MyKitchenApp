@@ -37,6 +37,12 @@
         <% end %>
       </p>
     </div>
+    <%= form_tag favorite_recipe_path(@recipe.id) do %>
+      <%= submit_tag 'Save' %>
+    <% end %>
+    <%= form_tag saved_foods_path(@recipe.id) do %>
+      <%= submit_tag 'Add all foods to Shopping List' %>
+    <% end %>
   <% end  %>
 
 </article>

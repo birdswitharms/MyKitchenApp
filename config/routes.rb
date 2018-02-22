@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   get 'recipe/:id' => 'recipe#show'
   post 'recipes/new' => 'recipes#create'
 
+  post 'recipe/:id/savedfoods' => 'recipes#add_shoppinglist', as: 'saved_foods'
+  post 'users/shoppinglist' => 'users#remove_shoppinglist', as: 'removed_foods'
+
+
   get 'recipes/search' => 'recipes#search'
   post 'recipes/search' => 'recipes#searchaction'
 
@@ -18,6 +22,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   get 'users/kitchen' => 'users#kitchen'
   get 'users/pantry' => 'users#pantry'
+  get 'users/shoppinglist' => 'users#shoppinglist'
   patch 'users/kitchen' => 'users#update'
 
   get 'food' => 'food#index'
