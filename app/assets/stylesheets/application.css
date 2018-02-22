@@ -55,3 +55,8 @@ nav h1 {
 .thumbnail {
   max-width: 50%;
 }
+
+.pantry {
+  width: 165px;
+  margin: auto;
+}

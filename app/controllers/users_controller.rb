@@ -51,5 +51,13 @@ class UsersController < ApplicationController
     @foods = Food.order(:name)
   end
 
+  def shoppinglist
+    @list = Shoppinglist.all.where(user: current_user)
+  end
+
+  def remove_shoppinglist
+    Shoppinglist.all.where(user: current_user).delete_all
+    redirect_to root_path
+  end
 
 end
