@@ -136,6 +136,15 @@ class Recipe < ApplicationRecord
     # }
   end
 
+  def self.add_some_food_shoppinglist(recipe, user)
+    foods = []
+    recipe.foods.each do |food|
+      unless user.foods.include?(food)
+        foods << food
+      end
+    end
+    return foods
+  end
 
   def self.valid_recipes_with_pantry(user)
     select { |recipe| (recipe.foods - user.foods).empty? }
