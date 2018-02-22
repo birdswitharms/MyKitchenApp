@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
-  before_action :load_recipe, only: [:show, :add_shoppinglist]
 
+  before_action :load_recipe, only: [:show, :review, :add_shoppinglist]
 
   def index
     @all_recipes = Recipe.all
@@ -20,12 +20,21 @@ class RecipesController < ApplicationController
   end
 
   def show
+    
+
     @ingredients = load_recipe.ingredients
     @steps = load_recipe.steps
+    @reviews = Review.where(recipe: @recipe)
+    if current_user
+      if current_user.favorites.find_by(recipe: @recipe)
+        @favorited = true
+      else
+        @favorited = false
+      end
+    end
   end
 
   def search
-
   end
 
   def searchaction
@@ -97,13 +106,26 @@ class RecipesController < ApplicationController
   end
 
   def favorite
-    favorite = Favorite.new(user: current_user, recipe: Recipe.find(params[:id]))
-    if favorite.save
+    @favorite = Favorite.new(user: current_user, recipe: Recipe.find(params[:id]))
+    if @favorite.save
       puts "="*20
       puts "Favorite Successfull"
     else
       puts "="*20
-      puts "Facorite Failed"
+      puts "Favorite Failed"
+    end
+  end
+
+  def review
+    @review = Review.new(user: current_user, recipe: Recipe.find(params[:id]))
+    @review.comment = params[:comment]
+    if @review.save
+      puts "="*20
+      puts "Review Successfull"
+      redirect_to recipe_path(@recipe)
+    else
+      puts "="*20
+      puts "Review Failed"
     end
   end
 

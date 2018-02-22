@@ -61,6 +61,16 @@ ActiveRecord::Schema.define(version: 20180222184525) do
     t.text "youtube_url"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "recipe_id"
+    t.integer "user_id"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_reviews_on_recipe_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+  
   create_table "shoppinglists", force: :cascade do |t|
     t.integer "user_id"
     t.integer "food_id"

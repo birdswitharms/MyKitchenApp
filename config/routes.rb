@@ -28,5 +28,6 @@ Rails.application.routes.draw do
   get 'food' => 'food#index'
 
   post 'recipe/:id/favorite' => 'recipes#favorite', as: 'favorite_recipe'
-
+  post 'recipe/:id/review' => 'recipes#review', as: 'review_recipe'
+  get 'user/favorites' => 'users#favorites', as: 'user_favorites'
 end
