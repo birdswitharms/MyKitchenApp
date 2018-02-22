@@ -69,7 +69,6 @@ class Recipe < ApplicationRecord
         end
 
         new_recipe.ingredients << new_ingredient
-
         # make sure if ingredient is not saved, then we search for that ingredient and use it in recipe
       }
     }
@@ -90,25 +89,44 @@ class Recipe < ApplicationRecord
   end
 
   def self.find_ingredient(included = [], excluded = [])
+    # Recieves array of items items included or excluded
+    included.compact!
+    excluded.compact!
     recipes = []
-    if included != ""
-    included.each { |food|
-      recipes << select { |recipe|
-        is_included = false
+
+    if included.empty?
+      recipes_with_included_ingredients = Recipe.all
+    else
+      included.each { |food|
+        recipes << select { |recipe|
+          is_included = false
+          recipe.foods.map(&:name).each {|fooditem|
+            if fooditem.include?(food)
+              is_included = true
+            end
+          }
+          is_included
+        }
+      }
+      recipes_with_included_ingredients = recipes.reduce(:|)
+    end
+
+    return recipes_with_included_ingredients if excluded.empty?
+
+    recipes = []
+    excluded.each { |food|
+      recipes << recipes_with_included_ingredients.select { |recipe|
+        not_included = true
         recipe.foods.map(&:name).each {|fooditem|
           if fooditem.include?(food)
-            is_included = true
+            not_included = false
           end
         }
-        is_included
+        not_included
       }
-      # Recipe.where("food.name = ?", food)
     }
-    # ap recipes.reduce(:|)
+
     return recipes.reduce(:|)
-    else
-      flash[:notice] = "Please include atleast 1 ingredient."
-    end
     # recipes = select { |recipe|
     #   (recipe.foods.map(&:name) & included).any?
     # }
