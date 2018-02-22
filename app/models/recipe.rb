@@ -7,6 +7,9 @@ class Recipe < ApplicationRecord
   has_many :foods, through: :ingredients
   has_many :favorites
   has_many :reviews
+  has_many :appliances_recipes
+  has_and_belongs_to_many :appliances
+
 
   def self.add_recipes()
     url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=beef'
@@ -71,9 +74,32 @@ class Recipe < ApplicationRecord
 
         new_recipe.ingredients << new_ingredient
         # make sure if ingredient is not saved, then we search for that ingredient and use it in recipe
+
+
       }
+      appliances = Recipe.show_appliances(new_recipe)
+      unless appliances.any?
+        appliances.each { |appliance|
+          new_recipe.appliances << appliance
+        }
+      end
     }
     return nil
+  end
+
+  def self.show_appliances(recipe)
+    # recipe.steps
+    # Recipe.first << Appliance.first
+    matches = []
+    Appliance.all.each { |appliance|
+      steps = recipe.steps.where("content LIKE (?)", "%#{appliance.name}%")
+      if steps.any?
+        steps.each { |step|
+          matches << appliance
+        }
+      end
+    }
+    return matches.uniq
   end
 
   def add_ingredients(list_of_ingredients = [])
@@ -147,6 +173,18 @@ class Recipe < ApplicationRecord
   end
 
   def self.valid_recipes_with_pantry(user)
-    select { |recipe| (recipe.foods - user.foods).empty? }
+    r = select { |recipe| (recipe.foods - user.foods).empty? }
+    ap "*"*20
+    ap "Recipes with pantry"
+    ap r
+    return r
+  end
+
+  def self.valid_recipes_with_appliances(user)
+    r = select { |recipe| (recipe.appliances - user.appliances).any? }
+    ap "*"*20
+    ap "Recipes with appliances"
+    ap r
+    return r
   end
 end

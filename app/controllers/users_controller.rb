@@ -39,16 +39,42 @@ class UsersController < ApplicationController
     redirect_to users_kitchen_path
   end
 
+  def update_appliances
+    # <%= form_tag users_kitchen_path(@users), method: :patch do %>
+    appliances = Appliance.all
+
+    appliances.each do |appliance|
+      param = params[appliance.name.downcase.to_sym]
+
+      if param == "1"
+        unless current_user.appliances.include?(appliance)
+          current_user.appliances << appliance
+        end
+      end
+    end
+
+    p current_user.appliances
+
+    redirect_to users_kitchen_path
+  end
+
   def show
     @user = User.find(session[:user_id])
   end
 
   def kitchen
     @foods = current_user.foods
+    @appliances = current_user.appliances
   end
 
   def pantry
     @foods = Food.order(:name)
+  end
+
+  def appliances
+    # showing all appliances, can narrow down to unowned
+    @appliances = Appliance.order(:name)
+    render :my_appliances
   end
 
   def favorites
@@ -58,7 +84,7 @@ class UsersController < ApplicationController
       @favorites << favorite.recipe
     }
   end
-  
+
   def shoppinglist
     @list = Shoppinglist.all.where(user: current_user)
   end

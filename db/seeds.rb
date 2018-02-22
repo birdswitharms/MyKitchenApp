@@ -7,24 +7,24 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # -- Reset Setup --
-Recipe.destroy_all
-Food.destroy_all
-Ingredient.destroy_all
-Category.destroy_all
-User.destroy_all
+# Recipe.destroy_all
+# Food.destroy_all
+# Ingredient.destroy_all
+# Category.destroy_all
+# User.destroy_all
 # -- User Setup --
-User.create(name: "a", email: "a@a.com", password: "1234", password_confirmation: "1234")
+# User.create(name: "a", email: "a@a.com", password: "1234", password_confirmation: "1234")
 # -- Categories Setup --
-Category.create(name: "Meat") # 1
-Category.create(name: "Vegtables") # 2
-Category.create(name: "Fruits") # 3
-Category.create(name: "Spices") # 4
-Category.create(name: "Condiments") # 5
-Category.create(name: "Dairy") # 6
-Category.create(name: "Baking") # 7
-Category.create(name: "Canned Goods") # 8
-Category.create(name: "Dried Goods") # 9
-Category.create(name: "Grains") # 10
+# Category.create(name: "Meat") # 1
+# Category.create(name: "Vegtables") # 2
+# Category.create(name: "Fruits") # 3
+# Category.create(name: "Spices") # 4
+# Category.create(name: "Condiments") # 5
+# Category.create(name: "Dairy") # 6
+# Category.create(name: "Baking") # 7
+# Category.create(name: "Canned Goods") # 8
+# Category.create(name: "Dried Goods") # 9
+# Category.create(name: "Grains") # 10
 # -- Food Setup --
 # #
 # Food.create(name: "chicken breast", category_id: 1)
@@ -68,3 +68,102 @@ Category.create(name: "Grains") # 10
 # Recipe.create(name: "Avocado toast")
 # Recipe.find(1).ingredients << Ingredient.find(1)
 # Recipe.find(1).ingredients << Ingredient.find(2)
+
+appliances = [
+  "air fryer",
+  "bachelor griller",
+  "barbecue grill",
+  "beehive oven",
+  "brasero",
+  "brazier",
+  "bread machine",
+  "burjiko",
+  "butane torch",
+  "cheesemelter",
+  "chocolatera",
+  "chorkor oven",
+  "clome oven",
+  "comal",
+  "combi steamer",
+  "communal oven",
+  "convection microwave",
+  "convection oven",
+  "corn roaster",
+  "crepe maker",
+  "deep fryer",
+  "earth oven",
+  "electric cooker",
+  "energy regulator",
+  "espresso machine",
+  "field kitchen",
+  "fire pot",
+  "flattop grill",
+  "food steamer",
+  "fufu machine",
+  "halogen oven",
+  "haybox",
+  "horno",
+  "hot box",
+  "hot plate",
+  "instant pot",
+  "kamado",
+  "kettle",
+  "kitchener range",
+  "kujiejun",
+  "kyoto box",
+  "masonry oven",
+  "mess kit",
+  "microwave oven",
+  "multicooker",
+  "oven",
+  "pancake machine",
+  "panini sandwich grill",
+  "popcorn maker",
+  "pressure cooker",
+  "pressure fryer",
+  "reflector oven",
+  "remoska",
+  "rice cooker",
+  "rice polisher",
+  "roasting jack",
+  "rocket mass heater",
+  "rotimatic",
+  "rotisserie",
+  "russian oven",
+  "sabbath mode",
+  "salamander broiler",
+  "samovar",
+  "sandwich toaster",
+  "self-cleaning oven",
+  "set-n-forget cooker",
+  "shichirin",
+  "slow cooker",
+  "solar cooker",
+  "sous-vide cooker",
+  "soy milk maker",
+  "stove",
+  "susceptor",
+  "tabun oven",
+  "tandoor",
+  "tangia",
+  "thermal immersion circulator",
+  "toaster and toaster ovens",
+  "turkey fryer",
+  "vacuum fryer",
+  "waffle iron",
+  "wet grinder",
+  "wood-fired oven",
+  "coffee percolator",
+  "coffeemaker",
+  "electric water boiler",
+  "instant hot water dispenser",
+  "pan",
+  "pot",
+  "wok",
+  "grill",
+  "stick blender",
+  "food processor"
+]
+appliances.each { |appliance|
+  Appliance.create(name: appliance)
+}
