@@ -7,5 +7,6 @@ class Food < ApplicationRecord
   # belongs_to :category
   has_many :pantries
   has_many :users, through: :pantries
+  has_many :shoppinglists
 
 end
