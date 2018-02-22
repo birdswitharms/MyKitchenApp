@@ -30,4 +30,9 @@ Rails.application.routes.draw do
   post 'recipe/:id/favorite' => 'recipes#favorite', as: 'favorite_recipe'
   post 'recipe/:id/review' => 'recipes#review', as: 'review_recipe'
   get 'user/favorites' => 'users#favorites', as: 'user_favorites'
+  get 'user/appliances' => 'users#appliances', as: 'user_appliances'
+  patch 'user/appliances' => 'users#update_appliances'
+
+
+
 end

@@ -12,7 +12,9 @@ class RecipesController < ApplicationController
     end
 
     if current_user
-      @all_recipes = Recipe.valid_recipes_with_pantry(current_user)
+      @all_recipes_with_ingredients = Recipe.valid_recipes_with_pantry(current_user)
+      @all_recipes_with_appliances = Recipe.valid_recipes_with_appliances(current_user)
+      @all_recipes = @all_recipes_with_ingredients & @all_recipes_with_appliances
       if params[:allrecipes]
         @all_recipes = Recipe.all
       end
@@ -20,7 +22,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    
+
 
     @ingredients = load_recipe.ingredients
     @steps = load_recipe.steps
@@ -66,7 +68,7 @@ class RecipesController < ApplicationController
       if @recipe.save
 
         params[:recipe][:steps].each do |key, value|
-          step = Step.new(content: value, recipe_id: @recipe.id)
+          step = Step.new(content: value.downcase, recipe_id: @recipe.id)
           if step.save
             @recipe.steps << step
           else
@@ -102,7 +104,14 @@ class RecipesController < ApplicationController
         puts "="*20
         puts "#{@recipe.errors.full_messages}"
         puts "="*20
-    end
+      end
+      appliances = Recipe.show_appliances(@recipe)
+      unless appliances.any?
+        appliances.each { |appliance|
+          @recipe.appliances << appliance
+        }
+      end
+
   end
 
   def favorite
