@@ -1,0 +1,15 @@
+<div class="flexbox-container">
+  <% if @favorites != nil %>
+    <% @favorites.each do |recipe| %>
+        <%= link_to recipe_path(recipe.id) do %>
+          <article>
+            <p> <%= image_tag('https://' + recipe.image_url, :class => "thumbnail") %> </p>
+            <p><h3><%= recipe.name %></h3></p>
+            <br>
+          </article>
+        <% end %>
+      <% end %>
+    <% else %>
+    <p>Please use/include more ingredients in your kitchen to show recipes</p>
+    <% end %>
+</div>

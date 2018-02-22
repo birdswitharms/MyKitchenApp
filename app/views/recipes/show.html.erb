@@ -16,9 +16,27 @@
   <% end %>
 
   <% if current_user %>
-    <%= form_tag favorite_recipe_path(@recipe.id) do %>
-      <%= submit_tag 'Save' %>
-    <% end %>
+    <% unless @favorited  %>
+      <%= form_tag favorite_recipe_path(@recipe.id) do %>
+        <%= submit_tag 'Save Recipe To Favourites' %>
+      <% end %>
+    <% end  %>
+    <div class="reviews-div">
+      <% if @reviews  %>
+        <% @reviews.each do |review| %>
+          <div class="review">
+            <p><%= current_user.name %>:<%= review.comment %></p>
+            <p><time><%= review.created_at %></time></p>
+          </div>
+        <% end  %>
+      <% end  %>
+      <p>
+        <%= form_tag review_recipe_path(@recipe.id) do %>
+          <%= text_area_tag 'comment' %>
+          <%= submit_tag 'Post Review' %>
+        <% end %>
+      </p>
+    </div>
   <% end  %>
 
 </article>

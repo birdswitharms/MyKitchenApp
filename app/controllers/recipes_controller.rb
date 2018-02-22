@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :load_recipe, only: [:show]
+  before_action :load_recipe, only: [:show, :review]
 
 
   def index
@@ -20,12 +20,109 @@ class RecipesController < ApplicationController
   end
 
   def show
+    arr = [
+      "air fryer",
+      "bachelor griller",
+      "barbecue grill",
+      "beehive oven",
+      "brasero",
+      "brazier",
+      "bread machine",
+      "burjiko",
+      "butane torch",
+      "cheesemelter",
+      "chocolatera",
+      "chorkor oven",
+      "clome oven",
+      "comal",
+      "combi steamer",
+      "communal oven",
+      "convection microwave",
+      "convection oven",
+      "corn roaster",
+      "crepe maker",
+      "deep fryer",
+      "earth oven",
+      "electric cooker",
+      "energy regulator",
+      "espresso machine",
+      "field kitchen",
+      "fire pot",
+      "flattop grill",
+      "food steamer",
+      "fufu machine",
+      "halogen oven",
+      "haybox",
+      "horno",
+      "hot box",
+      "hot plate",
+      "instant pot",
+      "kamado",
+      "kettle",
+      "kitchener range",
+      "kujiejun",
+      "kyoto box",
+      "masonry oven",
+      "mess kit",
+      "microwave oven",
+      "multicooker",
+      "oven",
+      "pancake machine",
+      "panini sandwich grill",
+      "popcorn maker",
+      "pressure cooker",
+      "pressure fryer",
+      "reflector oven",
+      "remoska",
+      "rice cooker",
+      "rice polisher",
+      "roasting jack",
+      "rocket mass heater",
+      "rotimatic",
+      "rotisserie",
+      "russian oven",
+      "sabbath mode",
+      "salamander broiler",
+      "samovar",
+      "sandwich toaster",
+      "self-cleaning oven",
+      "set-n-forget cooker",
+      "shichirin",
+      "slow cooker",
+      "solar cooker",
+      "sous-vide cooker",
+      "soy milk maker",
+      "stove",
+      "susceptor",
+      "tabun oven",
+      "tandoor",
+      "tangia",
+      "thermal immersion circulator",
+      "toaster and toaster ovens",
+      "turkey fryer",
+      "vacuum fryer",
+      "waffle iron",
+      "wet grinder",
+      "wood-fired oven",
+      "coffee percolator",
+      "coffeemaker",
+      "electric water boiler",
+      "instant hot water dispenser"
+    ]
+    
     @ingredients = load_recipe.ingredients
     @steps = load_recipe.steps
+    @reviews = Review.where(recipe: @recipe)
+    if current_user
+      if current_user.favorites.find_by(recipe: @recipe)
+        @favorited = true
+      else
+        @favorited = false
+      end
+    end
   end
 
   def search
-
   end
 
   def searchaction
@@ -97,13 +194,26 @@ class RecipesController < ApplicationController
   end
 
   def favorite
-    favorite = Favorite.new(user: current_user, recipe: Recipe.find(params[:id]))
-    if favorite.save
+    @favorite = Favorite.new(user: current_user, recipe: Recipe.find(params[:id]))
+    if @favorite.save
       puts "="*20
       puts "Favorite Successfull"
     else
       puts "="*20
-      puts "Facorite Failed"
+      puts "Favorite Failed"
+    end
+  end
+
+  def review
+    @review = Review.new(user: current_user, recipe: Recipe.find(params[:id]))
+    @review.comment = params[:comment]
+    if @review.save
+      puts "="*20
+      puts "Review Successfull"
+      redirect_to recipe_path(@recipe)
+    else
+      puts "="*20
+      puts "Review Failed"
     end
   end
 

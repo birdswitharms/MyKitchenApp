@@ -6,9 +6,10 @@ class Recipe < ApplicationRecord
   has_many :steps
   has_many :foods, through: :ingredients
   has_many :favorites
+  has_many :reviews
 
   def self.add_recipes()
-    url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=chicken'
+    url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=beef'
     response = HTTParty.get(url)
     response_json = JSON.parse(response.body)
 
@@ -20,7 +21,7 @@ class Recipe < ApplicationRecord
         puts "Recipe Successful"
 
         recipe['strInstructions'].split(/[\r\n]+/).each { |instruction|
-          step = Step.new(content: instruction, recipe_id: new_recipe.id)
+          step = Step.new(content: instruction.downcase, recipe_id: new_recipe.id)
           puts "*"*20
           if step.save
             puts "Step Successful"

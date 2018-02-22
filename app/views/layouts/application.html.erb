@@ -20,12 +20,13 @@
       <br></center>
       <%= link_to("Home", root_path) %>
               <% if current_user %>
-              <%= link_to "Logout", session_path("current"), method: :delete %>
-              <%= link_to "Add a Recipe", new_recipe_path %>
-              <%= link_to "Add to My Kitchen", users_kitchen_path %>
-                <% else %>
-              <%= link_to "Login", new_session_path %>
-              <%= link_to "Signup", new_user_path %>
+                <%= link_to "Logout", session_path("current"), method: :delete %>
+                <%= link_to "Add a Recipe", new_recipe_path %>
+                <%= link_to "Add to My Kitchen", users_kitchen_path %>
+                <%= link_to "Favourites", user_favorites_path %>
+              <% else %>
+                <%= link_to "Login", new_session_path %>
+                <%= link_to "Signup", new_user_path %>
             <% end %>
     </nav>
     <%= yield %>
