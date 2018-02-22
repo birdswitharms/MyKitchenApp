@@ -114,7 +114,6 @@ class Recipe < ApplicationRecord
     return recipes_with_included_ingredients if excluded.empty?
 
     recipes = []
-
     excluded.each { |food|
       recipes << recipes_with_included_ingredients.select { |recipe|
         not_included = true
@@ -128,7 +127,6 @@ class Recipe < ApplicationRecord
     }
 
     return recipes.reduce(:|)
-
     # recipes = select { |recipe|
     #   (recipe.foods.map(&:name) & included).any?
     # }

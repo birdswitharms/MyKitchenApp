@@ -51,3 +51,7 @@ nav h1 {
   text-decoration: none;
   color: black;
 }
+
+.thumbnail {
+  max-width: 50%;
+}

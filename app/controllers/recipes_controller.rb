@@ -5,14 +5,17 @@ class RecipesController < ApplicationController
   def index
     @all_recipes = Recipe.all
 
-    if current_user
-      @all_recipes = Recipe.valid_recipes_with_pantry(current_user)
+    if params[:term]
+      @all_recipes = Recipe.where('name LIKE ?', "%#{params[:term]}%")
+    else
+      @all_recipes = Recipe.all
     end
 
-    @all_recipes = if params[:term]
-      Recipe.where('name LIKE ?', "%#{params[:term]}%")
-    else
-      Recipe.all
+    if current_user
+      @all_recipes = Recipe.valid_recipes_with_pantry(current_user)
+      if params[:allrecipes]
+        @all_recipes = Recipe.all
+      end
     end
   end
 
@@ -22,7 +25,7 @@ class RecipesController < ApplicationController
   end
 
   def search
-    
+
   end
 
   def searchaction
