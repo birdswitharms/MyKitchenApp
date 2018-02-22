@@ -91,6 +91,7 @@ class Recipe < ApplicationRecord
 
   def self.find_ingredient(included = [], excluded = [])
     recipes = []
+    if included != ""
     included.each { |food|
       recipes << select { |recipe|
         is_included = false
@@ -105,6 +106,9 @@ class Recipe < ApplicationRecord
     }
     # ap recipes.reduce(:|)
     return recipes.reduce(:|)
+    else
+      flash[:notice] = "Please include atleast 1 ingredient."
+    end
     # recipes = select { |recipe|
     #   (recipe.foods.map(&:name) & included).any?
     # }
