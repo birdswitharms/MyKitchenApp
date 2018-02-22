@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20180222184525) do
     t.index ["recipe_id"], name: "index_reviews_on_recipe_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
-  
+
   create_table "shoppinglists", force: :cascade do |t|
     t.integer "user_id"
     t.integer "food_id"

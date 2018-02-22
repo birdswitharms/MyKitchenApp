@@ -43,6 +43,9 @@
     <%= form_tag saved_foods_path(@recipe.id) do %>
       <%= submit_tag 'Add all foods to Shopping List' %>
     <% end %>
+    <%= form_tag saved_some_foods_path(@recipe.id) do %>
+      <%= submit_tag 'Add foods I do not own to Shoping List' %>
+    <% end %>
   <% end  %>
 
 </article>

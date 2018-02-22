@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   post 'recipe/:id/savedfoods' => 'recipes#add_shoppinglist', as: 'saved_foods'
   post 'users/shoppinglist' => 'users#remove_shoppinglist', as: 'removed_foods'
-
+  post 'recipe/:id/savedsomefoods' => 'recipes#addsome_shoppinglist', as: 'saved_some_foods'
 
   get 'recipes/search' => 'recipes#search'
   post 'recipes/search' => 'recipes#searchaction'
