@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   end
 
   get 'recipes/search' => 'recipes#search'
-  get 'recipe/:id' => 'recipe#show'
   post 'recipes/new' => 'recipes#create'
   post 'recipe/:id/savedfoods' => 'recipes#add_shoppinglist', as: 'saved_foods'
   post 'recipe/:id/savedsomefoods' => 'recipes#addsome_shoppinglist', as: 'saved_some_foods'
@@ -19,7 +18,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   get 'users/kitchen' => 'users#kitchen'
-  get 'user/:id' => 'users#show', as: 'user_profile'
   get 'users/pantry' => 'users#pantry'
   get 'users/shoppinglist' => 'users#shoppinglist'
   get 'user/favorites' => 'users#favorites', as: 'user_favorites'
@@ -30,8 +28,7 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
 
-
-
-
+  get 'recipe/:id' => 'recipe#show'
+  get 'user/:id' => 'users#show', as: 'user_profile'
 
 end
