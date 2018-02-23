@@ -17,7 +17,9 @@
     <% end %>
 </div>
 <center>
-<%= form_tag("/recipes", method: "get") do %>
-<input type="submit" name="allrecipes" id="allrecipes" value="Show all Recipes"></input>
+<% if current_user %>
+  <%= form_tag("/recipes", method: "get") do %>
+  <input type="submit" name="allrecipes" id="allrecipes" value="Show all Recipes"></input>
+  <% end %>
 <% end %>
 </center>
