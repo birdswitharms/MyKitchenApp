@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
 
-  before_action :load_recipe, only: [:show, :review, :add_shoppinglist, :addsome_shoppinglist]
+  before_action :load_recipe, only: [:show, :review, :add_shoppinglist, :addsome_shoppinglist, :user_made]
 
   def index
     @all_recipes = Recipe.all
@@ -21,9 +21,9 @@ class RecipesController < ApplicationController
     end
   end
 
+
+
   def show
-
-
     @ingredients = load_recipe.ingredients
     @steps = load_recipe.steps
     @reviews = Review.where(recipe: @recipe)
@@ -168,6 +168,19 @@ class RecipesController < ApplicationController
         puts shoppinglist.errors.full_messages
         puts "="*20
       end
+    end
+    redirect_to root_path
+  end
+
+  def user_made
+    history = History.new(user: current_user, recipe: @recipe)
+    if history.save
+      puts "="*20
+      puts "History Saved Successfull"
+    else
+      puts "="*20
+      puts "History Failed to Save"
+      puts history.errors.full_messages
     end
     redirect_to root_path
   end

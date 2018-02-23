@@ -7,9 +7,8 @@ class User < ApplicationRecord
   has_many :favorites
   has_many :reviews
   has_many :shoppinglist
+  has_many :histories
 
   has_and_belongs_to_many :appliances
-
-  # has_many :recipes, through: :foods # this will be made into method
 
 end
