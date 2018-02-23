@@ -1,28 +1,25 @@
 class Recipe < ApplicationRecord
-
   validates :name, presence: true, uniqueness: true
 
+  has_and_belongs_to_many :appliances
   has_and_belongs_to_many :ingredients
+
   has_many :steps
   has_many :foods, through: :ingredients
   has_many :favorites
   has_many :reviews
   has_many :appliances_recipes
-  has_and_belongs_to_many :appliances
-
+  has_many :histories
 
   def self.add_recipes()
     url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=beef'
     response = HTTParty.get(url)
     response_json = JSON.parse(response.body)
-
     response_json['meals'].each {|recipe|
       new_recipe = Recipe.new(name: recipe['strMeal'].chomp, youtube_url: recipe['strYoutube'].chomp, image_url: recipe['strMealThumb'].chomp)
 
-      puts "*"*20
       if new_recipe.save
         puts "Recipe Successful"
-
         recipe['strInstructions'].split(/[\r\n]+/).each { |instruction|
           step = Step.new(content: instruction.downcase, recipe_id: new_recipe.id)
           puts "*"*20
@@ -32,7 +29,6 @@ class Recipe < ApplicationRecord
             puts "Step Failed"
           end
         }
-
       else
         puts "Recipe Failed"
         puts new_recipe.errors.full_messages
@@ -46,8 +42,8 @@ class Recipe < ApplicationRecord
         end
 
         new_food = Food.new(name: ingredient.capitalize.chomp)
-
         matched_food = Food.find_by(name: new_food.name)
+
         if matched_food
           puts "*"*20
           puts "FOUND MATCH"
@@ -62,9 +58,8 @@ class Recipe < ApplicationRecord
           end
         end
 
-          new_ingredient = Ingredient.new(food_id: new_food.id, measurement_unit: measurement.capitalize.chomp )
+        new_ingredient = Ingredient.new(food_id: new_food.id, measurement_unit: measurement.capitalize.chomp )
 
-        puts "*"*20
         if new_ingredient.save
           puts "Ingredient Successful"
         else
@@ -74,8 +69,6 @@ class Recipe < ApplicationRecord
 
         new_recipe.ingredients << new_ingredient
         # make sure if ingredient is not saved, then we search for that ingredient and use it in recipe
-
-
       }
       appliances = Recipe.show_appliances(new_recipe)
       unless appliances.any?

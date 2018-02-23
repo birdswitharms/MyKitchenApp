@@ -1,4 +1,4 @@
-class Review < ApplicationRecord
+class History < ApplicationRecord
 
   belongs_to :user
   belongs_to :recipe

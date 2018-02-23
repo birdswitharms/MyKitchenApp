@@ -1,0 +1,9 @@
+<br>
+<center><h2>Profile</h2>
+<br>
+<br>
+<h3>Recipe's Made</h3>
+<% @history.each do |historyitem| %>
+  <p><%= historyitem.recipe.name %></p>
+<% end %>
+</center>

@@ -60,6 +60,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(session[:user_id])
+    @history = current_user.histories.all
   end
 
   def kitchen
