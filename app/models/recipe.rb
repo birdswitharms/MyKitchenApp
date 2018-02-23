@@ -11,78 +11,195 @@ class Recipe < ApplicationRecord
   has_many :appliances_recipes
   has_many :histories
 
-  def self.add_recipes(food)
-    url = "https://www.themealdb.com/api/json/v1/1/search.php?s=#{food}"
-    response = HTTParty.get(url)
-    response_json = JSON.parse(response.body)
-    response_json['meals'].each {|recipe|
-      new_recipe = Recipe.new(name: recipe['strMeal'].chomp, youtube_url: recipe['strYoutube'].chomp, image_url: recipe['strMealThumb'].chomp, user_id: User.find_by(name: 'themealdb').id)
+  def self.add_recipes()
+    response_json = requestapi
 
-      if new_recipe.save
-        puts "Recipe Successful"
-        recipe['strInstructions'].split(/[\r\n]+/).each { |instruction|
-          step = Step.new(content: instruction.downcase, recipe_id: new_recipe.id)
-          puts "*"*20
-          if step.save
-            puts "Step Successful"
-          else
-            puts "Step Failed"
-          end
-        }
-      else
-        puts "Recipe Failed"
-        puts new_recipe.errors.full_messages
-      end
+    response_json['meals'].each {|recipe|
+      ap recipe
+      next unless recipe
+      temp_ingredients = []
+      new_recipe = create_recipe(recipe)
 
       20.times{ |n|
+        next if recipe['strMeasure' + (n + 1).to_s].nil?
+        next if recipe['strIngredient' + (n + 1).to_s].nil?
+
         measurement = recipe['strMeasure' + (n + 1).to_s].capitalize
         ingredient = recipe['strIngredient' + (n + 1).to_s].capitalize
         if (measurement == '') || (ingredient == '')
           next
         end
+        t = create_ingredient_and_food(n, recipe, measurement, ingredient)
+        new_ingredient = t
+        temp_ingredients << t
+      }
 
-        new_food = Food.new(name: ingredient.capitalize.chomp)
-        matched_food = Food.find_by(name: new_food.name)
+      # new_ingredient.calories = json.asdasd
+      response = Ingredient.get_nutrition(temp_ingredients)
+      puts "*"*20
+      ap "TEMP ingredients length: #{temp_ingredients.length}"
+      ap "response foods length: #{response["foods"].length}"
+      puts "*"*20
+      if temp_ingredients.length == response["foods"].length
+        temp_ingredients.each_with_index { |ingredient, index|
+          current_food = response["foods"][index]
 
-        if matched_food
-          puts "*"*20
-          puts "FOUND MATCH"
-          new_food = matched_food
-        else
-          puts "*"*20
-          if new_food.save
-            puts "Food Successful"
+          measurement_string = current_food["serving_qty"].to_s + " " + current_food["serving_unit"].to_s
+          actual_ingredient = Ingredient.find_by(food: ingredient.food, measurement_unit: measurement_string)
+
+          if actual_ingredient
+            ingredient = actual_ingredient
           else
-            puts "Food Failed"
-            puts new_food.errors.full_messages
+            puts "*"*20
+            puts "ERROR WAS MAIN"
+            puts "*"*20
+            if ingredient.update!(measurement_unit: current_food["serving_qty"].to_s + " " + current_food["serving_unit"].to_s)
+              puts "Ingredient Successful"
+            else
+              puts "Ingredient Failed"
+              puts ingredient.errors.full_messages
+            end
+          end
+        }
+      else
+        fix_ingredients(temp_ingredients, response["foods"])
+        puts "*"*20
+        puts "PROBLEM WITH API, DOES NOT EQUAL"
+        puts "*"*20
+      end
+      puts "*"*20
+      puts "PUSHING TEMP INGREDIENTS TO RECIPE"
+      # ap new_recipe.ingredients
+      puts "*"*20
+      # ap temp_ingredients
+      puts "*"*20
+      # ap temp_ingredients - new_recipe.ingredients
+        # binding.pry
+      temp_ingredients.each { |ingredient|
+        # ap ingredient
+        unless new_recipe.ingredients.include?(ingredient)
+          begin
+            new_recipe.ingredients << ingredient
+          rescue
+            puts " Ingredient already exists, skipping temp ingredient "
           end
         end
-
-        new_ingredient = Ingredient.new(food_id: new_food.id, measurement_unit: measurement.capitalize.chomp )
-
-        if new_ingredient.save
-          puts "Ingredient Successful"
-        else
-          puts "Ingredient Failed"
-          puts new_ingredient.errors.full_messages
-        end
-
-        new_recipe.ingredients << new_ingredient
-        # make sure if ingredient is not saved, then we search for that ingredient and use it in recipe
       }
-      appliances = Recipe.show_appliances(new_recipe)
-      unless appliances.any?
-        appliances.each { |appliance|
-          new_recipe.appliances << appliance
-        }
-      end
+        # new_recipe.ingredients << (temp_ingredients - new_recipe.ingredients)
+
+      create_appliances(new_recipe)
+
     }
     return nil
   end
 
+  def self.requestapi
+    url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=chicken'
+    response = HTTParty.get(url)
+    return JSON.parse(response.body)
+  end
+
+  def self.create_recipe(recipe)
+    puts "*"*20
+    puts "CREATE RECIPE"
+    find_recipe = Recipe.find_by_name(recipe['strMeal'].chomp)
+    if find_recipe
+      new_recipe = find_recipe
+    else
+      youtube = recipe['strYoutube'].chomp if recipe['strYoutube']
+      img = recipe['strMealThumb'].chomp if recipe['strMealThumb']
+
+      new_recipe = Recipe.new(name: recipe['strMeal'].chomp, youtube_url: youtube , image_url: img)
+    end
+
+    if new_recipe.save
+      puts "Recipe Successful"
+      recipe['strInstructions'].split(/[\r\n]+/).each { |instruction|
+        step = Step.new(content: instruction.downcase, recipe_id: new_recipe.id)
+        puts "*"*20
+        if step.save
+          puts "Step Successful"
+        else
+          puts "Step Failed"
+        end
+      }
+    else
+      puts "Recipe Failed"
+      puts new_recipe.errors.full_messages
+    end
+    return new_recipe
+  end
+
+  def self.create_ingredient_and_food(n,recipe, measurement, ingredient)
+    puts "*"*20
+    puts "CREATE INGREDIENT AND FOOD"
+    if Food.find_by(name: ingredient.capitalize.chomp)
+      puts "*"*20
+      puts "FOUND MATCH"
+      new_food = Food.find_by(name: ingredient.capitalize.chomp)
+    else
+      puts "*"*20
+      new_food = Food.new(name: ingredient.capitalize.chomp)
+      if new_food.save
+        puts "Food Successful"
+      else
+        puts "Food Failed"
+        puts new_food.errors.full_messages
+      end
+    end
+    found = Ingredient.find_by(food: new_food, measurement_unit: measurement.capitalize.chomp )
+    if found
+      new_ingredient = found
+    else
+      new_ingredient = Ingredient.new(food: new_food, measurement_unit: measurement.capitalize.chomp )
+    end
+    puts "*"*20
+    puts "PUSHING NEW INGREDIENT TO TEMP"
+    # temp_ingredients << new_ingredient
+
+    return new_ingredient
+  end
+
+  def self.create_appliances(new_recipe)
+    puts "*"*20
+    puts "CREATE APPLIANCES"
+    appliances = Recipe.show_appliances(new_recipe)
+    unless appliances.any?
+      appliances.each { |appliance|
+        new_recipe.appliances << appliance
+      }
+    end
+  end
+
+  def self.fix_ingredients(recipe_ingredients, json_foods)
+    puts "*"*20
+    puts "FIX INGREDIENTS"
+    recipe_ingredients.each { |ingredient|
+      json_foods.each { |food|
+        measurement_string = food["serving_qty"].to_s + " " + food["serving_unit"].to_s
+        actual_ingredient = Ingredient.find_by(food: ingredient.food, measurement_unit: measurement_string)
+        if (ingredient.food.name.downcase == food["food_name"].downcase)
+          if actual_ingredient
+            ingredient = actual_ingredient
+          else
+            puts "*"*20
+            puts "ERROR WAS IN FIX"
+            puts "*"*20
+            if ingredient.update!(measurement_unit: food["serving_qty"].to_s + " " + food["serving_unit"].to_s)
+              puts "Ingredient Successful inside fix_ingredients"
+            else
+              puts "Ingredient Failed inside fix_ingredients"
+              puts ingredient.errors.full_messages
+            end
+          end
+
+          break
+        end
+      }
+    }
+  end
+
   def self.show_appliances(recipe)
-    # recipe.steps
-    # Recipe.first << Appliance.first
     matches = []
     Appliance.all.each { |appliance|
       steps = recipe.steps.where("content LIKE (?)", "%#{appliance.name}%")

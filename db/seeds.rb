@@ -163,6 +163,7 @@ appliances = [
   "stick blender",
   "food processor"
 ]
+
 appliances.each { |appliance|
   Appliance.create(name: appliance)
 }
