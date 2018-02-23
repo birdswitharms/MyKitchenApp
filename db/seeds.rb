@@ -11,9 +11,9 @@
 # Food.destroy_all
 # Ingredient.destroy_all
 # Category.destroy_all
-# User.destroy_all
+User.destroy_all
 # -- User Setup --
-# User.create(name: "a", email: "a@a.com", password: "1234", password_confirmation: "1234")
+User.create(name: "themealdb", email: "themealdb@themealdb.com", password: "1234", password_confirmation: "1234")
 # -- Categories Setup --
 # Category.create(name: "Meat") # 1
 # Category.create(name: "Vegtables") # 2
@@ -73,7 +73,6 @@ appliances = [
   "air fryer",
   "bachelor griller",
   "barbecue grill",
-  "beehive oven",
   "brasero",
   "brazier",
   "bread machine",
@@ -167,3 +166,5 @@ appliances = [
 appliances.each { |appliance|
   Appliance.create(name: appliance)
 }
+
+Recipe.add_recipes()
