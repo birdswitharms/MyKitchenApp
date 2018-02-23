@@ -13,7 +13,7 @@
 # Category.destroy_all
 # User.destroy_all
 # -- User Setup --
-# User.create(name: "a", email: "a@a.com", password: "1234", password_confirmation: "1234")
+User.create(name: "a", email: "a@a.com", password: "1234", password_confirmation: "1234")
 # -- Categories Setup --
 # Category.create(name: "Meat") # 1
 # Category.create(name: "Vegtables") # 2
@@ -164,6 +164,6 @@ appliances = [
   "stick blender",
   "food processor"
 ]
-appliances.each { |appliance|
-  Appliance.create(name: appliance)
-}
+# appliances.each { |appliance|
+#   Appliance.create(name: appliance)
+# }
