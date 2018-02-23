@@ -80,22 +80,24 @@ class RecipesController < ApplicationController
 
         params[:recipe][:ingredient].each do |key, value|
 
-        food = Food.find_by(name: value.capitalize)
-        if food
-          ingredient = Ingredient.new(food_id: food.id, measurement_unit: "1 testunit" )
-        else
-          flash[:notice] = "Food not found, Recipe was not created."
-          @recipe.destroy
-        end
+          food = Food.find_by(name: value.capitalize)
+          if food
+            # need to implement measurement_unit
+            ingredient = Ingredient.new(food_id: food.id, measurement_unit: "1" )
+          else
+            flash[:notice] = "Food not found, Recipe was not created."
+            @recipe.destroy
+          end
 
-        if ingredient
-          @recipe.ingredients << ingredient
-        else
-          puts "="*20
-          puts "#{@recipe.errors.full_messages}"
-          puts "="*20
+          # !@recipe.ingredients.include?(ingredient)
+          if @recipe && ingredient
+            @recipe.ingredients << ingredient
+          else
+            puts "="*20
+            puts "#{@recipe.errors.full_messages}"
+            puts "="*20
+          end
         end
-      end
 
       flash[:notice] = "New recipe successfully added"
        redirect_to root_path
@@ -192,7 +194,7 @@ def load_recipe
 end
 
 def recipe_params
-  params.require(:recipe).permit(:name, :ingredient, :image_url, :term)
+  params.require(:recipe).permit(:name, :image_url, :term)
 end
 
 def search_params

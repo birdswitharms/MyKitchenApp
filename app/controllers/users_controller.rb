@@ -35,6 +35,12 @@ class UsersController < ApplicationController
     redirect_to users_kitchen_path
   end
 
+  def appliances
+    # showing all appliances, can narrow down to unowned
+    @appliances = Appliance.order(:name)
+    render :my_appliances
+  end
+
   def update_appliances
     # <%= form_tag users_kitchen_path(@users), method: :patch do %>
     appliances = Appliance.all
@@ -63,12 +69,6 @@ class UsersController < ApplicationController
 
   def pantry
     @foods = Food.order(:name)
-  end
-
-  def appliances
-    # showing all appliances, can narrow down to unowned
-    @appliances = Appliance.order(:name)
-    render :my_appliances
   end
 
   def favorites
