@@ -10,7 +10,6 @@ class UsersController < ApplicationController
       password: params[:user][:password],
       password_confirmation: params[:user][:password_confirmation]
     )
-
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_path
@@ -23,9 +22,9 @@ class UsersController < ApplicationController
   def update
     foods = Food.all
 
+    current_user.foods.delete_all
     foods.each do |food|
       param = params[food.name.downcase.to_sym]
-      p param
 
       if param == "1"
         unless current_user.foods.include?(food)
@@ -33,9 +32,6 @@ class UsersController < ApplicationController
         end
       end
     end
-
-    p current_user.foods
-
     redirect_to users_kitchen_path
   end
 
@@ -52,9 +48,6 @@ class UsersController < ApplicationController
         end
       end
     end
-
-    p current_user.appliances
-
     redirect_to users_kitchen_path
   end
 
@@ -81,7 +74,6 @@ class UsersController < ApplicationController
   def favorites
     @favorites = []
     Favorite.where(user: current_user).each { |favorite|
-      ap favorite.recipe
       @favorites << favorite.recipe
     }
   end
