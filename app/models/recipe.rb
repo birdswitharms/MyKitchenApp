@@ -11,12 +11,12 @@ class Recipe < ApplicationRecord
   has_many :appliances_recipes
   has_many :histories
 
-  def self.add_recipes()
-    url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=beef'
+  def self.add_recipes(food)
+    url = "https://www.themealdb.com/api/json/v1/1/search.php?s=#{food}"
     response = HTTParty.get(url)
     response_json = JSON.parse(response.body)
     response_json['meals'].each {|recipe|
-      new_recipe = Recipe.new(name: recipe['strMeal'].chomp, youtube_url: recipe['strYoutube'].chomp, image_url: recipe['strMealThumb'].chomp)
+      new_recipe = Recipe.new(name: recipe['strMeal'].chomp, youtube_url: recipe['strYoutube'].chomp, image_url: recipe['strMealThumb'].chomp, user_id: User.find_by(name: 'themealdb').id)
 
       if new_recipe.save
         puts "Recipe Successful"
