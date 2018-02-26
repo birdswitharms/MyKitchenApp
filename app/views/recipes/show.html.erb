@@ -4,7 +4,7 @@
 <article>
   <p><h3><%= @recipe.name %></h3></p>
   <br>
-  <p> <%= image_tag('https://' + @recipe.image_url) %> </p>
+  <p> <%= image_tag(@recipe.image_url) %> </p>
   <p><strong>Steps</strong></p>
   <% @steps.each_with_index do |step, i| %>
     <p>Step <%= i+1 %>: <%= step.content %></p>
