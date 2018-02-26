@@ -10,6 +10,7 @@ class Recipe < ApplicationRecord
   has_many :reviews
   has_many :appliances_recipes
   has_many :histories
+  belongs_to :user
 
   def self.add_recipes()
     response_json = requestapi
