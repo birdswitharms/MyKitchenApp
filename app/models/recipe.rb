@@ -54,6 +54,7 @@ class Recipe < ApplicationRecord
             puts "ERROR WAS MAIN"
             puts "*"*20
             if ingredient.update!(measurement_unit: current_food["serving_qty"].to_s + " " + current_food["serving_unit"].to_s)
+            nutrition_details(ingredient, current_food)
               puts "Ingredient Successful"
             else
               puts "Ingredient Failed"
@@ -97,6 +98,55 @@ class Recipe < ApplicationRecord
     url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=chicken'
     response = HTTParty.get(url)
     return JSON.parse(response.body)
+  end
+
+  def self.nutrition_details(ingredient, nutrition_json_ingredient)
+    food = nutrition_json_ingredient
+    ingredient.calories = food["nf_calories"]
+    ingredient.total_fat = food["nf_total_fat"]
+    ingredient.saturated_fat = food["nf_saturated_fat"]
+    # 404 Json
+    # trans_fat = food[""]
+    # polyunsaturated_fat = food[""]
+    # monounsaturated_fat = food[""]
+    ingredient.cholesterol = food["nf_cholesterol"]
+    ingredient.sodium = food["nf_sodium"]
+    ingredient.potassium = food["nf_potassium"]
+    ingredient.total_carbohydrates = food["nf_total_carbohydrate"]
+    ingredient.dietary_fiber = food["nf_dietary_fiber"]
+    ingredient.sugars = food["nf_sugars"]
+    ingredient.protein = food["nf_protein"]
+
+    if ingredient.save
+      puts "*"*20
+      puts "Nutrition Data for #{ingredient.food.name} saved"
+      return true
+    else
+      puts "*"*20
+      puts "Nutrition Data for #{ingredient.food.name} not saved due to: "
+      puts ingredient.errors.full_messages
+      return false
+    end
+  end
+
+  def recipe_nutrition_totals
+    ingredient_list = self.ingredients.all
+    nutrition = {
+      calories:            ingredient_list.sum{ |e| e.calories || 0.0},
+      total_fat:           ingredient_list.sum{ |e| e.total_fat || 0.0},
+      saturated_fat:       ingredient_list.sum{ |e| e.saturated_fat || 0.0},
+      cholesterol:         ingredient_list.sum{ |e| e.cholesterol || 0.0},
+      sodium:              ingredient_list.sum{ |e| e.sodium || 0.0},
+      potassium:           ingredient_list.sum{ |e| e.potassium || 0.0},
+      total_carbohydrates: ingredient_list.sum{ |e| e.total_carbohydrates || 0.0},
+      dietary_fiber:       ingredient_list.sum{ |e| e.dietary_fiber || 0.0},
+      sugars:              ingredient_list.sum{ |e| e.sugars || 0.0},
+      protein:             ingredient_list.sum{ |e| e.protein || 0.0}
+    }
+    puts "*"*20
+    puts "Nutrition"
+    ap nutrition
+    return nutrition
   end
 
   def self.create_recipe(recipe)
@@ -186,6 +236,7 @@ class Recipe < ApplicationRecord
             puts "ERROR WAS IN FIX"
             puts "*"*20
             if ingredient.update!(measurement_unit: food["serving_qty"].to_s + " " + food["serving_unit"].to_s)
+              nutrition_details(ingredient, food)
               puts "Ingredient Successful inside fix_ingredients"
             else
               puts "Ingredient Failed inside fix_ingredients"

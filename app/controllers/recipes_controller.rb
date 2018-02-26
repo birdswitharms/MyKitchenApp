@@ -23,6 +23,7 @@ class RecipesController < ApplicationController
 
   def show
     @ingredients = load_recipe.ingredients
+    @nutrition = @recipe.recipe_nutrition_totals
     @steps = load_recipe.steps
     @reviews = Review.where(recipe: @recipe)
     if current_user

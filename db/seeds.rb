@@ -168,4 +168,4 @@ appliances.each { |appliance|
   Appliance.create(name: appliance)
 }
 
-Recipe.add_recipes()
+# Recipe.add_recipes()
