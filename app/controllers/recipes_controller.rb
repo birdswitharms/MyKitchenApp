@@ -21,8 +21,6 @@ class RecipesController < ApplicationController
     end
   end
 
-
-
   def show
     @ingredients = load_recipe.ingredients
     @steps = load_recipe.steps
@@ -188,16 +186,16 @@ class RecipesController < ApplicationController
 
 private
 
-  def load_recipe
-    @recipe = Recipe.find(params[:id])
-  end
+def load_recipe
+  @recipe = Recipe.find(params[:id])
+end
 
-  def recipe_params
-    params.require(:recipe).permit(:name, :image_url, :term)
-  end
+def recipe_params
+  params.require(:recipe).permit(:name, :image_url, :term)
+end
 
-  def search_params
-    params.require(:include, :exclude)
-  end
+def search_params
+  params.require(:include, :exclude)
+end
 
 end

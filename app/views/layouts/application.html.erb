@@ -17,7 +17,7 @@
         <%= text_field_tag :term, params[:term] %>
         <%= submit_tag 'Search' %>
       <% end %>
-      <br></center>
+      </center><br>
       <%= link_to("Home", root_path) %>
         <% if current_user %>
           <%= link_to "Profile(#{current_user.name})", user_profile_path(current_user) %>
