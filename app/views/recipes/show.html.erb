@@ -37,6 +37,18 @@
         <% end %>
       </p>
     </div>
+    <div class="nutrition">
+      <p>calories: <span id="nutrition_calories"><%= @nutrition[:calories].round(0) %></span> </p>
+      <p>total_fat: <span id="nutrition_total_fat"><%= @nutrition[:total_fat].round(0) %></span> </p>
+      <p>saturated_fat: <span id="nutrition_saturated_fat"><%= @nutrition[:saturated_fat].round(0) %></span> </p>
+      <p>cholesterol: <span id="nutrition_cholesterol"><%= @nutrition[:cholesterol].round(0) %></span> </p>
+      <p>sodium: <span id="nutrition_sodium"><%= @nutrition[:sodium].round(0) %></span> </p>
+      <p>potassium: <span id="nutrition_potassium"><%= @nutrition[:potassium].round(0) %></span> </p>
+      <p>total_carbohydrates: <span id="nutrition_total_carbohydrates"><%= @nutrition[:total_carbohydrates].round(0) %></span> </p>
+      <p>dietary_fiber: <span id="nutrition_dietary_fiber"><%= @nutrition[:dietary_fiber].round(0) %></span> </p>
+      <p>sugars: <span id="nutrition_sugars"><%= @nutrition[:sugars].round(0) %></span> </p>
+      <p>protein: <span id="nutrition_protein"><%= @nutrition[:protein].round(0) %></span> </p>
+    </div>
     <%= form_tag favorite_recipe_path(@recipe.id) do %>
       <%= submit_tag 'Save' %>
     <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180223180112) do
+ActiveRecord::Schema.define(version: 20180226165730) do
 
   create_table "appliances", force: :cascade do |t|
     t.text "name"
@@ -71,6 +71,16 @@ ActiveRecord::Schema.define(version: 20180223180112) do
     t.float "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "calories"
+    t.float "total_fat"
+    t.float "saturated_fat"
+    t.float "cholesterol"
+    t.float "sodium"
+    t.float "potassium"
+    t.float "total_carbohydrates"
+    t.float "dietary_fiber"
+    t.float "sugars"
+    t.float "protein"
     t.index ["food_id"], name: "index_ingredients_on_food_id"
   end
 
