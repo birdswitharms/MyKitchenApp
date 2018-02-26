@@ -158,7 +158,7 @@ class RecipesController < ApplicationController
     @foods = Recipe.add_some_food_shoppinglist(@recipe, current_user)
     @foods.each do |fooditem|
       shoppinglist = Shoppinglist.new(food: fooditem, user: current_user)
-      ap shoppinglist
+      # ap shoppinglist
       if shoppinglist.save
         puts "="*20
         puts "ShoppingList Saved Successfull"

@@ -15,7 +15,6 @@ class Recipe < ApplicationRecord
     response_json = requestapi
 
     response_json['meals'].each {|recipe|
-      ap recipe
       next unless recipe
       temp_ingredients = []
       new_recipe = create_recipe(recipe)
@@ -143,9 +142,9 @@ class Recipe < ApplicationRecord
       sugars:              ingredient_list.sum{ |e| e.sugars || 0.0},
       protein:             ingredient_list.sum{ |e| e.protein || 0.0}
     }
-    puts "*"*20
-    puts "Nutrition"
-    ap nutrition
+    # puts "*"*20
+    # puts "Nutrition"
+    # ap nutrition
     return nutrition
   end
 
@@ -337,7 +336,7 @@ class Recipe < ApplicationRecord
     r = select { |recipe| (recipe.foods - user.foods).empty? }
     ap "*"*20
     ap "Recipes with pantry"
-    ap r
+    # ap r
     return r
   end
 
@@ -345,7 +344,7 @@ class Recipe < ApplicationRecord
     r = select { |recipe| (recipe.appliances - user.appliances).any? }
     ap "*"*20
     ap "Recipes with appliances"
-    ap r
+    # ap r
     return r
   end
 end
