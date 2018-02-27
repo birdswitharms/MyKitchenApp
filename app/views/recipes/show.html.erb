@@ -3,7 +3,7 @@
 
   <span>
     <h3 class="recipe_header"><%= @recipe.name %></h3>
-    <%= image_tag('https://'+@recipe.image_url, :class => "recipe_image") %>
+    <%= image_tag(@recipe.image_url, :class => "recipe_image") %>
   </span>
 
   <p class="sub_header"><strong>Steps</strong></p>
