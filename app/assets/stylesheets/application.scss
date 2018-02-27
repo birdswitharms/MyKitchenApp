@@ -127,6 +127,11 @@ margin-top: 17px;
   overflow: hidden;
 }
 
+.nutritioncontainer {
+  display: inline-block;
+  margin: auto;
+ }
+
 @media ( min-width: 960px ) {
 
   #adv_search {
@@ -146,8 +151,4 @@ margin-top: 17px;
   #normal_search {
     margin-top: 35px;
   }
-
-
-
-
 }

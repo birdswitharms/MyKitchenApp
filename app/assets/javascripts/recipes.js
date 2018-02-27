@@ -19,14 +19,14 @@ document.addEventListener('DOMContentLoaded', function(e){
     hamburger.addEventListener('click', function() {
       hamburger.classList.toggle("is-active");
       menu.classList.toggle("menu_show");
-  });
-};
+    });
+  }
 
   if (bottom_button) {
     bottom_button.addEventListener('click', function() {
       bottom_menu.classList.toggle("bottom_menu_show")
-  });
-}
+    });
+  }
 
 if (step_button && ingredient_button) {
 
