@@ -157,7 +157,7 @@ class Recipe < ApplicationRecord
       youtube = recipe['strYoutube'].chomp if recipe['strYoutube']
       img = recipe['strMealThumb'].chomp if recipe['strMealThumb']
 
-      new_recipe = Recipe.new(name: recipe['strMeal'].chomp, youtube_url: youtube , image_url: img)
+      new_recipe = Recipe.new(name: recipe['strMeal'].chomp, youtube_url: youtube , image_url: img, user: User.first)
     end
 
     if new_recipe.save
