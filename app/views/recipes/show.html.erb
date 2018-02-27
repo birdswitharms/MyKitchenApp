@@ -17,6 +17,7 @@
   <% @ingredients.each do |ingredient| %>
     <p class="content"><%= ingredient.measurement_unit %>: <%= ingredient.food.name %></p>
   <% end %>
+
   <div class="nutrition">
     <p>calories: <span id="nutrition_calories"><%= @nutrition[:calories].round(0) %></span> </p>
     <p>total_fat: <span id="nutrition_total_fat"><%= @nutrition[:total_fat].round(0) %></span> </p>
@@ -29,13 +30,15 @@
     <p>sugars: <span id="nutrition_sugars"><%= @nutrition[:sugars].round(0) %></span> </p>
     <p>protein: <span id="nutrition_protein"><%= @nutrition[:protein].round(0) %></span> </p>
   </div>
+  
+ <div class="bottom_menu">
   <% if current_user %>
     <% unless @favorited  %>
       <%= form_tag favorite_recipe_path(@recipe.id) do %>
         <%= submit_tag 'Save Recipe To Favourites' %>
       <% end %>
     <% end  %>
-    <div class="reviews-div">
+    <div class="reviews-div hidden">
       <% if @reviews  %>
         <% @reviews.each do |review| %>
           <div class="review">
@@ -46,24 +49,36 @@
       <% end  %>
       <p>
         <%= form_tag review_recipe_path(@recipe.id) do %>
-          <%= text_area_tag 'comment' %>
-          <%= submit_tag 'Post Review' %>
+          <span class="call_to_action">
+          <%= text_area_tag 'comment', nil, size: "53x7" %>
+          </span>
+          <br>
+          <%= submit_tag 'Post Review', :class => "call_to_action" %>
         <% end %>
       </p>
     </div>
+       <% unless @favorited  %>
+          <%= form_tag favorite_recipe_path(@recipe.id) do %>
+            <%= submit_tag 'Save Recipe To Favourites', :class => "call_to_action"%>
+          <% end %>
+        <% end  %>
 
-    <%= form_tag favorite_recipe_path(@recipe.id) do %>
-      <%= submit_tag 'Save' %>
-    <% end %>
-    <%= form_tag saved_foods_path(@recipe.id) do %>
-      <%= submit_tag 'Add all foods to Shopping List' %>
-    <% end %>
-    <%= form_tag saved_some_foods_path(@recipe.id) do %>
-      <%= submit_tag 'Add foods I do not own to Shoping List' %>
-    <% end %>
-    <%= form_tag made_recipe_path(@recipe.id) do %>
-      <%= submit_tag 'I made this!' %>
-    <% end %>
-  <% end  %>
+      <%= form_tag favorite_recipe_path(@recipe.id) do %>
+        <%= submit_tag 'Save to Favorites', :class => "call_to_action" %>
+      <% end %>
 
+      <%= form_tag saved_foods_path(@recipe.id) do %>
+        <%= submit_tag 'All foods to Shopping List', :class => "call_to_action" %>
+      <% end %>
+
+      <%= form_tag saved_some_foods_path(@recipe.id) do %>
+        <%= submit_tag 'Foods I dont own to Shoping List', :class => "call_to_action" %>
+      <% end %>
+
+      <%= form_tag made_recipe_path(@recipe.id) do %>
+        <%= submit_tag 'I made this Recipe!', :class => "call_to_action" %>
+      <% end %>
+      <% end  %>
+    </div>
+  <button class="button button-royal button-circle button-giant"><i class="fa fa-plus"></i></button>
 </article>

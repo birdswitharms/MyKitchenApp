@@ -54,3 +54,25 @@ article span {
   margin-left: auto;
   margin-top: 25%;
 }
+
+.call_to_action {
+  width: 100%;
+  height: 2em;
+}
+
+.hidden {
+  display: none;
+}
+
+.bottom_menu {
+  display: inline-block;
+  background-color: white;
+  position: absolute;
+  bottom: -425px;
+  transition: .3s all;
+}
+
+.bottom_menu_show {
+  top: 0px!important;
+  z-index: 2;
+}

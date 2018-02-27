@@ -77,6 +77,8 @@ GEM
       factory_bot (~> 4.8.2)
       railties (>= 3.0.0)
     ffi (1.9.21)
+    font-awesome-rails (4.7.0.3)
+      railties (>= 3.2, < 5.2)
     formatador (0.2.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -249,6 +251,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   factory_bot_rails
+  font-awesome-rails
   guard (~> 2.14.0)
   guard-minitest
   hamburgers
