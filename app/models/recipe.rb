@@ -226,17 +226,19 @@ class Recipe < ApplicationRecord
       json_foods.each { |food|
         measurement_string = food["serving_qty"].to_s + " " + food["serving_unit"].to_s
         actual_ingredient = Ingredient.find_by(food: ingredient.food, measurement_unit: measurement_string)
+        nutrition_details(ingredient, food)
         if (ingredient.food.name.downcase == food["food_name"].downcase)
           if actual_ingredient
             ingredient = actual_ingredient
+            ingredient.save
           else
             puts "*"*20
             puts "ERROR WAS IN FIX"
             puts "*"*20
             if ingredient.update!(measurement_unit: food["serving_qty"].to_s + " " + food["serving_unit"].to_s)
-              nutrition_details(ingredient, food)
               puts "Ingredient Successful inside fix_ingredients"
             else
+
               puts "Ingredient Failed inside fix_ingredients"
               puts ingredient.errors.full_messages
             end
