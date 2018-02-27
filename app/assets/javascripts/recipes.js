@@ -12,12 +12,17 @@ document.addEventListener('DOMContentLoaded', function(e){
   var exclude_ingredient_button = document.getElementById('exclude-ingredient-button');
   var hamburger = document.getElementById('hamburger');
   var menu = document.querySelector('.menu');
-
+  var bottom_button = document.getElementById('button');
+  var bottom_menu = document.querySelector('.bottom_menu');
 
   hamburger.addEventListener('click', function() {
     hamburger.classList.toggle("is-active");
     menu.classList.toggle("menu_show");
-  });
+});
+
+  bottom_button.addEventListener('click', function() {
+    bottom_menu.classList.toggle("bottom_menu_show")
+});
 
 if (step_button && ingredient_button) {
 
