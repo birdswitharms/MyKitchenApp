@@ -9,16 +9,9 @@
   </head>
 
   <body>
-    <nav>
-      <center><h1>MyKitchenApp</h1></center>
-        <%= link_to "Advance Search", recipes_search_path %>
-      <center>
-      <%= form_tag(recipes_path, method: :get) do %>
-        <%= text_field_tag :term, params[:term] %>
-        <%= submit_tag 'Search' %>
-      <% end %>
-      </center><br>
-      <%= link_to("Home", root_path) %>
+    <div class="menu">
+      <div id='whitespace'></div>
+      <%= link_to("Home", root_path, :id => 'topmenu') %>
         <% if current_user %>
           <%= link_to "Profile(#{current_user.name})", user_profile_path(current_user) %>
           <%= link_to "Logout", session_path("current"), method: :delete %>
@@ -30,6 +23,23 @@
           <%= link_to "Login", new_session_path %>
           <%= link_to "Signup", new_user_path %>
       <% end %>
+    </div>
+    <nav>
+      <center><h1>MyKitchenApp</h1></center>
+      <button class="hamburger hamburger--spin" type="button" id="hamburger">
+        <span class="hamburger-box">
+          <span class="hamburger-inner">
+          </span>
+        </span>
+      </button>
+
+        <%= link_to "Advance Search", recipes_search_path, :id => "adv_search" %>
+      <center>
+      <%= form_tag(recipes_path, method: :get) do %>
+        <%= text_field_tag :term, params[:term], :id => "normal_search" %>
+        <%= submit_tag 'Search', :id => "normal_search" %>
+      <% end %>
+      </center>
     </nav>
     <%= yield %>
   </body>

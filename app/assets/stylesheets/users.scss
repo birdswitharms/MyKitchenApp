@@ -2,16 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.dayplanner {
-  display: inline-block;
-  float: left;
-  width: 150px;
-  height: 150px;
-  border: 1px solid black;
-  margin: 5px;
+.food-div {
+  text-align: center;
 }
 
-.weeklyplanner div{
-  display: block;
-  margin: auto;
+.food-div p {
+  padding-bottom: 5px;
 }

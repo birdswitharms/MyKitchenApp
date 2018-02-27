@@ -70,6 +70,7 @@ GEM
     ffi (1.9.21)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    hamburgers (0.9.3)
     httparty (0.15.6)
       multi_xml (>= 0.5.2)
     i18n (0.9.4)
@@ -192,6 +193,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  hamburgers
   httparty
   jbuilder (~> 2.5)
   jquery-rails

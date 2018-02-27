@@ -2,32 +2,55 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h3 {
-  text-align: center;
-  padding: 10px;
-  margin-bottom: 16px;
+.header {
+  display: none;
 }
 
-article {
-  margin: 10px;
+.thumbnail {
+  max-width: 100%;
+  border-bottom: 1px solid black;
+}
+
+.recipe_image {
+  max-width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
   border: 1px solid black;
+}
+
+.container {
+  text-align: center;
+}
+
+.container article {
+  display: inline-block;
   border-radius: 3px;
-  background-color: wheat;
+  border: 1px solid black;
+  margin: 1em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-article p {
-  text-decoration: none;
-  padding: 10px;
+article span {
   text-align: center;
 }
 
-.flexbox-container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
+.recipe_header {
+  padding-top: 3.5em;
+  padding-bottom: 1em;
 }
 
-.flexbox-container a {
-  width: 25%;
+.content {
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+#allrecipes {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 25%;
 }

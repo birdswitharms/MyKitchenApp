@@ -1,13 +1,13 @@
 <br>
-<h3>Recipes</h3>
+<h3 class="header">Recipes</h3>
 <br>
-<div class="flexbox-container">
+<div class="container">
   <% if @all_recipes != nil %>
     <% @all_recipes.each do |recipe| %>
         <%= link_to recipe_path(recipe.id) do %>
           <article>
             <p> <%= image_tag('https://' + recipe.image_url, :class => "thumbnail") %> </p>
-            <p><h3><%= recipe.name %></h3></p>
+            <p><h3 class="thumbnail_name"><%= recipe.name %></h3></p>
             <br>
           </article>
         <% end %>
