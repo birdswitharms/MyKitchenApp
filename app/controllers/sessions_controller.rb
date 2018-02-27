@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
         if request.xhr?
           render partial: 'new'
         else
-
+          render :new
         end
       }
     end
