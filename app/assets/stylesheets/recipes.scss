@@ -67,12 +67,19 @@ article span {
 .bottom_menu {
   display: inline-block;
   background-color: white;
-  position: absolute;
-  bottom: -425px;
+  position: fixed;
+  bottom: -150px;
+  width: 100%;
   transition: .3s all;
 }
 
 .bottom_menu_show {
-  top: 0px!important;
-  z-index: 2;
+  transition: .3s all;
+  bottom: 0px!important;
+}
+
+#button {
+  position: fixed;
+  right: 0.5em;
+  bottom: 0.5em;
 }
