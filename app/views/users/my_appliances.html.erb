@@ -1,20 +1,18 @@
+<br><br><br>
+<p><strong><h3 class="sub_header">Add to Appliances</h3></strong></p>
 <br>
-<p><strong><h3 class="header">Add to Appliances</h3></strong></p>
+<div class="pantry">
+  <%= form_tag user_appliances_path(current_user), method: :patch do %>
+  <% @appliances.each do |appliance| %>
+    <p>
+      <%= check_box_tag appliance.name.downcase %>
+      <%= label_tag appliance.name %>
+    </p>
+  <% end %>
+  <p>
+    <%= submit_tag "Add to my Kitchen!" %>
+  </p>
+<% end %>
 <br>
-  <center>
-    <div class="">
-      <%= form_tag user_appliances_path(current_user), method: :patch do %>
-      <% @appliances.each do |appliance| %>
-        <p>
-          <%= check_box_tag appliance.name.downcase %>
-          <%= label_tag appliance.name %>
-        </p>
-      <% end %>
-      <p>
-        <%= submit_tag "Add to my Kitchen!" %>
-      </p>
-    <% end %>
-    <br>
 
-    </div>
-  </center>
+</div>
