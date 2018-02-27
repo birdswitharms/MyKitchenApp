@@ -23,6 +23,7 @@ class RecipesController < ApplicationController
 
   def show
     @ingredients = load_recipe.ingredients
+    @nutrition = @recipe.recipe_nutrition_totals
     @steps = load_recipe.steps
     @reviews = Review.where(recipe: @recipe)
     if current_user
@@ -157,7 +158,7 @@ class RecipesController < ApplicationController
     @foods = Recipe.add_some_food_shoppinglist(@recipe, current_user)
     @foods.each do |fooditem|
       shoppinglist = Shoppinglist.new(food: fooditem, user: current_user)
-      ap shoppinglist
+      # ap shoppinglist
       if shoppinglist.save
         puts "="*20
         puts "ShoppingList Saved Successfull"

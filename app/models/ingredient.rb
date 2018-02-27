@@ -44,7 +44,10 @@ class Ingredient < ApplicationRecord
     :headers => { 'Content-Type' => 'application/json' }.merge(nutritionix_id).merge(nutritionix_key) )
 
     response_json = JSON.parse(response.body)
+    # puts "*"*20
+    # puts "JSON RESPONSE:"
     # ap response_json
+    # puts "*"*20
 
     return response_json
     # response_json['meals'].each {|recipe|
