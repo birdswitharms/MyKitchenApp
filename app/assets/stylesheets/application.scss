@@ -1,0 +1,93 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import "hamburgers";
+
+*, body {
+  margin: 0;
+  font-family: Helvetica, Arial, monospace;
+  background-color: GhostWhite;
+}
+
+.menu {
+  width: 100%;
+  display: inline-block;
+  background-color: white;
+  position: absolute;
+  top: -425px;
+  transition: .3s all;
+}
+
+.menu_show {
+  top: 0px!important;
+  z-index: 2;
+}
+
+.menu a {
+  display: block;
+  padding: 15px;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
+  border-bottom: 1px solid black;
+  background-color: GhostWhite;
+}
+
+nav h1 {
+  font-size: 1em;
+  padding: 1em;
+  float: left;
+  display: inline-block;
+}
+
+#adv_search {
+  display: none;
+}
+
+#normal_search {
+  display: none;
+}
+
+.form {
+  display: block;
+  position: absolute;
+  top: 25%;
+  right: 34%;
+}
+
+.form input {
+  margin-bottom: 2em;
+}
+.form button {
+  margin-bottom: 2em;
+}
+
+#whitespace {
+  background-color: GhostWhite;
+  width: 100%;
+  height: 80px;
+}
+
+#topmenu {
+  border-top: 1px solid black;
+}
+
+.sub_header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}

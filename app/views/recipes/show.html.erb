@@ -1,18 +1,21 @@
-<br>
-<h3>Recipe</h3>
-<br>
+<h3 class="header">Recipe</h3>
 <article>
-  <p><h3><%= @recipe.name %></h3></p>
-  <br>
-  <p> <%= image_tag(@recipe.image_url) %> </p>
-  <p><strong>Steps</strong></p>
+
+  <span>
+    <h3 class="recipe_header"><%= @recipe.name %></h3>
+    <%= image_tag(@recipe.image_url), :class => "recipe_image") %>
+  </span>
+
+  <p class="sub_header"><strong>Steps</strong></p>
+
   <% @steps.each_with_index do |step, i| %>
-    <p>Step <%= i+1 %>: <%= step.content %></p>
+    <p class="content">Step <%= i+1 %>: <%= step.content %></p>
   <% end %>
-  <br>
-  <p><strong>Ingredients</strong></p>
+
+  <p class="sub_header"><strong>Ingredients</strong></p>
+
   <% @ingredients.each do |ingredient| %>
-    <p><%= ingredient.measurement_unit %>: <%= ingredient.food.name %></p>
+    <p class="content"><%= ingredient.measurement_unit %>: <%= ingredient.food.name %></p>
   <% end %>
 
   <% if current_user %>

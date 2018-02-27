@@ -72,8 +72,6 @@ class Recipe < ApplicationRecord
       puts "PUSHING TEMP INGREDIENTS TO RECIPE"
       # ap new_recipe.ingredients
       puts "*"*20
-      # ap temp_ingredients
-      puts "*"*20
       # ap temp_ingredients - new_recipe.ingredients
         # binding.pry
       temp_ingredients.each { |ingredient|
@@ -95,7 +93,7 @@ class Recipe < ApplicationRecord
   end
 
   def self.requestapi
-    url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=chicken'
+    url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=avocado'
     response = HTTParty.get(url)
     return JSON.parse(response.body)
   end

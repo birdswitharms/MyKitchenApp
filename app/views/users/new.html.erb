@@ -1,7 +1,5 @@
-<br>
-<p><strong><h3>Sign Up</h3></strong></p>
-<br>
-<div class="form kitchen">
+<p><strong><h3 class="header">Sign Up</h3></strong></p>
+<div class="form">
   <%= form_for @user do |f| %>
     <p>
       <%= f.label :name %> <br />
@@ -12,7 +10,7 @@
        <%= f.password_field :password %>
     </p>
     <p>
-       <%= f.label :password_confirmation %><br />
+       <%= f.label :confirm_password %><br />
        <%= f.password_field :password_confirmation %>
     </p>
     <p>

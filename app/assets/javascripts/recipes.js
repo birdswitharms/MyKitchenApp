@@ -10,6 +10,13 @@ document.addEventListener('DOMContentLoaded', function(e){
   var exclude_ingredient_div = document.getElementById('exclude-ingredient-div');
   var include_ingredient_button = document.getElementById('include-ingredient-button');
   var exclude_ingredient_button = document.getElementById('exclude-ingredient-button');
+  var hamburger = document.getElementById('hamburger');
+  var menu = document.querySelector('.menu');
+
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle("is-active");
+    menu.classList.toggle("menu_show");
+  });
 
 if (step_button && ingredient_button) {
 
