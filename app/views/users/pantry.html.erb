@@ -2,7 +2,9 @@
 <p><strong><h3 class="sub_header">Add to Pantry</h3></strong></p>
 <br>
   <div class="pantry">
-    <%= form_tag update_pantry_path(@users), method: :patch do %>
+    <%= form_tag update_pantry_path(@users), method: :patch, :id => 'pantry_form' do %>
+    <input type="text" name="" value="" id='ingredient_search'>
+    <br><br>
     <% @foods.each do |food| %>
       <% if current_user.foods.include?(food) %>
         <p>

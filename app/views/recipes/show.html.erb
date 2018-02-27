@@ -17,27 +17,23 @@
   <% @ingredients.each do |ingredient| %>
     <p class="content"><%= ingredient.measurement_unit %>: <%= ingredient.food.name %></p>
   <% end %>
-
-  <div class="nutrition">
-    <p>calories: <span id="nutrition_calories"><%= @nutrition[:calories].round(0) %></span> </p>
-    <p>total_fat: <span id="nutrition_total_fat"><%= @nutrition[:total_fat].round(0) %></span> </p>
-    <p>saturated_fat: <span id="nutrition_saturated_fat"><%= @nutrition[:saturated_fat].round(0) %></span> </p>
-    <p>cholesterol: <span id="nutrition_cholesterol"><%= @nutrition[:cholesterol].round(0) %></span> </p>
-    <p>sodium: <span id="nutrition_sodium"><%= @nutrition[:sodium].round(0) %></span> </p>
-    <p>potassium: <span id="nutrition_potassium"><%= @nutrition[:potassium].round(0) %></span> </p>
-    <p>total_carbohydrates: <span id="nutrition_total_carbohydrates"><%= @nutrition[:total_carbohydrates].round(0) %></span> </p>
-    <p>dietary_fiber: <span id="nutrition_dietary_fiber"><%= @nutrition[:dietary_fiber].round(0) %></span> </p>
-    <p>sugars: <span id="nutrition_sugars"><%= @nutrition[:sugars].round(0) %></span> </p>
-    <p>protein: <span id="nutrition_protein"><%= @nutrition[:protein].round(0) %></span> </p>
+  <div class="nutritioncontainer">
+    <div class="nutrition">
+      <p>calories: <span id="nutrition_calories"><%= @nutrition[:calories].round(0) %></span> </p>
+      <p>total_fat: <span id="nutrition_total_fat"><%= @nutrition[:total_fat].round(0) %></span> </p>
+      <p>saturated_fat: <span id="nutrition_saturated_fat"><%= @nutrition[:saturated_fat].round(0) %></span> </p>
+      <p>cholesterol: <span id="nutrition_cholesterol"><%= @nutrition[:cholesterol].round(0) %></span> </p>
+      <p>sodium: <span id="nutrition_sodium"><%= @nutrition[:sodium].round(0) %></span> </p>
+      <p>potassium: <span id="nutrition_potassium"><%= @nutrition[:potassium].round(0) %></span> </p>
+      <p>total_carbohydrates: <span id="nutrition_total_carbohydrates"><%= @nutrition[:total_carbohydrates].round(0) %></span> </p>
+      <p>dietary_fiber: <span id="nutrition_dietary_fiber"><%= @nutrition[:dietary_fiber].round(0) %></span> </p>
+      <p>sugars: <span id="nutrition_sugars"><%= @nutrition[:sugars].round(0) %></span> </p>
+      <p>protein: <span id="nutrition_protein"><%= @nutrition[:protein].round(0) %></span> </p>
+    </div>
   </div>
-  
+
  <div class="bottom_menu">
   <% if current_user %>
-    <% unless @favorited  %>
-      <%= form_tag favorite_recipe_path(@recipe.id) do %>
-        <%= submit_tag 'Save Recipe To Favourites' %>
-      <% end %>
-    <% end  %>
     <div class="reviews-div hidden">
       <% if @reviews  %>
         <% @reviews.each do |review| %>
@@ -78,8 +74,7 @@
       <%= form_tag made_recipe_path(@recipe.id) do %>
         <%= submit_tag 'I made this Recipe!', :class => "call_to_action" %>
       <% end %>
-
+      <button class="button button-royal button-circle button-giant" id="button"><i class="fa fa-plus"></i></button>
       <% end  %>
     </div>
-  <button class="button button-royal button-circle button-giant"><i class="fa fa-plus"></i></button>
 </article>

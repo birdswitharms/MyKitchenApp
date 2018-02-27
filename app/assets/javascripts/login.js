@@ -25,6 +25,6 @@ document.addEventListener('DOMContentLoaded', function(e){
       }).fail(function(_jqXHR, textStatus, errorThrown) {
 
       });
-    })
+    });
   }
 });
