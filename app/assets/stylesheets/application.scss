@@ -26,7 +26,7 @@
 .menu {
   width: 100%;
   display: inline-block;
-  background-color: white;
+  background-color: GhostWhite;
   position: absolute;
   top: -425px;
   transition: .3s all;
@@ -60,7 +60,7 @@ nav h1 {
 }
 
 #normal_search {
-  display: none;
+margin-top: 17px;
 }
 
 .form {
@@ -97,6 +97,14 @@ nav h1 {
   background-color: transparent;
 }
 
+.fa-times {
+  background-color: transparent;
+  color: red;
+  position: relative;
+  right: -13em;
+  top: -0.6em;
+}
+
 .modal {
   display: none;
 }
@@ -109,9 +117,38 @@ nav h1 {
   width: 50%;
   margin: auto;
   z-index: 2;
+  padding: 1em;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
 }
 
 .nutritioncontainer {
   display: inline-block;
   margin: auto;
+ }
+
+@media ( min-width: 960px ) {
+
+  #adv_search {
+    display: inline-block;
+    position: absolute;
+    left: 52%;
+    margin-top: 10px;
+  }
+
+  nav h1 {
+    font-size: 1.5em;
+    padding: 1em;
+    float: left;
+    display: inline-block;
+  }
+
+  #normal_search {
+    margin-top: 35px;
+  }
 }

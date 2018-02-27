@@ -3,12 +3,12 @@
   <head>
     <title>MyKitchenApp</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
+
     <div class="menu">
       <div id='whitespace'></div>
       <%= link_to("Home", root_path, :id => 'topmenu') %>
@@ -24,8 +24,10 @@
           <%= link_to "Signup", new_user_path %>
       <% end %>
     </div>
+
     <nav>
-      <center><h1>MyKitchenApp</h1></center>
+      <center><h1><%= link_to("MyKitchenApp", root_path) %></h1></center>
+
       <button class="hamburger hamburger--spin" type="button" id="hamburger">
         <span class="hamburger-box">
           <span class="hamburger-inner">
@@ -33,17 +35,19 @@
         </span>
       </button>
 
-        <%= link_to "Advance Search", recipes_search_path, :id => "adv_search" %>
-      <center>
-      <%= form_tag(recipes_path, method: :get) do %>
-        <%= text_field_tag :term, params[:term], :id => "normal_search" %>
-        <%= submit_tag 'Search', :id => "normal_search" %>
-      <% end %>
-      </center>
-    </nav>
-    <div class="modal">
+      <%= link_to "Advance Search", recipes_search_path, :id => "adv_search" %>
 
-    </div>
+      <center>
+        <%= form_tag(recipes_path, method: :get) do %>
+          <%= text_field_tag :term, params[:term], :id => "normal_search" %>
+          <%= submit_tag 'Search', :id => "normal_search" %>
+        <% end %>
+      </center>
+
+    </nav>
+    <div class="modal"></div>
+
     <%= yield %>
+
   </body>
 </html>

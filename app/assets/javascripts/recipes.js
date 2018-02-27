@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function(e){
   var bottom_button = document.getElementById('button');
   var bottom_menu = document.querySelector('.bottom_menu');
 
-
   if (hamburger) {
     hamburger.addEventListener('click', function() {
       hamburger.classList.toggle("is-active");
@@ -28,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function(e){
       bottom_menu.classList.toggle("bottom_menu_show")
     });
   }
-
 
 if (step_button && ingredient_button) {
 

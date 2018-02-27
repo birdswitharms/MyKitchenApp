@@ -17,6 +17,7 @@
   <% @ingredients.each do |ingredient| %>
     <p class="content"><%= ingredient.measurement_unit %>: <%= ingredient.food.name %></p>
   <% end %>
+  
   <div class="nutritioncontainer">
     <div class="nutrition">
       <p>calories: <span id="nutrition_calories"><%= @nutrition[:calories].round(0) %></span> </p>
@@ -74,7 +75,7 @@
       <%= form_tag made_recipe_path(@recipe.id) do %>
         <%= submit_tag 'I made this Recipe!', :class => "call_to_action" %>
       <% end %>
-      <button class="button button-royal button-circle button-giant" id="button"><i class="fa fa-plus"></i></button>
-      <% end  %>
+      <button class="button button-royal button-circle button-giant" id='button'><i class="fa fa-plus"></i></button>
+     <% end  %>
     </div>
 </article>
