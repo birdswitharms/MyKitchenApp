@@ -11,6 +11,10 @@
   border-bottom: 1px solid black;
 }
 
+.thumbnail_name {
+  padding-top: 10px;
+}
+
 .recipe_image {
   max-width: 80%;
   display: block;
@@ -66,7 +70,7 @@ article span {
 
 .bottom_menu {
   display: inline-block;
-  background-color: white;
+  background-color: GhostWhite;
   position: fixed;
   bottom: -150px;
   width: 100%;
@@ -82,4 +86,32 @@ article span {
   position: fixed;
   right: 0.5em;
   bottom: 0.5em;
+}
+
+.nutrition {
+  background-color: GhostWhite;
+  margin-left: 16%;
+}
+
+@media ( min-width: 960px ) {
+
+  .thumbnail {
+    max-width: 100%;
+    border-bottom: 1px solid black;
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  .container article {
+    display: inline-block;
+    width: 25%;
+    border-radius: 3px;
+    border: 1px solid black;
+    margin: 1em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+
 }
