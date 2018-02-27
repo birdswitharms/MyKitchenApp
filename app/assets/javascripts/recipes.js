@@ -15,14 +15,18 @@ document.addEventListener('DOMContentLoaded', function(e){
   var bottom_button = document.getElementById('button');
   var bottom_menu = document.querySelector('.bottom_menu');
 
-  hamburger.addEventListener('click', function() {
-    hamburger.classList.toggle("is-active");
-    menu.classList.toggle("menu_show");
-});
+  if (hamburger) {
+    hamburger.addEventListener('click', function() {
+      hamburger.classList.toggle("is-active");
+      menu.classList.toggle("menu_show");
+  });
+};
 
-  bottom_button.addEventListener('click', function() {
-    bottom_menu.classList.toggle("bottom_menu_show")
-});
+  if (bottom_button) {
+    bottom_button.addEventListener('click', function() {
+      bottom_menu.classList.toggle("bottom_menu_show")
+  });
+}
 
 if (step_button && ingredient_button) {
 

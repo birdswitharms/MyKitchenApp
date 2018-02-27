@@ -1,13 +1,17 @@
+<i class="fa fa-times" aria-hidden="true"></i>
+
 <%= form_tag sessions_path do %>
   <center>
     <p>
       <%= label_tag :name %> <br />
       <%= text_field_tag :name %>
     </p>
+    <br>
     <p>
        <%= label_tag :password %><br />
        <%= password_field_tag :password %>
     </p>
+    <br>
     <p>
       <%= submit_tag "Log In" %>
     </p>
