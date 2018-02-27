@@ -6,7 +6,7 @@
     <% @all_recipes.each do |recipe| %>
         <%= link_to recipe_path(recipe.id) do %>
           <article>
-            <p> <%= image_tag('https://'+recipe.image_url, :class => "thumbnail") %> </p>
+            <p> <%= image_tag(recipe.image_url, :class => "thumbnail") %> </p>
             <p><h3 class="thumbnail_name"><%= recipe.name %></h3></p>
             <br>
           </article>
