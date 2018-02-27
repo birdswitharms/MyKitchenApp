@@ -1,5 +1,14 @@
 class SessionsController < ApplicationController
   def new
+    respond_to do |format|
+      format.html {
+        if request.xhr?
+          render partial: 'new'
+        else
+          render :new
+        end
+      }
+    end
   end
 
   def create
