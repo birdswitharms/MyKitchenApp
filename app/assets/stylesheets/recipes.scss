@@ -6,6 +6,10 @@
   display: none;
 }
 
+.review_time {
+  margin-bottom: 1em;
+}
+
 .thumbnail {
   max-width: 100%;
   border-bottom: 1px solid black;
@@ -88,7 +92,58 @@ article span {
 
 .nutrition {
   background-color: GhostWhite;
-  margin-left: 16%;
+}
+
+#youtube_iframe {
+  width: 94%;
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.nutritioncontainer {
+  // position: relative;
+  // left: 3%;
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.reviews-div {
+  text-align: center;
+  padding: 1.5em;
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 60%;
+}
+
+.reviews-div p, time {
+  background-color: white;
+}
+
+#review_text {
+  width: 65%;
+  padding: 2em;
+  background-color: GhostWhite;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  position: fixed;
+  top: 38%;
+  left: 9%;
+}
+
+#review_close {
+  position: relative;
+  right: -256px;
+  top: -27px;
+}
+
+#comment {
+  width: 238px;
 }
 
 @media ( min-width: 960px ) {
@@ -121,11 +176,23 @@ article span {
   }
 
   .nutritioncontainer {
-    position: relative;
+    // position: relative;
+    // left: 3%;
+    width: 48%;
+    display: inline-block;
+    overflow: hidden;
   }
 
-  .nutrition {
-    @include center;
+  .video {
+    width: 48%;
+    display: inline-block;
+    margin-bottom: 2em;
   }
+
+  #youtube_iframe {
+    width: 75%;
+    margin-right: 25%;
+  }
+
 
 }

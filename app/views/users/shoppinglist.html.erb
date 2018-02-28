@@ -8,10 +8,12 @@
 <% end %>
 </center>
 <br><br>
-<div class="pantry">
-  <% @list.each do |listitem| %>
-  <%= check_box_tag listitem.food.name %>
-  <%= label_tag listitem.food.name %>
-  <br>
-  <% end %>
-</div>
+<center>
+  <div class="pantry">
+    <% @list.each do |listitem| %>
+    <%= check_box_tag listitem.food.name %>
+    <%= label_tag listitem.food.name %>
+    <br>
+    <% end %>
+  </div>
+</center>

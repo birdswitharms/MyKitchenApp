@@ -20,50 +20,63 @@
     <p class="content"><%= ingredient.measurement_unit %>: <%= ingredient.food.name %></p>
   <% end %>
   <br><br>
-  <div class="nutritioncontainer">
-    <div class="nutrition">
-      <p>calories: <span id="nutrition_calories"><%= @nutrition[:calories].round(0) %></span> </p>
-      <p>total_fat: <span id="nutrition_total_fat"><%= @nutrition[:total_fat].round(0) %></span> </p>
-      <p>saturated_fat: <span id="nutrition_saturated_fat"><%= @nutrition[:saturated_fat].round(0) %></span> </p>
-      <p>cholesterol: <span id="nutrition_cholesterol"><%= @nutrition[:cholesterol].round(0) %></span> </p>
-      <p>sodium: <span id="nutrition_sodium"><%= @nutrition[:sodium].round(0) %></span> </p>
-      <p>potassium: <span id="nutrition_potassium"><%= @nutrition[:potassium].round(0) %></span> </p>
-      <p>total_carbohydrates: <span id="nutrition_total_carbohydrates"><%= @nutrition[:total_carbohydrates].round(0) %></span> </p>
-      <p>dietary_fiber: <span id="nutrition_dietary_fiber"><%= @nutrition[:dietary_fiber].round(0) %></span> </p>
-      <p>sugars: <span id="nutrition_sugars"><%= @nutrition[:sugars].round(0) %></span> </p>
-      <p>protein: <span id="nutrition_protein"><%= @nutrition[:protein].round(0) %></span> </p>
+  <center>
+    <div class="nutritioncontainer">
+      <div class="nutrition">
+        <p>calories: <span id="nutrition_calories"><%= @nutrition[:calories].round(0) %></span> </p>
+        <p>total_fat: <span id="nutrition_total_fat"><%= @nutrition[:total_fat].round(0) %></span> </p>
+        <p>saturated_fat: <span id="nutrition_saturated_fat"><%= @nutrition[:saturated_fat].round(0) %></span> </p>
+        <p>cholesterol: <span id="nutrition_cholesterol"><%= @nutrition[:cholesterol].round(0) %></span> </p>
+        <p>sodium: <span id="nutrition_sodium"><%= @nutrition[:sodium].round(0) %></span> </p>
+        <p>potassium: <span id="nutrition_potassium"><%= @nutrition[:potassium].round(0) %></span> </p>
+        <p>total_carbohydrates: <span id="nutrition_total_carbohydrates"><%= @nutrition[:total_carbohydrates].round(0) %></span> </p>
+        <p>dietary_fiber: <span id="nutrition_dietary_fiber"><%= @nutrition[:dietary_fiber].round(0) %></span> </p>
+        <p>sugars: <span id="nutrition_sugars"><%= @nutrition[:sugars].round(0) %></span> </p>
+        <p>protein: <span id="nutrition_protein"><%= @nutrition[:protein].round(0) %></span> </p>
+      </div>
     </div>
-  </div>
-  <br><br>
-  <div class="reviews-div ">
-    <% if @reviews  %>
-      <% @reviews.each do |review| %>
-        <div class="review">
-          <p><%= review.user.name %>:<%= review.comment %></p>
-          <p><time><%= review.created_at %></time></p>
-        </div>
-      <% end  %>
+    <% if @recipe.youtube_url %>
+      <div class="video">
+        <iframe width="560" height="315" id="youtube_iframe" src="https://www.youtube.com/embed/<%= @recipe.youtube_url.split('=').last %>?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    <% end %>
+  </center>
+  <center>
+    <% if @reviews && @reviews.any? %>
+    <div class="reviews-div ">
+        <% @reviews.each do |review| %>
+          <div class="review">
+            <p><%= review.user.name %>:<%= review.comment %></p>
+            <p><time class='review_time'><%= review.created_at %></time></p>
+          </div>
+        <% end  %>
+    </div>
     <% end  %>
+  </center>
+
+  <div class="hidden" id="review_text"><p>
+    <i class="fa fa-times" aria-hidden="true" id="review_close"></i>
+    <%= form_tag review_recipe_path(@recipe.id) do %>
+      <span class="call_to_action">
+        <%= text_area_tag 'comment', nil, size: "53x7" %>
+      </span>
+      <br>
+      <%= submit_tag 'Post Review', :class => "call_to_action", :id => 'submit_review' %>
+    <% end %>
   </div>
+
   <br><br>
   <div class="bottom_menu">
   <% if current_user %>
-
-        <div class="hidden"><p>
-        <%= form_tag review_recipe_path(@recipe.id) do %>
-          <span class="call_to_action">
-            <%= text_area_tag 'comment', nil, size: "53x7" %>
-          </span>
-          <br>
-          <%= submit_tag 'Post Review', :class => "call_to_action" %>
-        <% end %>
-      </div>
       </p>
        <% unless @favorited  %>
           <%= form_tag favorite_recipe_path(@recipe.id) do %>
             <%= submit_tag 'Save Recipe To Favourites', :class => "call_to_action"%>
           <% end %>
         <% end  %>
+
+      <%= submit_tag 'Post Review', :class => "call_to_action", :id => 'review_button_menu' %>
+      <%= hidden_field_tag 'recipe_id', @recipe.id %>
 
       <%= form_tag favorite_recipe_path(@recipe.id) do %>
         <%= submit_tag 'Save to Favorites', :class => "call_to_action" %>
@@ -83,9 +96,5 @@
       <button class="button button-royal button-circle button-giant" id='button'><i class="fa fa-plus"></i></button>
      <% end  %>
     </div>
-    <% if @recipe.youtube_url %>
-      <div class="">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @recipe.youtube_url.split('=').last %>?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-      </div>
-    <% end %>
+
 </article>

@@ -136,6 +136,12 @@ class RecipesController < ApplicationController
     else
       puts "="*20
       puts "Review Failed"
+
+      respond_to do |format|
+        format.json do
+            render json: @review
+        end
+      end
     end
   end
 
