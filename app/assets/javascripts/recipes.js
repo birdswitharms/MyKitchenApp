@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function(e){
   var review_text = document.getElementById('review_text')
   var review_close = document.getElementById('review_close');
   var submit_review = document.getElementById('submit_review');
+  var review_form = document.getElementById('review_form');
 
   if (review_close) {
     review_close.addEventListener('click', function(event) {
@@ -29,12 +30,13 @@ document.addEventListener('DOMContentLoaded', function(e){
   };
 
   if (submit_review) {
-    submit_review.addEventListener('submit', function() {
+    submit_review.addEventListener('click', function(event) {
       event.preventDefault();
       $.ajax({
-        url: '/recipes/'+hidden_recipe_id,
-        method: 'GET',
-        dataType: 'json'
+        url: '/recipe/'+hidden_recipe_id+'/review',
+        method: 'POST',
+        data: $(review_form).serialize(),
+        dataType: 'JSON'
       }).done(function(responseData) {
         console.log(responseData);
       }).fail(function(_jqXHR, textStatus, errorThrown) {

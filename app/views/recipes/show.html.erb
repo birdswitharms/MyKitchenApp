@@ -56,7 +56,7 @@
 
   <div class="hidden" id="review_text"><p>
     <i class="fa fa-times" aria-hidden="true" id="review_close"></i>
-    <%= form_tag review_recipe_path(@recipe.id) do %>
+    <%= form_tag review_recipe_path(@recipe.id), :id => 'review_form' do %>
       <span class="call_to_action">
         <%= text_area_tag 'comment', nil, size: "53x7" %>
       </span>

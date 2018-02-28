@@ -132,16 +132,20 @@ class RecipesController < ApplicationController
     if @review.save
       puts "="*20
       puts "Review Successfull"
-      redirect_to recipe_path(@recipe)
+      respond_to do |format|
+        format.html do
+            render :show
+          end
+        format.json do
+          if request.xhr?
+            render json: @review
+          end
+        end
+      end
+      # redirect_to recipe_path(@recipe)
     else
       puts "="*20
       puts "Review Failed"
-
-      respond_to do |format|
-        format.json do
-            render json: @review
-        end
-      end
     end
   end
 
