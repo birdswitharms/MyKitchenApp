@@ -93,7 +93,7 @@ class Recipe < ApplicationRecord
   end
 
   def self.requestapi
-    url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=chicken'
+    url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=pork'
     response = HTTParty.get(url)
     return JSON.parse(response.body)
   end
