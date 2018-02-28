@@ -348,4 +348,12 @@ class Recipe < ApplicationRecord
     # ap r
     return r
   end
+
+  def self.valid_recipes_partial(user)
+    r = select { |recipe| (recipe.foods & user.foods).any? }
+    ap "*"*20
+    ap "Recipes with appliances"
+    # ap r
+    return r
+  end
 end
