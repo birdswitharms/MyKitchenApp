@@ -8,9 +8,11 @@
 
   <p class="sub_header"><strong>Steps</strong></p>
 
-  <% @steps.each_with_index do |step, i| %>
-    <p class="content">Step <%= i+1 %>: <%= step.content %></p>
-  <% end %>
+  <div class="steps">
+    <% @steps.each_with_index do |step, i| %>
+      <p class="content">Step <%= i+1 %>: <%= step.content %></p>
+    <% end %>
+  </div>
 
   <p class="sub_header"><strong>Ingredients</strong></p>
 

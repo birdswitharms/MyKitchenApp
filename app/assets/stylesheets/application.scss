@@ -23,6 +23,11 @@
   background-color: GhostWhite;
 }
 
+#LogoHeader {
+  text-decoration: none;
+  color: black;
+}
+
 .menu {
   width: 100%;
   display: inline-block;
@@ -48,6 +53,11 @@
   background-color: GhostWhite;
 }
 
+nav {
+  padding-bottom: 2em;
+  border-bottom: 1px solid lightgrey;
+}
+
 nav h1 {
   font-size: 1em;
   padding: 1em;
@@ -55,12 +65,25 @@ nav h1 {
   display: inline-block;
 }
 
+#term {
+  width: 95px;
+}
+
 #adv_search {
   display: none;
 }
 
+#normal_search_div {
+  top: 14px;
+  position: relative;
+  display: inline;
+}
+
 #normal_search {
-margin-top: 17px;
+  top: 13px;
+  display: inline;
+  position: relative;
+  left: 3px;
 }
 
 .form {
@@ -101,7 +124,7 @@ margin-top: 17px;
   background-color: transparent;
   color: red;
   position: relative;
-  right: -13em;
+  right: -182px;
   top: -0.6em;
 }
 
@@ -127,28 +150,85 @@ margin-top: 17px;
   overflow: hidden;
 }
 
+.hidden {
+  display: none;
+}
+
 .nutritioncontainer {
   display: inline-block;
   margin: auto;
  }
 
+ #navlogin {
+  display: none;
+ }
+
 @media ( min-width: 960px ) {
+
+  nav {
+    padding-bottom: 3.5em;
+  }
+
+  #LogoHeader {
+    text-decoration: none;
+    color: black;
+  }
 
   #adv_search {
     display: inline-block;
     position: absolute;
-    left: 52%;
+    left: 46%;
     margin-top: 10px;
+  }
+
+  #topmenu {
+    border-top: none;
   }
 
   nav h1 {
     font-size: 1.5em;
     padding: 1em;
     float: left;
-    display: inline-block;
   }
 
-  #normal_search {
-    margin-top: 35px;
+  #normal_search_wrapper {
+    top: 35px;
+    display: inline;
+    position: relative;
+    left: 31%;
   }
+
+
+
+  #whitespace {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+    background-color: GhostWhite;
+    top: 94px;
+    width: 100%;
+    margin-bottom: 2em;
+    text-align: center;
+  }
+
+  .menu a {
+    display: inline;
+    padding: 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+    background-color: GhostWhite;
+    border-bottom: none;
+    z-index: 5;
+  }
+
+  #navlogin {
+    display: hidden;
+  }
+
+
+
 }

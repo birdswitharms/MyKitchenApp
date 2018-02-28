@@ -64,10 +64,6 @@ article span {
   height: 2em;
 }
 
-.hidden {
-  display: none;
-}
-
 .bottom_menu {
   display: inline-block;
   background-color: GhostWhite;
@@ -75,10 +71,12 @@ article span {
   bottom: -150px;
   width: 100%;
   transition: .3s all;
+  left: 0px;
 }
 
 .bottom_menu_show {
   transition: .3s all;
+  left: 0px;
   bottom: 0px!important;
 }
 
@@ -113,5 +111,17 @@ article span {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
+  #button {
+    display: none;
+  }
+
+  .steps {
+    width: 70%;
+    margin: auto;
+  }
+
+  .nutrition {
+    margin-left: 28em;
+  }
 
 }
