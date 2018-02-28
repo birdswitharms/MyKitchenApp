@@ -15,11 +15,13 @@
   </div>
 
   <p class="sub_header"><strong>Ingredients</strong></p>
-  <ul>
-    <% @ingredients.each do |ingredient| %>
-      <li class="content"><%= ingredient.measurement_unit %>: <%= ingredient.food.name %></li>
-    <% end %>
-  </ul>
+  <center>
+    <ul>
+      <% @ingredients.each do |ingredient| %>
+        <li class="content"><%= ingredient.measurement_unit %>: <%= ingredient.food.name %></li>
+      <% end %>
+    </ul>
+  </center>
   <br><br>
   <center>
     <div class="nutritioncontainer">

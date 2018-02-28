@@ -25,9 +25,7 @@ document.addEventListener('DOMContentLoaded', function(e){
   var review_form = document.getElementById('review_form');
   var review_div = document.querySelector('.reviews-div');
 
-  console.log(review_div.innerHTML);
-  if (review_div.innerHTML.trim()) {
-
+  if (review_div && review_div.innerHTML.trim()) {
     review_div.classList.remove("hide");
   }
 
