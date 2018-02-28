@@ -8,16 +8,18 @@
 
   <p class="sub_header"><strong>Steps</strong></p>
 
-  <% @steps.each_with_index do |step, i| %>
-    <p class="content">Step <%= i+1 %>: <%= step.content %></p>
-  <% end %>
+  <div class="steps">
+    <% @steps.each_with_index do |step, i| %>
+      <p class="content">Step <%= i+1 %>: <%= step.content %></p>
+    <% end %>
+  </div>
 
   <p class="sub_header"><strong>Ingredients</strong></p>
 
   <% @ingredients.each do |ingredient| %>
     <p class="content"><%= ingredient.measurement_unit %>: <%= ingredient.food.name %></p>
   <% end %>
-  
+
   <div class="nutritioncontainer">
     <div class="nutrition">
       <p>calories: <span id="nutrition_calories"><%= @nutrition[:calories].round(0) %></span> </p>
