@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+ul {
+  text-align: left;
+  margin: auto;
+}
+
 .header {
   display: none;
 }
@@ -59,7 +64,6 @@ article span {
   padding: 10px;
   margin-left: 10px;
   margin-right: 10px;
-  text-align: center;
 }
 
 #allrecipes {
@@ -200,5 +204,21 @@ article span {
     margin-right: 25%;
   }
 
+  ul {
+    padding: 0;
+    width: 65%;
+    margin: auto;
+  }
 
+  li {
+    display: inline-block;
+    width: 40%;
+  }
+
+  ul li:before {
+  // below for square points
+  // content: '\ffed';
+  content: '\2022';
+  margin-right: 0.5em;
+  }
 }
