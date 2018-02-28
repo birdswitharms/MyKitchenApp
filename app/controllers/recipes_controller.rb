@@ -138,7 +138,7 @@ class RecipesController < ApplicationController
           end
         format.json do
           if request.xhr?
-            render json: @review
+            render json: {user_name: User.find(@review.user_id).name, comment: @review.comment, time: @review.created_at.strftime('%b-%d-%Y') }
           end
         end
       end

@@ -15,10 +15,11 @@
   </div>
 
   <p class="sub_header"><strong>Ingredients</strong></p>
-
-  <% @ingredients.each do |ingredient| %>
-    <p class="content"><%= ingredient.measurement_unit %>: <%= ingredient.food.name %></p>
-  <% end %>
+  <ul>
+    <% @ingredients.each do |ingredient| %>
+      <li class="content"><%= ingredient.measurement_unit %>: <%= ingredient.food.name %></li>
+    <% end %>
+  </ul>
   <br><br>
   <center>
     <div class="nutritioncontainer">
@@ -42,16 +43,17 @@
     <% end %>
   </center>
   <center>
-    <% if @reviews && @reviews.any? %>
-    <div class="reviews-div ">
+    <div class="reviews-div hide">
+      <% if @reviews && @reviews.any? %>
         <% @reviews.each do |review| %>
           <div class="review">
-            <p><%= review.user.name %>:<%= review.comment %></p>
-            <p><time class='review_time'><%= review.created_at %></time></p>
+            <p><%= review.user.name %> says...</p>
+            <p>"<%= review.comment %>"</p>
+            <p><time class='review_time'><%= review.created_at.strftime('%b-%d-%Y') %></time></p>
           </div>
         <% end  %>
+      <% end  %>
     </div>
-    <% end  %>
   </center>
 
   <div class="hidden" id="review_text"><p>
