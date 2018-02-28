@@ -14,12 +14,11 @@
         <% end %>
   </div>
 <% else %>
-  <p>Please use/include more ingredients in your kitchen to show recipes</p>
+  <p id="emptywarning">Please use/include more ingredients in your kitchen to show more recipes</p>
 <% end %>
 
-
 <% if @partial_recipes && @partial_recipes.any? %>
-  <h1>Recipes you have some ingredients for</h1>
+  <h3 id="someingredients">Recipes you have some ingredients for</h3>
   <div class="container">
     <% @partial_recipes.each do |recipe| %>
       <%= link_to recipe_path(recipe.id) do %>

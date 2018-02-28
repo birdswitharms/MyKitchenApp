@@ -19,7 +19,7 @@
   <% @ingredients.each do |ingredient| %>
     <p class="content"><%= ingredient.measurement_unit %>: <%= ingredient.food.name %></p>
   <% end %>
-
+  <br><br>
   <div class="nutritioncontainer">
     <div class="nutrition">
       <p>calories: <span id="nutrition_calories"><%= @nutrition[:calories].round(0) %></span> </p>
@@ -34,20 +34,19 @@
       <p>protein: <span id="nutrition_protein"><%= @nutrition[:protein].round(0) %></span> </p>
     </div>
   </div>
-  <br>
+  <br><br>
   <div class="reviews-div ">
     <% if @reviews  %>
       <% @reviews.each do |review| %>
         <div class="review">
-          <p><%= current_user.name %>:<%= review.comment %></p>
+          <p><%= review.user.name %>:<%= review.comment %></p>
           <p><time><%= review.created_at %></time></p>
         </div>
       <% end  %>
     <% end  %>
   </div>
-
-
- <div class="bottom_menu">
+  <br><br>
+  <div class="bottom_menu">
   <% if current_user %>
 
         <div class="hidden"><p>
