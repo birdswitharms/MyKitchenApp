@@ -9,6 +9,7 @@ class RecipesController < ApplicationController
       @all_recipes_with_ingredients = Recipe.valid_recipes_with_pantry(current_user)
       @all_recipes_with_appliances = Recipe.valid_recipes_with_appliances(current_user)
       @all_recipes = @all_recipes_with_ingredients & @all_recipes_with_appliances
+      @partial_recipes = Recipe.valid_recipes_partial(current_user)
       if params[:allrecipes]
         @all_recipes = Recipe.all
       end
@@ -16,10 +17,8 @@ class RecipesController < ApplicationController
 
     if params[:term]
       @all_recipes = Recipe.where('name LIKE ?', "%#{params[:term]}%")
-    else
-      @all_recipes = Recipe.all
     end
-    
+
   end
 
   def show

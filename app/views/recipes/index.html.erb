@@ -1,21 +1,37 @@
 <br>
 <h3 class="header">Recipes</h3>
 <br>
-<div class="container">
-  <% if @all_recipes != nil %>
-    <% @all_recipes.each do |recipe| %>
-        <%= link_to recipe_path(recipe.id) do %>
-          <article>
-            <p> <%= image_tag(recipe.image_url, :class => "thumbnail") %> </p>
-            <p><h3 class="thumbnail_name"><%= recipe.name %></h3></p>
-            <br>
-          </article>
+<% if @all_recipes && @all_recipes.any? %>
+  <div class="container">
+      <% @all_recipes.each do |recipe| %>
+          <%= link_to recipe_path(recipe.id) do %>
+            <article>
+              <p> <%= image_tag(recipe.image_url, :class => "thumbnail") %> </p>
+              <p><h3 class="thumbnail_name"><%= recipe.name %></h3></p>
+              <br>
+            </article>
+          <% end %>
         <% end %>
+  </div>
+<% else %>
+  <p>Please use/include more ingredients in your kitchen to show recipes</p>
+<% end %>
+
+
+<% if @partial_recipes && @partial_recipes.any? %>
+  <h1>Recipes you have some ingredients for</h1>
+  <div class="container">
+    <% @partial_recipes.each do |recipe| %>
+      <%= link_to recipe_path(recipe.id) do %>
+        <article>
+          <p> <%= image_tag(recipe.image_url, :class => "thumbnail") %> </p>
+          <p><h3 class="thumbnail_name"><%= recipe.name %></h3></p>
+          <br>
+        </article>
       <% end %>
-    <% else %>
-    <p>Please use/include more ingredients in your kitchen to show recipes</p>
     <% end %>
-</div>
+  </div>
+<% end %>
 <center>
 <% if current_user %>
   <%= form_tag("/recipes", method: "get") do %>
