@@ -34,28 +34,32 @@
       <p>protein: <span id="nutrition_protein"><%= @nutrition[:protein].round(0) %></span> </p>
     </div>
   </div>
+  <br>
+  <div class="reviews-div ">
+    <% if @reviews  %>
+      <% @reviews.each do |review| %>
+        <div class="review">
+          <p><%= current_user.name %>:<%= review.comment %></p>
+          <p><time><%= review.created_at %></time></p>
+        </div>
+      <% end  %>
+    <% end  %>
+  </div>
+
 
  <div class="bottom_menu">
   <% if current_user %>
-    <div class="reviews-div hidden">
-      <% if @reviews  %>
-        <% @reviews.each do |review| %>
-          <div class="review">
-            <p><%= current_user.name %>:<%= review.comment %></p>
-            <p><time><%= review.created_at %></time></p>
-          </div>
-        <% end  %>
-      <% end  %>
-      <p>
+
+        <div class="hidden"><p>
         <%= form_tag review_recipe_path(@recipe.id) do %>
           <span class="call_to_action">
-          <%= text_area_tag 'comment', nil, size: "53x7" %>
+            <%= text_area_tag 'comment', nil, size: "53x7" %>
           </span>
           <br>
           <%= submit_tag 'Post Review', :class => "call_to_action" %>
         <% end %>
+      </div>
       </p>
-    </div>
        <% unless @favorited  %>
           <%= form_tag favorite_recipe_path(@recipe.id) do %>
             <%= submit_tag 'Save Recipe To Favourites', :class => "call_to_action"%>
