@@ -1,28 +1,30 @@
 <br><br><br>
 <p><strong><h3 class="sub_header">Add to Pantry</h3></strong></p>
 <br>
-  <div class="pantry">
-    <%= form_tag update_pantry_path(@users), method: :patch, :id => 'pantry_form' do %>
-    <p>
-      <%= submit_tag "UPDATE KITCHEN", :id => 'pantry_submit_button' %>
-    </p>
-    <input type="text" name="" value="" id='ingredient_search' autocomplete="off">
-    <br><br>
-    <% @foods.each do |food| %>
-      <% if current_user.foods.include?(food) %>
-        <p>
-          <%= check_box_tag(food.name.downcase, 1, true) %>
-          <%= label_tag food.name %>
-        </p>
-      <% else %>
-        <p>
-          <%= check_box_tag(food.name.downcase, 1, false) %>
-          <%= label_tag food.name %>
-        </p>
+  <center>
+    <div class="pantry">
+      <%= form_tag update_pantry_path(@users), method: :patch, :id => 'pantry_form' do %>
+      <p>
+        <%= submit_tag "UPDATE KITCHEN", :id => 'pantry_submit_button' %>
+      </p>
+      <input type="text" name="" value="" id='ingredient_search' autocomplete="off">
+      <br><br>
+      <% @foods.each do |food| %>
+        <% if current_user.foods.include?(food) %>
+          <p>
+            <%= check_box_tag(food.name.downcase, 1, true) %>
+            <%= label_tag food.name %>
+          </p>
+        <% else %>
+          <p>
+            <%= check_box_tag(food.name.downcase, 1, false) %>
+            <%= label_tag food.name %>
+          </p>
+        <% end %>
       <% end %>
+
     <% end %>
+    <br>
 
-  <% end %>
-  <br>
-
-</div>
+    </div>
+  </center>
