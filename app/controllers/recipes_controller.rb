@@ -5,12 +5,6 @@ class RecipesController < ApplicationController
   def index
     @all_recipes = Recipe.all
 
-    if params[:term]
-      @all_recipes = Recipe.where('name LIKE ?', "%#{params[:term]}%")
-    else
-      @all_recipes = Recipe.all
-    end
-
     if current_user
       @all_recipes_with_ingredients = Recipe.valid_recipes_with_pantry(current_user)
       @all_recipes_with_appliances = Recipe.valid_recipes_with_appliances(current_user)
@@ -19,6 +13,13 @@ class RecipesController < ApplicationController
         @all_recipes = Recipe.all
       end
     end
+
+    if params[:term]
+      @all_recipes = Recipe.where('name LIKE ?', "%#{params[:term]}%")
+    else
+      @all_recipes = Recipe.all
+    end
+    
   end
 
   def show
@@ -122,6 +123,7 @@ class RecipesController < ApplicationController
     else
       puts "="*20
       puts "Favorite Failed"
+      puts @favorite.errors.full_messages
     end
   end
 
