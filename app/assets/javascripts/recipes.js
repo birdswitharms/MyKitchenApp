@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function(e){
 
   if (review_div && review_div.innerHTML.trim()) {
     review_div.classList.remove("hide");
-  }
+  };
 
   if (review_close) {
     review_close.addEventListener('click', function(event) {
@@ -101,14 +101,34 @@ document.addEventListener('DOMContentLoaded', function(e){
 
     ingredient_button.addEventListener('click', function() {
       var ingredient_field = document.createElement('input');
+      var measurement_field = document.createElement('input');
+      var measurement_select = document.createElement('select');
+      var measurement_option1 = document.createElement('option');
+      var measurement_option2 = document.createElement('option');
+      var measurement_option3 = document.createElement('option');
       ingredient_field.type = "textarea";
+      measurement_field.type = "number";
+      measurement_option1.text = "Value 1";
+      measurement_option2.text = "Value 2";
+      measurement_option3.text = "Value 3";
+      measurement_select.add(measurement_option1);
+      measurement_select.add(measurement_option2);
+      measurement_select.add(measurement_option3);
       ingredient_field.name = "recipe[ingredient]["+ingredient_counter+"]";
+      measurement_field.name = "recipe[measurement]["+ingredient_counter+"]";
       ingredient_field.id = "ingredient"+ingredient_counter;
+      ingredient_field.placeholder = "ex. Chicken"
+      measurement_field.id = "measurement"+ingredient_counter;
       var p = document.createElement('p');
-      p.innerText = "Ingredient "+ingredient_counter+" :";
+      p.innerText = "Ingredient "+ingredient_counter+": ";
       ingredient_counter++;
       ingredient_div.append(p);
+      p.append(measurement_field);
+      p.append(" ");
+      p.append(measurement_select);
+      p.append(" ");
       p.append(ingredient_field);
+
     });
   };
 
@@ -136,30 +156,5 @@ document.addEventListener('DOMContentLoaded', function(e){
       p.append(step_field);
     });
   };
-
-// link = 'http://www.recipepuppy.com/api/?i=avocado,toast&p=1&q:avocado+toast'
-// $.ajax({
-//       url: link,
-//       method: 'GET',
-//       dataType: 'JSON'
-//     }).done(function(response) {
-//         // roboDetails.innerHTML = response;
-//         // roboDetails.innerHTML = '';
-//         // // console.log(response);
-//         // var div = document.createElement('div');
-//         // var img = document.createElement('img');
-//         // img.src = 'http://robohash.org/' + response.address;
-//         // var p = document.createElement('p');
-//         // p.innerText = response.name;
-//         //
-//         // div.append(img);
-//         // div.append(p);
-//         // roboDetails.append(div);
-//
-//         var source   = document.getElementById("entry-template").innerHTML;
-//         var template = Handlebars.compile(source);
-//
-//         roboDetails.innerHTML = template(response);
-//     });
 
 });
