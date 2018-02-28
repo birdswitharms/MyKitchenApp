@@ -8,6 +8,12 @@
 
 .review_time {
   margin-bottom: 1em;
+  font-size: 13px;
+}
+
+.review {
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .thumbnail {
@@ -111,7 +117,7 @@ article span {
 }
 
 .reviews-div {
-  text-align: center;
+  text-align: left;
   padding: 1.5em;
   border-radius: 5px;
   background-color: white;

@@ -20,10 +20,16 @@ document.addEventListener('DOMContentLoaded', function(e){
   var review_close = document.getElementById('review_close');
   var submit_review = document.getElementById('submit_review');
   var review_form = document.getElementById('review_form');
+  var review_div = document.querySelector('.reviews-div');
+
+  console.log(review_div.innerHTML);
+  if (review_div.innerHTML.trim()) {
+
+    review_div.classList.remove("hide");
+  }
 
   if (review_close) {
     review_close.addEventListener('click', function(event) {
-
       review_text.classList.toggle("hidden");
       $('body').removeClass('stop-scrolling')
     });
@@ -38,9 +44,21 @@ document.addEventListener('DOMContentLoaded', function(e){
         data: $(review_form).serialize(),
         dataType: 'JSON'
       }).done(function(responseData) {
-        console.log(responseData);
+        var reviewName = document.createElement('p');
+        var reviewComment = document.createElement('p');
+        var reviewTime = document.createElement('p');
+        reviewName.innerText = responseData.user_name + ' says...'
+        reviewComment.innerText = '\"'+responseData.comment+'\"'
+        reviewTime.innerText = responseData.time
+        reviewTime.classList.add('review_time');
+        review_div.append(reviewName)
+        review_div.append(reviewComment)
+        review_div.append(reviewTime)
+        review_text.classList.toggle("hidden");
+        $('body').removeClass('stop-scrolling')
       }).fail(function(_jqXHR, textStatus, errorThrown) {
-
+        console.log('error: ' + errorThrown);
+        console.log('textStatus: ' + textStatus);
       });
     });
   };
