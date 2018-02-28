@@ -58,7 +58,7 @@
     </div>
   </center>
 
-  <div class="hidden" id="review_text"><p>
+  <div class="hidden" id="review_text">
     <i class="fa fa-times" aria-hidden="true" id="review_close"></i>
     <%= form_tag review_recipe_path(@recipe.id), :id => 'review_form' do %>
       <span class="call_to_action">
@@ -72,7 +72,6 @@
   <br><br>
   <div class="bottom_menu">
   <% if current_user %>
-      </p>
        <% unless @favorited  %>
           <%= form_tag favorite_recipe_path(@recipe.id) do %>
             <%= submit_tag 'Save Recipe To Favourites', :class => "call_to_action"%>

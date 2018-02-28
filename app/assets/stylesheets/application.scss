@@ -199,6 +199,10 @@ nav h1 {
 
 @media ( min-width: 960px ) {
 
+  .container {
+    margin-top: 1em;
+  }
+
   nav {
     padding-bottom: 3.5em;
   }
@@ -211,10 +215,6 @@ nav h1 {
   #emptywarning {
     text-align: center;
     margin: 2em;
-  }
-
-  #someingredients {
-    margin-left: 140px;
   }
 
   #adv_search {
@@ -279,8 +279,24 @@ nav h1 {
   #allrecipes {
     position: relative;
     bottom: 200px;
-    padding-bottom: 50px;
+    margin-bottom: 50px;
+    padding: 1em;
+    border-radius: 6px;
+    background-color: white;
   }
 
+  .bottom_menu {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .bottom_menu > * {
+    display: inline-block;
+    width: 14%;
+    padding: 0;
+    margin: 0;
+  }
 
 }
