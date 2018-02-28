@@ -120,8 +120,12 @@ article span {
     margin: auto;
   }
 
+  .nutritioncontainer {
+    position: relative;
+  }
+
   .nutrition {
-    margin-left: 28em;
+    @include center;
   }
 
 }
