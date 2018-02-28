@@ -8,27 +8,20 @@ document.addEventListener('DOMContentLoaded', function(e){
   var addRemoveBtn = false;
   var searchContainerDiv = false;
   var pantrySubmitEle = document.querySelector('#pantry_submit_button');
-  // console.log(pantryFormEle.offsetWidth);
 
   if (pantryFormEle) {
     var ingredientList = []
     var ingredientsNodes = document.querySelectorAll("label");
     var ingredientSearchEle = document.querySelector("#ingredient_search");
-    // console.log(ingredientSearchEle);
     ingredientSearchEle.style.width = '220px';
     if (pantrySubmitEle) {
-      console.log(ingredientSearchEle.offsetWidth + 'px');
       pantrySubmitEle.style.width = ingredientSearchEle.offsetWidth + 'px';
-      console.log(ingredientSearchEle.style.height);
-      console.log();
       pantrySubmitEle.style.height = (ingredientSearchEle.getBoundingClientRect().bottom - ingredientSearchEle.getBoundingClientRect().top) * 2  + 'px';
     }
-    // console.log("Width is: " + ingredientSearchEle.style.width);
 
     if (!searchContainerDiv) {
       searchContainerDiv = document.createElement('div');
       searchContainerDiv.style.position = 'absolute';
-      // console.log(searchContainerDiv.parentElement.style.position);
       pantryFormEle.insertBefore(searchContainerDiv, ingredientSearchEle.nextSibling);
       searchContainerDiv.parentElement.style.position = 'relative';
       searchContainerDiv.style.width = ingredientSearchEle.style.width;
@@ -38,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function(e){
     for (var i = 0; i < ingredientsNodes.length; i++) {
       ingredientList.push(ingredientsNodes[i].innerText);
     }
-    // console.log(ingredientList);
     // check first if search is focused
     ingredientSearchEle.addEventListener('focus', function(e) {
       withinIngredientSearch = true;
@@ -49,12 +41,8 @@ document.addEventListener('DOMContentLoaded', function(e){
 
     // every key press runs new search
     window.addEventListener('keydown', function(e){
-      // console.log(typeof addRemoveBtn);
       if (addRemoveBtn) {
-        // $(addRemoveBtn).remove();
         var temp_parent = addRemoveBtn.parentElement
-        // console.log(temp_parent);
-        // console.log(addRemoveBtn);
         temp_parent.removeChild(addRemoveBtn);
         addRemoveBtn = null;
       }
@@ -90,19 +78,14 @@ document.addEventListener('DOMContentLoaded', function(e){
             e.target.style.backgroundColor = 'white';
         });
       });
-      // console.log(e.key);
-      // console.log(currentMatches);
       // select element
       searchContainerDiv.addEventListener('click', function(e) {
         if (e.target !== searchContainerDiv) {
           ingredientSearchEle.value = e.target.innerText;
           searchContainerDiv.innerHTML = '';
           // add button to add or remove
-          console.log(ingredientsNodes);
-          console.log("logged");
           for (var i = 0; i < ingredientsNodes.length; i++) {
             if (ingredientsNodes[i].innerText.toLowerCase() === ingredientSearchEle.value.toLowerCase()) {
-              console.log(ingredientsNodes[i].innerText.toLowerCase());
               addRemoveBtn = document.createElement('button')
               addRemoveBtn.style.position = 'absolute';
               addRemoveBtn.style.width = '20%';
@@ -113,12 +96,10 @@ document.addEventListener('DOMContentLoaded', function(e){
               if (currentCheckbox.checked === true) {
                 addRemoveBtn.innerText = 'Remove';
                 addRemoveBtn.style.backgroundColor = 'lightcoral';
-                // console.log(ingredientsNodes[i].innerText + " is checked");
               }
               else {
                 addRemoveBtn.innerText = 'Add';
                 addRemoveBtn.style.backgroundColor = 'lightgreen';
-                // console.log(ingredientsNodes[i].innerText + " is unchecked");
               }
             }
           }
@@ -126,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function(e){
           addRemoveBtn.addEventListener('click', function(e) {
             e.preventDefault();
             pantrySubmitEle.style.backgroundColor = 'khaki';
+            pantrySubmitEle.style.fontWeight = 'bold';
             if (addRemoveBtn.innerText === 'Add') {
               for (var i = 0; i < ingredientsNodes.length; i++) {
                 if (ingredientsNodes[i].innerText.toLowerCase() === ingredientSearchEle.value.toLowerCase()) {
@@ -153,13 +135,10 @@ document.addEventListener('DOMContentLoaded', function(e){
 
     pantry_form.addEventListener('click', function(e) {
       // Checks related checkbox when the label is clicked
-      // console.log(e.target.type);
       console.log(e.target.nodeName);
-      if (e.target.nodeName !== 'FORM' && e.target.nodeName !== 'DIV' && e.target.nodeName !== 'P') {
+      if (e.target !== ingredientSearchEle && (e.target.nodeName === 'LABEL' || e.target.nodeName === 'INPUT')) {
         pantrySubmitEle.style.backgroundColor = 'khaki';
-      }
-      if (e.target.type === 'checkbox') {
-
+        pantrySubmitEle.style.fontWeight = 'bold';
       }
       else {
         if (e.target.parentElement) {

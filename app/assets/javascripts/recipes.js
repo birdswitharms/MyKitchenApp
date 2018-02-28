@@ -15,7 +15,10 @@ document.addEventListener('DOMContentLoaded', function(e){
   var bottom_button = document.getElementById('button');
   var bottom_menu = document.querySelector('.bottom_menu');
   var review_button_menu = document.getElementById('review_button_menu');
-  var hidden_recipe_id = document.getElementById('recipe_id').value
+  if (document.getElementById('recipe_id')) {
+    var hidden_recipe_id = document.getElementById('recipe_id').value
+
+  }
   var review_text = document.getElementById('review_text')
   var review_close = document.getElementById('review_close');
   var submit_review = document.getElementById('submit_review');
