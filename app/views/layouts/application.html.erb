@@ -50,15 +50,19 @@
           </span>
         </span>
       </button>
+      <div class="">
+        <center>
+          <%= link_to "Advance Search", recipes_search_path, :id => "adv_search" %>
 
-      <%= link_to "Advance Search", recipes_search_path, :id => "adv_search" %>
-
-      <div id="normal_search_wrapper">
-        <%= form_tag(recipes_path, method: :get, :id => 'normal_search') do %>
-          <%= text_field_tag :term, params[:term]%>
-          <%= submit_tag 'Search'%>
-        <% end %>
+          <div id="normal_search_wrapper">
+            <%= form_tag(recipes_path, method: :get, :id => 'normal_search') do %>
+              <%= text_field_tag :term, params[:term]%>
+              <%= submit_tag 'Search'%>
+            <% end %>
+          </div>
+        </center>
       </div>
+
 
 
     </nav>
