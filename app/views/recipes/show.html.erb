@@ -17,7 +17,7 @@
   <% @ingredients.each do |ingredient| %>
     <p class="content"><%= ingredient.measurement_unit %>: <%= ingredient.food.name %></p>
   <% end %>
-  
+
   <div class="nutritioncontainer">
     <div class="nutrition">
       <p>calories: <span id="nutrition_calories"><%= @nutrition[:calories].round(0) %></span> </p>
@@ -78,4 +78,9 @@
       <button class="button button-royal button-circle button-giant" id='button'><i class="fa fa-plus"></i></button>
      <% end  %>
     </div>
+    <% if @recipe.youtube_url %>
+      <div class="">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @recipe.youtube_url.split('=').last %>?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    <% end %>
 </article>
