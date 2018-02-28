@@ -3,7 +3,10 @@
 <br>
   <div class="pantry">
     <%= form_tag update_pantry_path(@users), method: :patch, :id => 'pantry_form' do %>
-    <input type="text" name="" value="" id='ingredient_search'>
+    <p>
+      <%= submit_tag "UPDATE KITCHEN", :id => 'pantry_submit_button' %>
+    </p>
+    <input type="text" name="" value="" id='ingredient_search' autocomplete="off">
     <br><br>
     <% @foods.each do |food| %>
       <% if current_user.foods.include?(food) %>
@@ -18,9 +21,7 @@
         </p>
       <% end %>
     <% end %>
-    <p>
-      <%= submit_tag "Add to my Kitchen!" %>
-    </p>
+
   <% end %>
   <br>
 
