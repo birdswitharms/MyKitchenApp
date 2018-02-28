@@ -11,12 +11,20 @@
       <%= f.label :image_url  %>
       <%= f.text_field :image_url %>
     </p>
+    <p>
+      <%= f.label :youtube_url  %>
+      <%= f.text_field :youtube_url %>
+    </p>
     <div id="step-div">
       <p>Step 1: <input type="textarea" name="recipe[steps][1]" id="step1" ></p>
     </div>
     <button type="button" name="button" id="add-step-button">Add a new Step</button>
     <div id="ingredient-div">
-      <p>Ingredient 1: <input type="textarea" name="recipe[ingredient][1]" id="ingredient1" ></p>
+      <p>Ingredient 1: <input type="number" name="recipe[measurement][1]" id="measurementval1" > <select name="text"> <!--Supplement an id here instead of using 'text'-->
+        <option value="value1" selected>Value 1</option>
+        <option value="value2">Value 2</option>
+        <option value="value3">Value 3</option>
+      </select> <input type="textarea" name="recipe[ingredient][1]" id="ingredient1" ></p>
     </div>
     <p><button type="button" name="button" id="add-ingredient-button">Add a new Ingredient</button></p>
     <%= f.submit %>
