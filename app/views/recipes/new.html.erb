@@ -3,6 +3,7 @@
 <br><br><br>
 <div class="form kitchen">
   <%= form_for :recipe, html: {id: 'recipe_form'} do |f| %>
+    <%= hidden_field(:ingredient_list,nil, :value => @foods) %>
     <p>
       <%= f.label :name  %>
       <%= f.text_field :name %>

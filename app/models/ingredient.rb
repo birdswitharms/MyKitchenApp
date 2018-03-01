@@ -1,5 +1,5 @@
 class Ingredient < ApplicationRecord
-  validates :food_id, presence: true
+  validates :food, presence: true
   validates :measurement_unit, presence: true
   # add later
   # validates :quantity, presence: true, numericality: true
