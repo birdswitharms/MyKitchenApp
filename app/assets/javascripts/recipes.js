@@ -17,13 +17,25 @@ document.addEventListener('DOMContentLoaded', function(e){
   var review_button_menu = document.getElementById('review_button_menu');
   if (document.getElementById('recipe_id')) {
     var hidden_recipe_id = document.getElementById('recipe_id').value
-
-  }
-  var review_text = document.getElementById('review_text')
+  };
+  var review_text = document.getElementById('review_text');
   var review_close = document.getElementById('review_close');
   var submit_review = document.getElementById('submit_review');
   var review_form = document.getElementById('review_form');
   var review_div = document.querySelector('.reviews-div');
+  var measurements = ['1/8 teaspoon', '1/4 teaspoon', '1/2 teaspoon', 'teaspoon', '1/8 tablespoon', '1/4 tablespoon', '1/2 tablespoon', 'tablespoon', '1/8 cup', '1/4 cup', '1/2 cup', 'cup', '1/4 pint', '1/2 pint', 'pint', '1/4 gallon', '1/2 gallon', 'gallon', 'fluid ounce', '1/4 quart', '1/2 quart', 'quart', '1/4 liter', '1/2 liter', 'liter', 'ounce', 'grams', 'lbs', 'kgs'];
+  var initial_select = document.getElementById('initial_select');
+
+  if (initial_select) {
+    for (var i = 0; i < measurements.length; i++) {
+      var opt = measurements[i];
+      var el = document.createElement("option");
+      el.textContent = opt;
+      el.value = opt;
+      initial_select.appendChild(el);
+    }
+  }
+
 
   if (review_div && review_div.innerHTML.trim()) {
     review_div.classList.remove("hide");
@@ -103,17 +115,9 @@ document.addEventListener('DOMContentLoaded', function(e){
       var ingredient_field = document.createElement('input');
       var measurement_field = document.createElement('input');
       var measurement_select = document.createElement('select');
-      var measurement_option1 = document.createElement('option');
-      var measurement_option2 = document.createElement('option');
-      var measurement_option3 = document.createElement('option');
+
       ingredient_field.type = "textarea";
       measurement_field.type = "number";
-      measurement_option1.text = "Value 1";
-      measurement_option2.text = "Value 2";
-      measurement_option3.text = "Value 3";
-      measurement_select.add(measurement_option1);
-      measurement_select.add(measurement_option2);
-      measurement_select.add(measurement_option3);
       ingredient_field.name = "recipe[ingredient]["+ingredient_counter+"]";
       measurement_field.name = "recipe[measurement]["+ingredient_counter+"]";
       ingredient_field.id = "ingredient"+ingredient_counter;
@@ -123,9 +127,10 @@ document.addEventListener('DOMContentLoaded', function(e){
       p.innerText = "Ingredient "+ingredient_counter+": ";
       ingredient_counter++;
       ingredient_div.append(p);
+      var cln = initial_select.cloneNode(true);
       p.append(measurement_field);
       p.append(" ");
-      p.append(measurement_select);
+      p.append(cln);
       p.append(" ");
       p.append(ingredient_field);
 

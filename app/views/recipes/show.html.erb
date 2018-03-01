@@ -14,6 +14,32 @@
     <% end %>
   </div>
   <br><br>
+  <div class="bottom_menu">
+  <% if current_user %>
+       <% unless @favorited  %>
+          <%= form_tag favorite_recipe_path(@recipe.id) do %>
+            <%= submit_tag 'Save Recipe To Favourites', :class => "call_to_action"%>
+          <% end %>
+        <% end  %>
+
+      <%= submit_tag 'Post Review', :class => "call_to_action", :id => 'review_button_menu' %>
+      <%= hidden_field_tag 'recipe_id', @recipe.id %>
+
+      <%= form_tag saved_foods_path(@recipe.id) do %>
+        <%= submit_tag 'All foods to Shopping List', :class => "call_to_action" %>
+      <% end %>
+
+      <%= form_tag saved_some_foods_path(@recipe.id) do %>
+        <%= submit_tag 'Foods not owned to Shoping List', :class => "call_to_action" %>
+      <% end %>
+
+      <%= form_tag made_recipe_path(@recipe.id) do %>
+        <%= submit_tag 'I made this Recipe!', :class => "call_to_action" %>
+      <% end %>
+      <button class="button button-royal button-circle button-giant" id='button'><i class="fa fa-plus"></i></button>
+     <% end  %>
+    </div>
+  <br><br>
   <p class="sub_header"><strong>Ingredients</strong></p>
   <br>
   <center>
@@ -61,6 +87,7 @@
 
   <div class="hidden" id="review_text">
     <i class="fa fa-times" aria-hidden="true" id="review_close"></i>
+    <h3 id="post_review_header">Post a Review</h3>
     <%= form_tag review_recipe_path(@recipe.id), :id => 'review_form' do %>
       <span class="call_to_action">
         <%= text_area_tag 'comment', nil, size: "53x7" %>
@@ -69,36 +96,4 @@
       <%= submit_tag 'Post Review', :class => "call_to_action", :id => 'submit_review' %>
     <% end %>
   </div>
-
-  <br><br>
-  <div class="bottom_menu">
-  <% if current_user %>
-       <% unless @favorited  %>
-          <%= form_tag favorite_recipe_path(@recipe.id) do %>
-            <%= submit_tag 'Save Recipe To Favourites', :class => "call_to_action"%>
-          <% end %>
-        <% end  %>
-
-      <%= submit_tag 'Post Review', :class => "call_to_action", :id => 'review_button_menu' %>
-      <%= hidden_field_tag 'recipe_id', @recipe.id %>
-
-      <%= form_tag favorite_recipe_path(@recipe.id) do %>
-        <%= submit_tag 'Save to Favorites', :class => "call_to_action" %>
-      <% end %>
-
-      <%= form_tag saved_foods_path(@recipe.id) do %>
-        <%= submit_tag 'All foods to Shopping List', :class => "call_to_action" %>
-      <% end %>
-
-      <%= form_tag saved_some_foods_path(@recipe.id) do %>
-        <%= submit_tag 'Foods I dont own to Shoping List', :class => "call_to_action" %>
-      <% end %>
-
-      <%= form_tag made_recipe_path(@recipe.id) do %>
-        <%= submit_tag 'I made this Recipe!', :class => "call_to_action" %>
-      <% end %>
-      <button class="button button-royal button-circle button-giant" id='button'><i class="fa fa-plus"></i></button>
-     <% end  %>
-    </div>
-
 </article>
