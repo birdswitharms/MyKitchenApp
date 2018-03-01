@@ -1,0 +1,87 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.themealdb.com/api/json/v1/1/search.php?s=pork
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 01 Mar 2018 20:18:36 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d907d3753c816fb7b11ee6c8023c3ec401519935516; expires=Fri, 01-Mar-19
+        20:18:36 GMT; path=/; domain=.themealdb.com; HttpOnly; Secure
+      X-Powered-By:
+      - ASP.NET
+      - PHP/7.0.9
+      Access-Control-Allow-Origin:
+      - "*"
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 3f4e504f3a8e3fdd-YUL
+    body:
+      encoding: ASCII-8BIT
+      string: '{"meals":[{"idMeal":"52847","strMeal":"Pork Cassoulet","strCategory":"Pork","strArea":"French","strInstructions":"Heat
+        oven to 140C\/120C fan\/gas 1. Put a large ovenproof pan (with a tight-fitting
+        lid) on a high heat. Add your fat and diced meat, cook for a few mins to seal
+        the edges, giving it a quick stir to cook evenly. Reduce the heat to low,
+        add the sliced onion, whole garlic cloves, carrot and fennel seeds, and cook
+        gently to soften the veg for a few mins.\r\nPour over the red wine vinegar,
+        scraping any meaty bits off the bottom of the pan. Add the stock, tomato pur\u00e9e,
+        and half the rosemary and parsley. Bring to the boil and simmer for 10 mins,
+        then season, cover with a lid and put into the oven for 2 hrs, removing the
+        lid for the final hour of cooking. Stir occasionally and add the beans with
+        30 mins to go.\r\nRemove the pan from the oven and heat the grill. Scatter
+        the top with the remaining herbs and breadcrumbs, drizzle a little oil over
+        the top, and return to the oven for 5-10 mins, until the breadcrumbs are golden.
+        Serve with crusty bread and green veg.","strMealThumb":"https:\/\/www.themealdb.com\/images\/media\/meals\/wxuvuv1511299147.jpg","strTags":null,"strYoutube":"https:\/\/www.youtube.com\/watch?v=MEdHMTD0VCA","strIngredient1":"Goose
+        Fat","strIngredient2":"Pork","strIngredient3":"Onion","strIngredient4":"Garlic","strIngredient5":"Carrots","strIngredient6":"Fennel
+        Seeds","strIngredient7":"Red Wine Vinegar","strIngredient8":"Vegetable Stock","strIngredient9":"Tomato
+        Puree","strIngredient10":"Rosemary","strIngredient11":"Parsley","strIngredient12":"Haricot
+        Beans","strIngredient13":"Breadcrumbs","strIngredient14":"Oil","strIngredient15":"Bread","strIngredient16":"Broccoli","strIngredient17":"","strIngredient18":"","strIngredient19":"","strIngredient20":"","strMeasure1":"4
+        tbsp","strMeasure2":"350g","strMeasure3":"1 large","strMeasure4":"10","strMeasure5":"1
+        thinly sliced","strMeasure6":"1 tsp ","strMeasure7":"2 tblsp ","strMeasure8":"600ml","strMeasure9":"1
+        tblsp ","strMeasure10":"2 sticks","strMeasure11":"Handful","strMeasure12":"400g","strMeasure13":"2
+        tblsp ","strMeasure14":"drizzle","strMeasure15":"to serve","strMeasure16":"to
+        serve","strMeasure17":"","strMeasure18":"","strMeasure19":"","strMeasure20":"","strSource":"https:\/\/www.bbcgoodfood.com\/recipes\/jacks-pork-cassoulet","dateModified":null},{"idMeal":"52828","strMeal":"Vietnamese
+        Grilled Pork (bun-thit-nuong)","strCategory":"Pork","strArea":"Vietnamese","strInstructions":"Slice
+        the uncooked pork thinly, about \u215b\". It helps to slightly freeze it (optional).\r\nMince
+        garlic and shallots. Mix in a bowl with sugar, fish sauce, thick soy sauce,
+        pepper, and oil until sugar dissolves.\r\nMarinate the meat for 1 hour, or
+        overnight for better results.\r\nBake the pork at 375F for 10-15 minutes or
+        until about 80% cooked. Finish cooking by broiling in the oven until a nice
+        golden brown color develops, flipping the pieces midway.\r\nAssemble your
+        bowl with veggies, noodles, and garnish. Many like to mix the whole bowl up
+        and pour the fish sauce on top, but I like to make individual bites and sauce
+        it slowly.","strMealThumb":"https:\/\/www.themealdb.com\/images\/media\/meals\/qqwypw1504642429.jpg","strTags":null,"strYoutube":"https:\/\/www.youtube.com\/watch?v=Q3qcQcENzbU","strIngredient1":"Pork","strIngredient2":"Rice
+        Vermicelli","strIngredient3":"Egg Rolls","strIngredient4":"Challots","strIngredient5":"Garlic","strIngredient6":"Sugar","strIngredient7":"Fish
+        Sauce","strIngredient8":"Soy sauce","strIngredient9":"Pepper","strIngredient10":"Olive
+        Oil","strIngredient11":"Cucumber","strIngredient12":"Mint","strIngredient13":"Peanuts","strIngredient14":"","strIngredient15":"","strIngredient16":"","strIngredient17":"","strIngredient18":"","strIngredient19":"","strIngredient20":"","strMeasure1":"1.5
+        pounds sliced","strMeasure2":"1 package thin","strMeasure3":"4-6","strMeasure4":"3
+        tablespoons minced","strMeasure5":"1.5 tablespoons minced garlic","strMeasure6":"\u00bc
+        cup","strMeasure7":"1 tablespoon","strMeasure8":"\u00bd tablespoon thick","strMeasure9":"\u00bd
+        tablespoon","strMeasure10":"3 tablespoons","strMeasure11":"Sliced","strMeasure12":"Leaves","strMeasure13":"Crushed","strMeasure14":"","strMeasure15":"","strMeasure16":"","strMeasure17":"","strMeasure18":"","strMeasure19":"","strMeasure20":"","strSource":"http:\/\/www.hungryhuy.com\/bun-thit-nuong-recipe-vietnamese-grilled-bbq-pork-with-rice-vermicelli-vegetables\/","dateModified":null}]}'
+    http_version: 
+  recorded_at: Thu, 01 Mar 2018 20:18:36 GMT
+recorded_with: VCR 4.0.0
