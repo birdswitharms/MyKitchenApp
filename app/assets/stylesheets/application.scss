@@ -30,6 +30,8 @@ a {
   font-weight: bold;
 }
 
+
+
 a:hover {
   color: white;
   text-shadow:
@@ -38,6 +40,13 @@ a:hover {
       -1px 1px 0 #333,
       1px 1px 0 #333,
       0px 0px 5px #333;
+}
+
+#search_container {
+  margin-top: 0.4em;
+  position: relative;
+  top: 0.5em;
+  overflow: hidden;
 }
 
 a#LogoHeader:hover {
@@ -110,10 +119,17 @@ nav h1 {
 }
 
 #normal_search {
-  top: 13px;
+  // top: 13px;
   display: inline;
   position: relative;
   left: 3px;
+}
+
+#search_right_align {
+  float: right;
+  padding-top: 0.15em;
+  right: 3em;
+  position: relative;
 }
 
 .form {
@@ -133,7 +149,7 @@ nav h1 {
 #whitespace {
   background-color: GhostWhite;
   width: 100%;
-  height: 80px;
+  height: 40px;
 }
 
 #topmenu {
@@ -204,7 +220,7 @@ nav h1 {
   }
 
   nav {
-    padding-bottom: 3.5em;
+    padding-bottom: 1.5em;
   }
 
   #LogoHeader {
@@ -219,9 +235,13 @@ nav h1 {
 
   #adv_search {
     display: inline-block;
-    position: absolute;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+    left: 0.5em;
+    // position: absolute;
     // left: 46%;
-    margin-top: 10px;
+    // margin-top: 10px;
   }
 
   #adv_search_menu {
@@ -234,14 +254,21 @@ nav h1 {
 
   nav h1 {
     font-size: 1.5em;
-    padding: 1em;
+    padding: 0.25em;
     float: left;
   }
 
-  #normal_search_wrapper {
-    top: 35px;
-    display: inline;
+  #search_right_align {
+    float: right;
+    right: 1em;
     position: relative;
+  }
+
+  #normal_search_wrapper {
+    // top: 35px;
+    display: inline-block;
+    height: 100%;
+    // position: relative;
   }
 
   #whitespace {
@@ -251,7 +278,7 @@ nav h1 {
   .menu {
     display: block;
     background-color: GhostWhite;
-    top: 94px;
+    top: 72px;
     width: 100%;
     margin-bottom: 2em;
     text-align: center;
