@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function(e){
   if (bottom_button) {
     bottom_button.addEventListener('click', function() {
       bottom_menu.classList.toggle("bottom_menu_show")
+      console.log('TEST');
     });
   };
 
