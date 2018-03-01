@@ -64,6 +64,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    @recipe.update(user: current_user)
       if @recipe.save
 
         params[:recipe][:steps].each do |key, value|
@@ -203,7 +204,7 @@ def load_recipe
 end
 
 def recipe_params
-  params.require(:recipe).permit(:name, :image_url, :term)
+  params.require(:recipe).permit(:name, :image_url, :term, :youtube_url, :steps, :measurement)
 end
 
 def search_params

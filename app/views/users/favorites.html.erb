@@ -1,11 +1,11 @@
 <br><br><br>
 <h3 class="sub_header">Favorites</h3>
-<div class="flexbox-container">
+<div class="container">
   <% if @favorites != nil %>
     <% @favorites.each do |recipe| %>
         <%= link_to recipe_path(recipe.id) do %>
           <article>
-            <p> <%= image_tag('https://' + recipe.image_url, :class => "thumbnail") %> </p>
+            <p> <%= image_tag(recipe.image_url, :class => "thumbnail") %> </p>
             <p><h3><%= recipe.name %></h3></p>
             <br>
           </article>

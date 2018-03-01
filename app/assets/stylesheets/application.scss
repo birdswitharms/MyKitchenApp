@@ -141,8 +141,8 @@ nav h1 {
 }
 
 .sub_header {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 40px;
   text-align: center;
 }
 
@@ -242,10 +242,7 @@ nav h1 {
     top: 35px;
     display: inline;
     position: relative;
-    // left: 31%;
   }
-
-
 
   #whitespace {
     display: none;
@@ -276,27 +273,5 @@ nav h1 {
     display: hidden;
   }
 
-  #allrecipes {
-    position: relative;
-    bottom: 200px;
-    margin-bottom: 50px;
-    padding: 1em;
-    border-radius: 6px;
-    background-color: white;
-  }
-
-  .bottom_menu {
-    display: inline-block;
-    position: relative;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-  }
-  .bottom_menu > * {
-    display: inline-block;
-    width: 14%;
-    padding: 0;
-    margin: 0;
-  }
 
 }

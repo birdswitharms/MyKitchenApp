@@ -2,9 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-ul {
+#ingredients_ul {
   text-align: left;
   margin: auto;
+  width: 50%;
+  margin-bottom: 1em;
 }
 
 .header {
@@ -204,12 +206,6 @@ article span {
     margin-right: 25%;
   }
 
-  ul {
-    padding: 0;
-    width: 65%;
-    margin: auto;
-  }
-
   li {
     display: inline-block;
     width: 40%;
@@ -220,5 +216,55 @@ article span {
   // content: '\ffed';
   content: '\2022';
   margin-right: 0.5em;
+  }
+
+@media ( min-width: 960px ) {
+
+  .menu a {
+    font-size: 14px;
+  }
+
+  #ingredients_ul {
+    display: inline-block;
+    position: relative;
+    left: 50px;
+    top: -10px;
+    width: 42%;
+  }
+
+  .nutritioncontainer {
+    width: 40%;
+    overflow: hidden;
+  }
+
+
+  #allrecipes {
+    position: relative;
+    bottom: 200px;
+    margin-bottom: 50px;
+    padding: 1em;
+    border-radius: 6px;
+    background-color: white;
+  }
+
+  .bottom_menu {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  .bottom_menu > * {
+    display: inline-block;
+    width: 14%;
+    padding: 0;
+    margin: 0;
+  }
+
+
+
+
   }
 }

@@ -13,17 +13,16 @@
       <p class="content">Step <%= i+1 %>: <%= step.content %></p>
     <% end %>
   </div>
-
+  <br><br>
   <p class="sub_header"><strong>Ingredients</strong></p>
+  <br>
   <center>
-    <ul>
+    <ul id='ingredients_ul'>
       <% @ingredients.each do |ingredient| %>
         <li class="content"><%= ingredient.measurement_unit %>: <%= ingredient.food.name %></li>
       <% end %>
     </ul>
-  </center>
-  <br><br>
-  <center>
+
     <div class="nutritioncontainer">
       <div class="nutrition">
         <p>calories: <span id="nutrition_calories"><%= @nutrition[:calories].round(0) %></span> </p>
@@ -38,6 +37,8 @@
         <p>protein: <span id="nutrition_protein"><%= @nutrition[:protein].round(0) %></span> </p>
       </div>
     </div>
+  </center>
+  <center>
     <% if @recipe.youtube_url %>
       <div class="video">
         <iframe width="560" height="315" id="youtube_iframe" src="https://www.youtube.com/embed/<%= @recipe.youtube_url.split('=').last %>?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
