@@ -51,17 +51,16 @@
         </span>
       </button>
 
-      <div class="">
-        <center>
-          <%= link_to "Advance Search", recipes_search_path, :id => "adv_search" %>
-
+      <div id="search_container">
+        <div id="search_right_align">
           <div id="normal_search_wrapper">
             <%= form_tag(recipes_path, method: :get, :id => 'normal_search') do %>
               <%= text_field_tag :term, params[:term]%>
               <%= submit_tag 'Search'%>
             <% end %>
           </div>
-        </center>
+          <%= link_to "Advanced Search", recipes_search_path, :id => "adv_search" %>
+        </div>
       </div>
 
 
@@ -72,7 +71,7 @@
     <%= yield %>
 
     <footer>
-      
+
     </footer>
   </body>
 </html>
