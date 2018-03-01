@@ -102,16 +102,13 @@ class RecipesController < ApplicationController
       end
 
       if existing_food
-        ingredient = Ingredient.new(food: existing_food, measurement_unit: params[:recipe][:measurement]["#{key}"])
+        ingredient = Ingredient.new(food: existing_food, measurement_unit: params[:recipe][:measurement]["#{key}"] + " " + params["measurement_select_#{key}"])
         existing_ingredient = Ingredient.find_by(food: ingredient.food, measurement_unit: ingredient.measurement_unit)
 
         if (existing_ingredient)
           ingredient = existing_ingredient
         end
-        puts "*"*20
-        puts "ingredint: "
-        ap ingredient
-        puts "*"*20
+
       else
         ingredient = Ingredient.new(measurement_unit: params[:recipe][:measurement]["#{key}"])
         # flash[:errors] = "#{value} not found, Recipe was not created."

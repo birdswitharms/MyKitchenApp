@@ -24,7 +24,7 @@ class Recipe < ApplicationRecord
   end
 
   def have_ingredients
-    unless ingredients.all?(&:valid?)
+    unless ingredients.any? && ingredients.all?(&:valid?)
       errors.add(:base, "has an invalid ingredient")
     end
   end
