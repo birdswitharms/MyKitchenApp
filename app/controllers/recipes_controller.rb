@@ -2,6 +2,8 @@ class RecipesController < ApplicationController
 
   before_action :load_recipe, only: [:show, :review, :add_shoppinglist, :addsome_shoppinglist, :user_made]
 
+
+
   def index
     @all_recipes = Recipe.all
 
@@ -12,6 +14,7 @@ class RecipesController < ApplicationController
       @partial_recipes = Recipe.valid_recipes_partial(current_user)
       if params[:allrecipes]
         @all_recipes = Recipe.all
+        @partial_recipes = []
       end
     end
 
@@ -65,16 +68,14 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.update(user: current_user)
-      if @recipe.save
 
+      if @recipe.save
         params[:recipe][:steps].each do |key, value|
           step = Step.new(content: value.downcase, recipe_id: @recipe.id)
           if step.save
             @recipe.steps << step
           else
-            puts "="*20
-            puts "#{@recipe.errors.full_messages}"
-            puts "="*20
+            flash[:errors] = @recipe.errors.full_messages
           end
         end
 
@@ -94,7 +95,7 @@ class RecipesController < ApplicationController
             @recipe.ingredients << ingredient
           else
             puts "="*20
-            puts "#{@recipe.errors.full_messages}"
+            flash[:errors] = @recipe.errors.full_messages
             puts "="*20
           end
         end
@@ -102,10 +103,11 @@ class RecipesController < ApplicationController
       flash[:notice] = "New recipe successfully added"
        redirect_to root_path
       else
+        puts "="*20
+        flash[:errors] = @recipe.errors.full_messages
+        puts "="*20
         redirect_to root_path
-        puts "="*20
-        puts "#{@recipe.errors.full_messages}"
-        puts "="*20
+
       end
       appliances = Recipe.show_appliances(@recipe)
       unless appliances.any?
@@ -123,7 +125,7 @@ class RecipesController < ApplicationController
     else
       puts "="*20
       puts "Favorite Failed"
-      puts @favorite.errors.full_messages
+      flash[:errors] = @favorite.errors.full_messages
     end
   end
 
@@ -147,6 +149,7 @@ class RecipesController < ApplicationController
     else
       puts "="*20
       puts "Review Failed"
+      flash[:errors] = @review.errors.full_messages
     end
   end
 
@@ -159,7 +162,7 @@ class RecipesController < ApplicationController
       else
         puts "="*20
         puts "ShoppingList Failed to Save"
-        puts shoppinglist.errors.full_messages
+        flash[:errors] = shoppinglist.errors.full_messages
         puts "="*20
       end
     end
@@ -177,7 +180,7 @@ class RecipesController < ApplicationController
       else
         puts "="*20
         puts "ShoppingList Failed to Save"
-        puts shoppinglist.errors.full_messages
+        flash[:errors] = shoppinglist.errors.full_messages
         puts "="*20
       end
     end
@@ -192,7 +195,7 @@ class RecipesController < ApplicationController
     else
       puts "="*20
       puts "History Failed to Save"
-      puts history.errors.full_messages
+      flash[:errors] = history.errors.full_messages
     end
     redirect_to root_path
   end

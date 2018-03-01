@@ -17,6 +17,36 @@
  @import "hamburgers";
  @import "font-awesome";
 
+.flash {
+  background-color: crimson;
+  padding: 1em;
+  color: white;
+  position: relative;
+  top: 50px;
+  width: 100%;
+  z-index: 10;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+#crimson {
+  background-color: crimson;
+}
+
+#error_text {
+  text-align: left;
+}
+
+.flash div {
+  display: inline-block;
+  margin: auto;
+  background-color: crimson;
+}
+
+.flash h4, h5 {
+  background-color: inherit;
+}
+
 *, body {
   // box-sizing: border-box;
   margin: 0;
@@ -117,10 +147,14 @@ nav h1 {
 }
 
 .form {
-  display: block;
-  position: absolute;
-  top: 25%;
-  right: 34%;
+  display: inline-block;
+  margin: auto;
+  width: 100%
+}
+
+#recipe_form {
+  width: 50%;
+  margin: auto;
 }
 
 .form input {
