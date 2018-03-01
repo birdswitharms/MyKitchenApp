@@ -73,6 +73,9 @@ class RecipesController < ApplicationController
 
     if @recipe.save
       flash[:notice] = "New recipe successfully added"
+      if @recipe.image_url == ""
+        @recipe.update(image_url: 'https://irp-cdn.multiscreensite.com/5f8d5410/dms3rep/multi/default-placeholder.png')
+      end
       redirect_to root_path
     else
       flash.now[:errors] = @recipe.errors.full_messages
