@@ -62,10 +62,65 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @foods = Food.all.to_a
+    @foods = Food.all.map(&:name).join(",")
   end
 
   def create
+    @recipe = current_user.recipes.new(recipe_params)
+
+    recipe_steps
+    recipe_ingredients
+
+    if @recipe.save
+      flash[:notice] = "New recipe successfully added"
+      redirect_to root_path
+    else
+      flash.now[:errors] = @recipe.errors.full_messages
+      render :new
+    end
+
+  end
+
+  def recipe_steps
+    params[:recipe][:steps].each do |key, value|
+      unless value.blank?
+        @recipe.steps.new(content: value.downcase)
+      end
+    end
+  end
+
+  def recipe_ingredients
+    params[:recipe][:ingredient].each { |key, value|
+      puts "*"*20
+      puts "current ingredint: " + value
+      puts "*"*20
+
+      unless value.blank?
+        existing_food = Food.find_by(name: value.capitalize)
+      else
+        next
+      end
+
+      if existing_food
+        ingredient = Ingredient.new(food: existing_food, measurement_unit: params[:recipe][:measurement]["#{key}"])
+        existing_ingredient = Ingredient.find_by(food: ingredient.food, measurement_unit: ingredient.measurement_unit)
+
+        if (existing_ingredient)
+          ingredient = existing_ingredient
+        end
+        puts "*"*20
+        puts "ingredint: "
+        ap ingredient
+        puts "*"*20
+      else
+        ingredient = Ingredient.new(measurement_unit: params[:recipe][:measurement]["#{key}"])
+        # flash[:errors] = "#{value} not found, Recipe was not created."
+      end
+      @recipe.ingredients << ingredient
+    }
+  end
+
+  def createx
     @recipe = Recipe.new(recipe_params)
     @recipe.update(user: current_user)
 
@@ -80,13 +135,26 @@ class RecipesController < ApplicationController
         end
 
         params[:recipe][:ingredient].each do |key, value|
+          puts "*"*20
+          puts "Run #{key}"
+          puts "*"*20
 
           food = Food.find_by(name: value.capitalize)
           if food
             # need to implement measurement_unit
-            ingredient = Ingredient.new(food_id: food.id, measurement_unit: "1" )
+            ingredient = Ingredient.new(food_id: food.id, measurement_unit: params[:recipe][:measurement][key])
+            existing_ingredient = Ingredient.find_by(food: ingredient.food, measurement_unit: ingredient.measurement_unit)
+            if (existing_ingredient)
+              ingredient = existing_ingredient
+            else
+              if ingredient.save
+
+              else
+                flash[:errors] = ingredient.errors.full_messages
+              end
+            end
           else
-            flash[:notice] = "Food not found, Recipe was not created."
+            flash[:errors] = "Food not found, Recipe was not created."
             @recipe.destroy
           end
 
@@ -95,13 +163,20 @@ class RecipesController < ApplicationController
             @recipe.ingredients << ingredient
           else
             puts "="*20
-            flash[:errors] = @recipe.errors.full_messages
+            if @recipe.errors.full_messages
+              flash[:errors] = @recipe.errors.full_messages
+            end
             puts "="*20
           end
         end
 
-      flash[:notice] = "New recipe successfully added"
-       redirect_to root_path
+        if flash[:errors] && flash[:errors].any?
+          puts "$"*20
+          puts flash[:errors]
+        else
+          flash[:notice] = "New recipe successfully added"
+        end
+         redirect_to root_path
       else
         puts "="*20
         flash[:errors] = @recipe.errors.full_messages

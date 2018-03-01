@@ -2,7 +2,7 @@ var currentMatches = false;
 
 document.addEventListener('DOMContentLoaded', function(e){
 
-  var pantryFormEle = document.querySelector('#pantry_form');
+  var pantryFormEle = document.querySelector('#pantry_form') || document.querySelector('#recipe_form');
   var withinIngredientSearch = false;
   var searchContainerDiv = false;
   var addRemoveBtn = false;
@@ -10,9 +10,21 @@ document.addEventListener('DOMContentLoaded', function(e){
   var pantrySubmitEle = document.querySelector('#pantry_submit_button');
 
   if (pantryFormEle) {
-    var ingredientList = []
-    var ingredientsNodes = document.querySelectorAll("label");
-    var ingredientSearchEle = document.querySelector("#ingredient_search");
+    // var IngredientArr = document.querySelector('#ingredient_list_').value.split(',')
+    // console.(IngredientArr);
+    // console.(document.querySelector('#ingredient1'));
+    if (document.querySelector('#ingredient_list_')) {
+      var ingredientList = document.querySelector('#ingredient_list_').value.split(',').sort()
+    }
+    else {
+      var ingredientList = []
+    }
+    if (ingredientList && ingredientList.length === 0) {
+      // console.log("ran");
+      var ingredientsNodes = document.querySelectorAll("label");
+    }
+
+    var ingredientSearchEle = document.querySelector("#ingredient_search") || document.querySelector('#ingredient1');
     ingredientSearchEle.style.width = '220px';
     if (pantrySubmitEle) {
       pantrySubmitEle.style.width = ingredientSearchEle.offsetWidth + 'px';
@@ -21,39 +33,50 @@ document.addEventListener('DOMContentLoaded', function(e){
 
     if (!searchContainerDiv) {
       searchContainerDiv = document.createElement('div');
-      searchContainerDiv.style.position = 'absolute';
       pantryFormEle.insertBefore(searchContainerDiv, ingredientSearchEle.nextSibling);
-      searchContainerDiv.parentElement.style.position = 'relative';
       searchContainerDiv.style.width = ingredientSearchEle.style.width;
+      searchContainerDiv.parentElement.style.position = 'relative';
+      searchContainerDiv.style.position = 'absolute';
+
+      console.log(ingredientSearchEle.getBoundingClientRect().bottom + 'px');
+      searchContainerDiv.style.top = ingredientSearchEle.getBoundingClientRect().bottom -  pantryFormEle.getBoundingClientRect().top + 'px';
+      searchContainerDiv.style.left = ingredientSearchEle.getBoundingClientRect().left - pantryFormEle.getBoundingClientRect().left + 'px';
+      // pantryFormEle.getBoundingClientRect().top  + 'px';
 
     }
-
-    for (var i = 0; i < ingredientsNodes.length; i++) {
-      ingredientList.push(ingredientsNodes[i].innerText);
+    // debug
+    // console.(ingredientsNodes);
+    if (ingredientsNodes) {
+      for (var i = 0; i < ingredientsNodes.length; i++) {
+        ingredientList.push(ingredientsNodes[i].innerText);
+      }
     }
+
     // check first if search is focused
     ingredientSearchEle.addEventListener('focus', function(e) {
       withinIngredientSearch = true;
+      console.log("gained focus");
     });
     ingredientSearchEle.addEventListener('blur', function(e) {
       withinIngredientSearch = false;
+      console.log("lost focus");
     });
 
     // every key press runs new search
     window.addEventListener('keydown', function(e){
+      if (withinIngredientSearch) {
+      
       if (addRemoveBtn) {
         var temp_parent = addRemoveBtn.parentElement
         temp_parent.removeChild(addRemoveBtn);
         addRemoveBtn = null;
       }
-      if (withinIngredientSearch) {
         if (e.key === 'Backspace') {
           currentMatches = search(ingredientSearchEle.value.slice(0,-1), ingredientList)
         }
         else {
           currentMatches = search(ingredientSearchEle.value + e.key, ingredientList)
         }
-      }
 
       searchContainerDiv.innerHTML = '';
 
@@ -67,6 +90,8 @@ document.addEventListener('DOMContentLoaded', function(e){
           div.style.width = ingredientSearchEle.style.width;
           div.classList.add("ingredient_search_result")
           searchContainerDiv.append(div);
+          // console.log(searchContainerDiv);
+
         });
       }
 
@@ -77,7 +102,14 @@ document.addEventListener('DOMContentLoaded', function(e){
         searchContainerDiv.addEventListener('mouseout', function(e) {
             e.target.style.backgroundColor = 'white';
         });
+
+      }
+
+
       });
+
+
+
       // select element
       searchContainerDiv.addEventListener('click', function(e) {
         if (e.target !== searchContainerDiv) {
@@ -133,9 +165,9 @@ document.addEventListener('DOMContentLoaded', function(e){
         button.value = ''
       });
 
-    pantry_form.addEventListener('click', function(e) {
+    pantryFormEle.addEventListener('click', function(e) {
       // Checks related checkbox when the label is clicked
-      console.log(e.target.nodeName);
+      // console.log(e.target.nodeName);
       if (e.target !== ingredientSearchEle && (e.target.nodeName === 'LABEL' || e.target.nodeName === 'INPUT')) {
         pantrySubmitEle.style.backgroundColor = 'khaki';
         pantrySubmitEle.style.fontWeight = 'bold';
@@ -166,5 +198,6 @@ function search(searchString, ingredientArray) {
       matches.push(ingredientArray[i]);
     }
   }
+  // console.log(matches);
   return matches
 }

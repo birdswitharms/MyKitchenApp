@@ -1,7 +1,10 @@
 class Recipe < ApplicationRecord
   validates :name, presence: true, uniqueness: true
-  validates :steps, presence: true
-  validates :ingredients, presence: true
+  # need to make custom validation to make sure there are self.steps and self.ingredients
+  # validates :steps, presence: true
+  # validates :ingredients, presence: true
+  validate :have_steps
+  validate :have_ingredients
 
   has_and_belongs_to_many :appliances
   has_and_belongs_to_many :ingredients
@@ -13,6 +16,18 @@ class Recipe < ApplicationRecord
   has_many :appliances_recipes
   has_many :histories
   belongs_to :user
+
+  def have_steps
+    unless steps.any?(&:valid?)
+      errors.add(:base, "must have at least one step")
+    end
+  end
+
+  def have_ingredients
+    unless ingredients.all?(&:valid?)
+      errors.add(:base, "has an invalid ingredient")
+    end
+  end
 
   def self.add_recipes()
     response_json = requestapi
