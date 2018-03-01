@@ -62,11 +62,28 @@
           <%= link_to "Advanced Search", recipes_search_path, :id => "adv_search" %>
         </div>
       </div>
-
-
-
     </nav>
+
     <div class="modal"></div>
+
+  <% if flash && flash.any?  %>
+      <div class="flash">
+        <center id="crimson">
+          <% flash.each do |key, message| %>
+            <div id="error_text">
+              <h4><%= key %></h4>
+              <% if message && message.class != String && message.any?  %>
+                <% message.each do |sub_message|  %>
+                  <h5><%= sub_message %></h5>
+                <% end  %>
+              <% else  %>
+                <h5><%= message %></h5>
+              <% end  %>
+            </div>
+          <% end %>
+        </center>
+      </div>
+  <% end  %>
 
     <%= yield %>
 

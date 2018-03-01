@@ -1,5 +1,7 @@
 class Recipe < ApplicationRecord
   validates :name, presence: true, uniqueness: true
+  validates :steps, presence: true
+  validates :ingredients, presence: true
 
   has_and_belongs_to_many :appliances
   has_and_belongs_to_many :ingredients
