@@ -29,8 +29,14 @@ class Recipe < ApplicationRecord
     end
   end
 
-  def self.add_recipes()
-    response_json = requestapi
+  def self.add_recipes(recipe_string = "")
+
+    if recipe_string.blank?
+      puts "Please input the name of food as argument"
+      return nil
+    end
+
+    response_json = requestapi(recipe_string)
 
     response_json['meals'].each {|recipe|
       next unless recipe
@@ -109,8 +115,8 @@ class Recipe < ApplicationRecord
     return nil
   end
 
-  def self.requestapi
-    url = 'https://www.themealdb.com/api/json/v1/1/search.php?s=pork'
+  def self.requestapi(recipe_string)
+    url = "https://www.themealdb.com/api/json/v1/1/search.php?s=#{recipe_string}"
     response = HTTParty.get(url)
     return JSON.parse(response.body)
   end
