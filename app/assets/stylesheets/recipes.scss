@@ -196,14 +196,14 @@ article span {
   }
 
   .video {
-    width: 48%;
+    // width: 48%;
     display: inline-block;
     margin-bottom: 2em;
   }
 
   #youtube_iframe {
-    width: 75%;
-    margin-right: 25%;
+    width: initial;
+    // margin-right: 25%;
   }
 
   li {
