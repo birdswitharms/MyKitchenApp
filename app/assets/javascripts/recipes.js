@@ -128,6 +128,7 @@ document.addEventListener('DOMContentLoaded', function(e){
       ingredient_counter++;
       ingredient_div.append(p);
       var cln = initial_select.cloneNode(true);
+      cln.name = "measurement_select_"+(ingredient_counter-1)
       p.append(measurement_field);
       p.append(" ");
       p.append(cln);
