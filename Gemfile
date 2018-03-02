@@ -8,18 +8,20 @@ gem 'httparty'
 gem 'jquery-rails'
 gem 'bcrypt', '~> 3.1.7'
 gem 'factory_bot_rails'
-# gem 'pg', '=0.21'
+gem 'yarn'
+gem 'awesome_print'
+gem 'pg', '=0.21'
+gem 'listen','>= 3.0.5', '< 3.2'
 gem 'hamburgers'
 gem "font-awesome-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
-gem 'pg'
-gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
+# gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'pry-rails'
@@ -47,11 +49,9 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'awesome_print'
 end
 
 group :production do

@@ -1,5 +1,4 @@
 var currentMatches = false;
-
 document.addEventListener('DOMContentLoaded', function(e){
 
   var pantryFormEle = document.querySelector('#pantry_form') || document.querySelector('#recipe_form');
@@ -8,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function(e){
   var addRemoveBtn = false;
   var searchContainerDiv = false;
   var pantrySubmitEle = document.querySelector('#pantry_submit_button');
-
   if (pantryFormEle) {
     // var IngredientArr = document.querySelector('#ingredient_list_').value.split(',')
     // console.(IngredientArr);
@@ -20,11 +18,11 @@ document.addEventListener('DOMContentLoaded', function(e){
       var ingredientList = []
     }
     if (ingredientList && ingredientList.length === 0) {
-      // console.log("ran");
       var ingredientsNodes = document.querySelectorAll("label");
     }
 
     var ingredientSearchEle = document.querySelector("#ingredient_search") || document.querySelector('#ingredient1');
+    //
     ingredientSearchEle.style.width = '220px';
     if (pantrySubmitEle) {
       pantrySubmitEle.style.width = ingredientSearchEle.offsetWidth + 'px';
@@ -38,14 +36,14 @@ document.addEventListener('DOMContentLoaded', function(e){
       searchContainerDiv.parentElement.style.position = 'relative';
       searchContainerDiv.style.position = 'absolute';
 
-      console.log(ingredientSearchEle.getBoundingClientRect().bottom + 'px');
+      // console.log(ingredientSearchEle.getBoundingClientRect().bottom + 'px');
       searchContainerDiv.style.top = ingredientSearchEle.getBoundingClientRect().bottom -  pantryFormEle.getBoundingClientRect().top + 'px';
       searchContainerDiv.style.left = ingredientSearchEle.getBoundingClientRect().left - pantryFormEle.getBoundingClientRect().left + 'px';
       // pantryFormEle.getBoundingClientRect().top  + 'px';
 
     }
     // debug
-    // console.(ingredientsNodes);
+    // console.log(ingredientsNodes);
     if (ingredientsNodes) {
       for (var i = 0; i < ingredientsNodes.length; i++) {
         ingredientList.push(ingredientsNodes[i].innerText);
@@ -55,17 +53,15 @@ document.addEventListener('DOMContentLoaded', function(e){
     // check first if search is focused
     ingredientSearchEle.addEventListener('focus', function(e) {
       withinIngredientSearch = true;
-      console.log("gained focus");
     });
     ingredientSearchEle.addEventListener('blur', function(e) {
       withinIngredientSearch = false;
-      console.log("lost focus");
     });
 
     // every key press runs new search
     window.addEventListener('keydown', function(e){
       if (withinIngredientSearch) {
-      
+
       if (addRemoveBtn) {
         var temp_parent = addRemoveBtn.parentElement
         temp_parent.removeChild(addRemoveBtn);
@@ -108,57 +104,60 @@ document.addEventListener('DOMContentLoaded', function(e){
 
       });
 
-
-
       // select element
       searchContainerDiv.addEventListener('click', function(e) {
         if (e.target !== searchContainerDiv) {
           ingredientSearchEle.value = e.target.innerText;
           searchContainerDiv.innerHTML = '';
           // add button to add or remove
-          for (var i = 0; i < ingredientsNodes.length; i++) {
-            if (ingredientsNodes[i].innerText.toLowerCase() === ingredientSearchEle.value.toLowerCase()) {
-              addRemoveBtn = document.createElement('button')
-              addRemoveBtn.style.position = 'absolute';
-              addRemoveBtn.style.width = '20%';
-              addRemoveBtn.style.height = ingredientSearchEle.style.height;
-              addRemoveBtn.style.left = parseInt(ingredientSearchEle.style.width) + 6 + 'px';
-              addRemoveBtn.style.top = ingredientSearchEle.getBoundingClientRect().top - pantryFormEle.getBoundingClientRect().top  + 'px';
-              var currentCheckbox = ingredientsNodes[i].parentElement.querySelector('input')
-              if (currentCheckbox.checked === true) {
-                addRemoveBtn.innerText = 'Remove';
-                addRemoveBtn.style.backgroundColor = 'lightcoral';
+          if (ingredientsNodes) {
+            for (var i = 0; i < ingredientsNodes.length; i++) {
+              if (ingredientsNodes[i].innerText.toLowerCase() === ingredientSearchEle.value.toLowerCase()) {
+                addRemoveBtn = document.createElement('button')
+                addRemoveBtn.style.position = 'absolute';
+                addRemoveBtn.style.width = '20%';
+                addRemoveBtn.style.height = ingredientSearchEle.style.height;
+                addRemoveBtn.style.left = parseInt(ingredientSearchEle.style.width) + 6 + 'px';
+                addRemoveBtn.style.top = ingredientSearchEle.getBoundingClientRect().top - pantryFormEle.getBoundingClientRect().top  + 'px';
+                var currentCheckbox = ingredientsNodes[i].parentElement.querySelector('input')
+                if (currentCheckbox.checked === true) {
+                  addRemoveBtn.innerText = 'Remove';
+                  addRemoveBtn.style.backgroundColor = 'lightcoral';
+                }
+                else {
+                  addRemoveBtn.innerText = 'Add';
+                  addRemoveBtn.style.backgroundColor = 'lightgreen';
+                }
+              }
+            }
+
+            pantryFormEle.append(addRemoveBtn)
+            addRemoveBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              pantrySubmitEle.style.backgroundColor = 'khaki';
+              pantrySubmitEle.style.fontWeight = 'bold';
+              if (addRemoveBtn.innerText === 'Add') {
+                for (var i = 0; i < ingredientsNodes.length; i++) {
+                  if (ingredientsNodes[i].innerText.toLowerCase() === ingredientSearchEle.value.toLowerCase()) {
+                    ingredientsNodes[i].parentElement.querySelector('input').checked = true;
+                  }
+                }
               }
               else {
-                addRemoveBtn.innerText = 'Add';
-                addRemoveBtn.style.backgroundColor = 'lightgreen';
-              }
-            }
-          }
-          pantryFormEle.append(addRemoveBtn)
-          addRemoveBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            pantrySubmitEle.style.backgroundColor = 'khaki';
-            pantrySubmitEle.style.fontWeight = 'bold';
-            if (addRemoveBtn.innerText === 'Add') {
-              for (var i = 0; i < ingredientsNodes.length; i++) {
-                if (ingredientsNodes[i].innerText.toLowerCase() === ingredientSearchEle.value.toLowerCase()) {
-                  ingredientsNodes[i].parentElement.querySelector('input').checked = true;
+                for (var i = 0; i < ingredientsNodes.length; i++) {
+                  if (ingredientsNodes[i].innerText.toLowerCase() === ingredientSearchEle.value.toLowerCase()) {
+                    ingredientsNodes[i].parentElement.querySelector('input').checked = false;
+                  }
                 }
               }
-            }
-            else {
-              for (var i = 0; i < ingredientsNodes.length; i++) {
-                if (ingredientsNodes[i].innerText.toLowerCase() === ingredientSearchEle.value.toLowerCase()) {
-                  ingredientsNodes[i].parentElement.querySelector('input').checked = false;
-                }
-              }
-            }
-            var temp_parent = addRemoveBtn.parentElement
-            temp_parent.removeChild(addRemoveBtn);
-            addRemoveBtn = null;
+              var temp_parent = addRemoveBtn.parentElement
+              temp_parent.removeChild(addRemoveBtn);
+              addRemoveBtn = null;
 
-          })
+            });
+          }
+
+
 
         }
         var button = document.createElement('button')
