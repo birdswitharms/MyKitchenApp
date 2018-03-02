@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.themealdb.com/api/json/v1/1/search.php?s=avocado
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 02 Mar 2018 16:16:50 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d5a8659cd18085155c9fb598b83517a971520007410; expires=Sat, 02-Mar-19
+        16:16:50 GMT; path=/; domain=.themealdb.com; HttpOnly; Secure
+      X-Powered-By:
+      - ASP.NET
+      - PHP/7.0.9
+      Access-Control-Allow-Origin:
+      - "*"
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 3f552b8b8a793fa1-YUL
+    body:
+      encoding: ASCII-8BIT
+      string: '{"meals":[{"idMeal":"52853","strMeal":"Chocolate Avocado Mousse","strCategory":"Desert","strArea":"British","strInstructions":"1.
+        Blend all the mousse ingredients together in your food processor until smooth.
+        Add the cacao powder first and, as you blend, have all the ingredients to
+        hand in order to adjust the ratios slightly as the size of avocados and bananas
+        varies so much. The perfect ratio in order to avoid the dish tasting too much
+        of either is to use equal amounts of both.\r\n\r\n2. Taste and add a few drops
+        of stevia if you feel you need more sweetness.\r\n\r\n3. Fill little cups
+        or shot glasses with the mousse, sprinkle with the cacao powder or nibs and
+        serve.\r\n\r\nTip If you don\u2019t have a frozen banana to hand you can just
+        use a normal one and then chill the mousse before serving for a cooling dessert.","strMealThumb":"https:\/\/www.themealdb.com\/images\/media\/meals\/uttuxy1511382180.jpg","strTags":null,"strYoutube":"https:\/\/www.youtube.com\/watch?v=wuZffe60q4M","strIngredient1":"Banana","strIngredient2":"Cacao","strIngredient3":"Avocado","strIngredient4":"Honey","strIngredient5":"Lemon
+        Juice","strIngredient6":"Vanilla","strIngredient7":"Water","strIngredient8":"Sea
+        Salt","strIngredient9":"","strIngredient10":"","strIngredient11":"","strIngredient12":"","strIngredient13":"","strIngredient14":"","strIngredient15":"","strIngredient16":"","strIngredient17":"","strIngredient18":"","strIngredient19":"","strIngredient20":"","strMeasure1":"1","strMeasure2":"3
+        tbsp","strMeasure3":"1","strMeasure4":"2 tblsp ","strMeasure5":"1 tsp ","strMeasure6":"1
+        tsp ","strMeasure7":"2 tbsp","strMeasure8":"pinch","strMeasure9":"","strMeasure10":"","strMeasure11":"","strMeasure12":"","strMeasure13":"","strMeasure14":"","strMeasure15":"","strMeasure16":"","strMeasure17":"","strMeasure18":"","strMeasure19":"","strMeasure20":"","strSource":"http:\/\/www.hemsleyandhemsley.com\/recipe\/chocolate-avocado-mousse\/","dateModified":null}]}'
+    http_version: 
+  recorded_at: Fri, 02 Mar 2018 16:16:50 GMT
+recorded_with: VCR 4.0.0

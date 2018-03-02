@@ -164,6 +164,10 @@ article span {
   width: 238px;
 }
 
+#nutrition_calories {
+  font-size: 22px;
+}
+
 @media ( min-width: 960px ) {
 
   .thumbnail {
@@ -238,6 +242,9 @@ article span {
 
   .nutritioncontainer {
     width: 40%;
+    text-align: left;
+    position: relative;
+    right: -10%;
     overflow: hidden;
   }
 
