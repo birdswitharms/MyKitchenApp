@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function(e){
       searchContainerDiv.parentElement.style.position = 'relative';
       searchContainerDiv.style.position = 'absolute';
 
-      console.log(ingredientSearchEle.getBoundingClientRect().bottom + 'px');
+      // console.log(ingredientSearchEle.getBoundingClientRect().bottom + 'px');
       searchContainerDiv.style.top = ingredientSearchEle.getBoundingClientRect().bottom -  pantryFormEle.getBoundingClientRect().top + 'px';
       searchContainerDiv.style.left = ingredientSearchEle.getBoundingClientRect().left - pantryFormEle.getBoundingClientRect().left + 'px';
       // pantryFormEle.getBoundingClientRect().top  + 'px';
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function(e){
     // every key press runs new search
     window.addEventListener('keydown', function(e){
       if (withinIngredientSearch) {
-      
+
       if (addRemoveBtn) {
         var temp_parent = addRemoveBtn.parentElement
         temp_parent.removeChild(addRemoveBtn);

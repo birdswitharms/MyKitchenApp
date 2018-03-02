@@ -111,7 +111,15 @@ class Recipe < ApplicationRecord
 
       create_appliances(new_recipe)
 
+      if new_recipe.save
+        puts "Recipe successful"
+      else
+        puts "Recipe failed"
+        puts recipe.errors.full_messages
+      end
+      
     }
+
     return nil
   end
 
@@ -183,21 +191,23 @@ class Recipe < ApplicationRecord
       new_recipe = Recipe.new(name: recipe['strMeal'].chomp, youtube_url: youtube , image_url: img, user: User.first)
     end
 
-    if new_recipe.save
-      puts "Recipe Successful"
+    # debug
+    # if new_recipe.save
+    #   puts "Recipe Successful"
       recipe['strInstructions'].split(/[\r\n]+/).each { |instruction|
-        step = Step.new(content: instruction.downcase, recipe_id: new_recipe.id)
-        puts "*"*20
-        if step.save
-          puts "Step Successful"
-        else
-          puts "Step Failed"
-        end
+        new_recipe.steps.new(content: instruction.downcase)
+        # step = Step.new(content: instruction.downcase, recipe: new_recipe.id)
+        # puts "*"*20
+        # if step.save
+          # puts "Step Successful"
+        # else
+          # puts "Step Failed"
+        # end
       }
-    else
-      puts "Recipe Failed"
-      puts new_recipe.errors.full_messages
-    end
+    # else
+    #   puts "Recipe Failed"
+    #   puts new_recipe.errors.full_messages
+    # end
     return new_recipe
   end
 
@@ -237,7 +247,8 @@ class Recipe < ApplicationRecord
     appliances = Recipe.show_appliances(new_recipe)
     unless appliances.any?
       appliances.each { |appliance|
-        new_recipe.appliances << appliance
+        # new_recipe.appliances << appliance
+        appliance.recipes << new_recipe
       }
     end
   end
@@ -274,6 +285,8 @@ class Recipe < ApplicationRecord
   end
 
   def self.show_appliances(recipe)
+    puts "*"*20
+    puts "Show Appliances"
     matches = []
     Appliance.all.each { |appliance|
       steps = recipe.steps.where("content LIKE (?)", "%#{appliance.name}%")
