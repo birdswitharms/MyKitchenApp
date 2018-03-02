@@ -1,3 +1,5 @@
+require 'uri'
+
 class RecipesController < ApplicationController
 
   before_action :load_recipe, only: [:show, :review, :add_shoppinglist, :addsome_shoppinglist, :user_made]
@@ -67,6 +69,10 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = current_user.recipes.new(recipe_params)
+
+    unless URI.parse(@recipe.image_url).host && URI.parse(@recipe.image_url).path
+      @recipe.image_url = ""
+    end
 
     recipe_steps
     recipe_ingredients
