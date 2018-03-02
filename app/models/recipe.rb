@@ -190,8 +190,14 @@ class Recipe < ApplicationRecord
       youtube = recipe['strYoutube'].chomp if recipe['strYoutube']
       img = recipe['strMealThumb'].chomp if recipe['strMealThumb']
 
-      unless URI.parse(img).host && URI.parse(img).path
+      begin
+        URI.parse(img)
+      rescue
         img = ""
+      else
+        unless URI.parse(img).host && URI.parse(img).path
+          img = ""
+        end
       end
 
       new_recipe = Recipe.new(name: recipe['strMeal'].chomp, youtube_url: youtube , image_url: img, user: User.first)

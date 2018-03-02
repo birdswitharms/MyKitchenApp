@@ -70,8 +70,14 @@ class RecipesController < ApplicationController
   def create
     @recipe = current_user.recipes.new(recipe_params)
 
-    unless URI.parse(@recipe.image_url).host && URI.parse(@recipe.image_url).path
+    begin
+      URI.parse(@recipe.image_url)
+    rescue
       @recipe.image_url = ""
+    else
+      unless URI.parse(@recipe.image_url).host && URI.parse(@recipe.image_url).path
+        @recipe.image_url = ""
+      end
     end
 
     recipe_steps
