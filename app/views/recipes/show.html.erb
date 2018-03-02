@@ -2,15 +2,15 @@
 <article>
 
   <span>
-    <h3 class="recipe_header"><%= @recipe.name %></h3>
-    <%= image_tag(@recipe.image_url, :class => "recipe_image") %>
+    <h3 class="recipe_header"><%= @recipe.name.html_safe %></h3>
+    <%= image_tag(@recipe.image_url.html_safe, :class => "recipe_image") %>
   </span>
 
   <p class="sub_header"><strong>Steps</strong></p>
 
   <div class="steps">
     <% @steps.each_with_index do |step, i| %>
-      <p class="content">Step <%= i+1 %>: <%= step.content %></p>
+      <p class="content">Step <%= i+1 %>: <%= step.content.html_safe %></p>
     <% end %>
   </div>
   <br><br>
@@ -45,7 +45,7 @@
   <center>
     <ul id='ingredients_ul'>
       <% @ingredients.each do |ingredient| %>
-        <li class="content"><%= ingredient.measurement_unit %>: <%= ingredient.food.name %></li>
+        <li class="content"><%= ingredient.measurement_unit.html_safe %>: <%= ingredient.food.name.html_safe %></li>
       <% end %>
     </ul>
 
@@ -77,7 +77,7 @@
         <% @reviews.each do |review| %>
           <div class="review">
             <p><%= review.user.name %> says...</p>
-            <p>"<%= review.comment %>"</p>
+            <p>"<%= review.comment.html_safe %>"</p>
             <p><time class='review_time'><%= review.created_at.strftime('%b-%d-%Y') %></time></p>
           </div>
         <% end  %>
