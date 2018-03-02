@@ -7,7 +7,7 @@ class Changethetables < ActiveRecord::Migration[5.1]
     end
 
     add_column :foods, :category_id, :integer
-    drop_table :kitchens
-    drop_table :foods_kitchens
+    # drop_table :kitchens
+    # drop_table :foods_kitchens
   end
 end
