@@ -67,7 +67,7 @@
   <center>
     <% if @recipe.youtube_url %>
       <div class="video">
-        <iframe width="560" height="315" id="youtube_iframe" src="https://www.youtube.com/embed/<%= j @recipe.youtube_url.split('=').last %>?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe width="560" height="315" id="youtube_iframe" src="https://www.youtube.com/embed/<%= j @recipe.youtube_url.split('=').last %>?rel=0" frameborder="0" allowfullscreen></iframe>
       </div>
     <% end %>
   </center>

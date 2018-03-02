@@ -26,7 +26,9 @@ document.addEventListener('DOMContentLoaded', function(e){
   var measurements = ['1/8 teaspoon', '1/4 teaspoon', '1/2 teaspoon', 'teaspoon', '1/8 tablespoon', '1/4 tablespoon', '1/2 tablespoon', 'tablespoon', '1/8 cup', '1/4 cup', '1/2 cup', 'cup', '1/4 pint', '1/2 pint', 'pint', '1/4 gallon', '1/2 gallon', 'gallon', 'fluid ounce', '1/4 quart', '1/2 quart', 'quart', '1/4 liter', '1/2 liter', 'liter', 'ounce', 'grams', 'lbs', 'kgs'];
   var initial_select = document.getElementById('initial_select');
 
-  initial_select.style.width = '90px';
+  if (initial_select) {
+    initial_select.style.width = '90px';
+  }
 
   if (initial_select) {
     for (var i = 0; i < measurements.length; i++) {
@@ -97,7 +99,6 @@ document.addEventListener('DOMContentLoaded', function(e){
   if (bottom_button) {
     bottom_button.addEventListener('click', function() {
       bottom_menu.classList.toggle("bottom_menu_show")
-      console.log('TEST');
     });
   };
 
