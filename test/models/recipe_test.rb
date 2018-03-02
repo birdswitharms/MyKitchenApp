@@ -10,10 +10,34 @@ class RecipeTest < ActiveSupport::TestCase
   end
 
   test 'A recipe can be created' do
-    recipe = build(:recipe)
+    recipe = build(:recipe, user: create(:user))
+    recipe.steps.new(content: "ayyy")
+    recipe.ingredients.new(food: create(:food), measurement_unit: "1 teaspoon")
+    recipe.save
     assert recipe.valid?
   end
 
+  test 'A recipe cannot be created without user' do
+    recipe = build(:recipe)
+    recipe.steps.new(content: "ayyy")
+    recipe.ingredients.new(food: create(:food), measurement_unit: "1 teaspoon")
+    recipe.save
+    assert recipe.invalid?
+  end
+
+  test 'A recipe cannot be created without atleast 1 step' do
+    recipe = build(:recipe, user: create(:user))
+    recipe.ingredients.new(food: create(:food), measurement_unit: "1 teaspoon")
+    recipe.save
+    assert recipe.invalid?
+  end
+
+  test 'A recipe cannot be created without atleast 1 ingredient' do
+    recipe = build(:recipe, user: create(:user))
+    recipe.steps.new(content: "ayyy")
+    recipe.save
+    assert recipe.invalid?
+  end
 
 
 

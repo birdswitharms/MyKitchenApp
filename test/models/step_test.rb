@@ -10,7 +10,7 @@ class StepTest < ActiveSupport::TestCase
     assert step.invalid?
   end
 
-  test 'A step is invalid' do
+  test 'A step cannot be created without a message/content' do
     step = build(:step, content: nil)
     assert step.invalid?
   end
