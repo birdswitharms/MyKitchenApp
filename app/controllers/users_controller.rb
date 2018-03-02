@@ -7,12 +7,13 @@ class UsersController < ApplicationController
   def create
     @user = User.new(
       name: params[:user][:name],
+      email: params[:user][:email],
       password: params[:user][:password],
       password_confirmation: params[:user][:password_confirmation]
     )
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to update_pantry_path
     else
       flash.now[:alert] = @user.errors.full_messages
       render :new

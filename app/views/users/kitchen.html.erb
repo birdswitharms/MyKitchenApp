@@ -11,6 +11,7 @@
   <center><%= link_to "Add Ingredients", users_pantry_path %></center>
   <br><br>
 </div>
+  <br><br>
 <center><h2>Appliances</h2></center>
 <div class="food-div">
   <% @appliances.each do |appliance| %>
@@ -18,7 +19,7 @@
       <p><%= appliance.name.capitalize %></p>
     </article>
   <% end %>
-  <br>
+  <br><br><br><br>
   <center><%= link_to "Add Appliances", user_appliances_path %></center>
   <br><br>
 </div>

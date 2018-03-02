@@ -241,7 +241,7 @@ class RecipesController < ApplicationController
         puts "="*20
       end
     end
-    redirect_to root_path
+    redirect_to users_shoppinglist_path
   end
 
   def addsome_shoppinglist
@@ -259,20 +259,22 @@ class RecipesController < ApplicationController
         puts "="*20
       end
     end
-    redirect_to root_path
+    redirect_to users_shoppinglist_path
   end
 
   def user_made
-    history = History.new(user: current_user, recipe: @recipe)
-    if history.save
-      puts "="*20
-      puts "History Saved Successfull"
-    else
-      puts "="*20
-      puts "History Failed to Save"
-      flash[:errors] = history.errors.full_messages
+    unless current_user.histories.any? {|history| history.recipe_id == @recipe.id }
+      history = History.new(user: current_user, recipe: @recipe)
+      if history.save
+        puts "="*20
+        puts "History Saved Successfull"
+      else
+        puts "="*20
+        puts "History Failed to Save"
+        flash[:errors] = history.errors.full_messages
+      end
     end
-    redirect_to root_path
+      redirect_to root_path
   end
 
 private
