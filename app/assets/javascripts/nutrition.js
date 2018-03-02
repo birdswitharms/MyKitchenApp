@@ -13,7 +13,10 @@ document.addEventListener('DOMContentLoaded', function(e){
       // 'ingredientList' : 'Bleu Cheese Dressing',
 
       'decimalPlacesForQuantityTextbox' : 2,
-      'valueServingUnitQuantity' : 1,
+      'valueServingUnitQuantity' : 2,
+      'showServingUnitQuantity' : true,
+      'hideTextboxArrows' : false,
+
 
       'allowFDARounding' : true,
       'decimalPlacesForNutrition' : 2,
