@@ -2,15 +2,15 @@
 <article>
 
   <span>
-    <h3 class="recipe_header"><%= @recipe.name.html_safe %></h3>
-    <%= image_tag(@recipe.image_url.html_safe, :class => "recipe_image") %>
+    <h3 class="recipe_header"><%= sanitize(@recipe.name) %></h3>
+    <%= image_tag(sanitize(@recipe.image_url), :class => "recipe_image") %>
   </span>
 
   <p class="sub_header"><strong>Steps</strong></p>
 
   <div class="steps">
     <% @steps.each_with_index do |step, i| %>
-      <p class="content">Step <%= i+1 %>: <%= step.content.html_safe %></p>
+      <p class="content">Step <%= i+1 %>: <%= sanitize(step.content) %></p>
     <% end %>
   </div>
   <br><br>
@@ -45,7 +45,7 @@
   <center>
     <ul id='ingredients_ul'>
       <% @ingredients.each do |ingredient| %>
-        <li class="content"><%= ingredient.measurement_unit.html_safe %>: <%= ingredient.food.name.html_safe %></li>
+        <li class="content"><%= sanitize(ingredient.measurement_unit) %>: <%= sanitize(ingredient.food.name) %></li>
       <% end %>
     </ul>
 
@@ -67,7 +67,7 @@
   <center>
     <% if @recipe.youtube_url %>
       <div class="video">
-        <iframe width="560" height="315" id="youtube_iframe" src="https://www.youtube.com/embed/<%= @recipe.youtube_url.split('=').last %>?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe width="560" height="315" id="youtube_iframe" src="https://www.youtube.com/embed/<%= j @recipe.youtube_url.split('=').last %>?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </div>
     <% end %>
   </center>
@@ -76,8 +76,8 @@
       <% if @reviews && @reviews.any? %>
         <% @reviews.each do |review| %>
           <div class="review">
-            <p><%= review.user.name %> says...</p>
-            <p>"<%= review.comment.html_safe %>"</p>
+            <p><%= sanitize(review.user.name) %> says...</p>
+            <p>"<%= sanitize(review.comment) %>"</p>
             <p><time class='review_time'><%= review.created_at.strftime('%b-%d-%Y') %></time></p>
           </div>
         <% end  %>
