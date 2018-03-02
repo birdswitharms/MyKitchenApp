@@ -1,3 +1,5 @@
+require 'uri'
+
 class Recipe < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   # need to make custom validation to make sure there are self.steps and self.ingredients
@@ -187,6 +189,10 @@ class Recipe < ApplicationRecord
     else
       youtube = recipe['strYoutube'].chomp if recipe['strYoutube']
       img = recipe['strMealThumb'].chomp if recipe['strMealThumb']
+
+      unless URI.parse(img).host && URI.parse(img).path
+        youtube = ""
+      end
 
       new_recipe = Recipe.new(name: recipe['strMeal'].chomp, youtube_url: youtube , image_url: img, user: User.first)
     end
