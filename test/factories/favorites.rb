@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :favorites do
-    sequence(:name )    { |num| "Appliance #{num}"}
+  factory :favorite do
+
   end
 end
