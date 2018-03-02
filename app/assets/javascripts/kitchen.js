@@ -1,5 +1,4 @@
 var currentMatches = false;
-console.log("test");
 document.addEventListener('DOMContentLoaded', function(e){
 
   var pantryFormEle = document.querySelector('#pantry_form') || document.querySelector('#recipe_form');
@@ -8,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function(e){
   var addRemoveBtn = false;
   var searchContainerDiv = false;
   var pantrySubmitEle = document.querySelector('#pantry_submit_button');
-  console.log("form");
   if (pantryFormEle) {
     // var IngredientArr = document.querySelector('#ingredient_list_').value.split(',')
     // console.(IngredientArr);
@@ -19,9 +17,7 @@ document.addEventListener('DOMContentLoaded', function(e){
     else {
       var ingredientList = []
     }
-    console.log("before");
     if (ingredientList && ingredientList.length === 0) {
-      console.log("ran");
       var ingredientsNodes = document.querySelectorAll("label");
     }
 
@@ -57,11 +53,9 @@ document.addEventListener('DOMContentLoaded', function(e){
     // check first if search is focused
     ingredientSearchEle.addEventListener('focus', function(e) {
       withinIngredientSearch = true;
-      console.log("gained focus");
     });
     ingredientSearchEle.addEventListener('blur', function(e) {
       withinIngredientSearch = false;
-      console.log("lost focus");
     });
 
     // every key press runs new search
@@ -110,15 +104,12 @@ document.addEventListener('DOMContentLoaded', function(e){
 
       });
 
-
-
       // select element
       searchContainerDiv.addEventListener('click', function(e) {
         if (e.target !== searchContainerDiv) {
           ingredientSearchEle.value = e.target.innerText;
           searchContainerDiv.innerHTML = '';
           // add button to add or remove
-          console.log(ingredientsNodes);
           if (ingredientsNodes) {
             for (var i = 0; i < ingredientsNodes.length; i++) {
               if (ingredientsNodes[i].innerText.toLowerCase() === ingredientSearchEle.value.toLowerCase()) {
