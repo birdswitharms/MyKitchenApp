@@ -115,9 +115,9 @@ class Recipe < ApplicationRecord
         puts "Recipe successful"
       else
         puts "Recipe failed"
-        puts recipe.errors.full_messages
+        puts new_recipe.errors.full_messages
       end
-      
+
     }
 
     return nil
