@@ -21,7 +21,7 @@ class RecipesController < ApplicationController
     end
 
     if params[:term]
-      @all_recipes = Recipe.where('LOWER(name) LIKE ?', "%#{params[:term].downcase}%")
+      @all_recipes = Recipe.where('lower(name) LIKE ?', "%#{params[:term].downcase}%")
     end
 
   end

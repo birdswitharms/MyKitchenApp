@@ -39,3 +39,31 @@
   margin-bottom: 1em;
 
 }
+
+.weeklyplanner {
+  margin: auto;
+  height: 250px;
+  width: 90%;
+  margin-top: 3em;
+}
+
+.dayplanner {
+  display: inline-block;
+  height: 100%;
+  width: (95%/7);
+  text-align: center;
+  text-decoration: underline;
+  border: 1px solid black;
+}
+
+.breakfast, .lunch, .dinner {
+  width: 99%;
+  height: 30%;
+}
+
+.weeklyplanner span {
+  width: 90%;
+  height: 70%;
+  display: inline-block;
+  border: 1px solid black;
+}

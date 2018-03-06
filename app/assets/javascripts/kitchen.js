@@ -1,5 +1,5 @@
 var currentMatches = false;
-document.addEventListener('DOMContentLoaded', function(e){
+document.addEventListener('DOMContentLoaded', function(e) {
 
   var pantryFormEle = document.querySelector('#pantry_form') || document.querySelector('#recipe_form');
   var withinIngredientSearch = false;
@@ -187,7 +187,32 @@ document.addEventListener('DOMContentLoaded', function(e){
 
   }
 
-});
+  const checkboxes = document.querySelectorAll('.pantry [type="checkbox"]');
+
+  let lastChecked;
+
+  function handleCheck(e) {
+    // check if they had the shift key down
+    let inBetween = false;
+    if (e.shiftKey && this.checked) {
+      checkboxes.forEach(checkbox => {
+        if (checkbox === this || checkbox === lastChecked) {
+          inBetween = !inBetween;
+          console.log('Starting to check them inbetween!');
+        }
+
+        if (inBetween) {
+          checkbox.checked = true;
+        }
+      });
+    };
+
+    lastChecked = this;
+  };
+
+  checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
+
+});  // this function below suppose to be outside of DOMContentLoaded?
 
 function search(searchString, ingredientArray) {
   matches = [];
