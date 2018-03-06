@@ -12,6 +12,8 @@ class RecipesController < ApplicationController
     if current_user
       @all_recipes_with_ingredients = Recipe.valid_recipes_with_pantry(current_user)
       @all_recipes_with_appliances = Recipe.valid_recipes_with_appliances(current_user)
+      puts "*"*20
+      ap @all_recipes_with_appliances
       @all_recipes = @all_recipes_with_ingredients & @all_recipes_with_appliances
       @partial_recipes = Recipe.valid_recipes_partial(current_user)
       if params[:allrecipes]
