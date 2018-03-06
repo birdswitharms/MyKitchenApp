@@ -166,15 +166,14 @@ document.addEventListener('DOMContentLoaded', function(e){
 
     pantryFormEle.addEventListener('click', function(e) {
       // Checks related checkbox when the label is clicked
-      // console.log(e.target.nodeName);
+      console.log(e.target.nodeName);
       if (e.target !== ingredientSearchEle && (e.target.nodeName === 'LABEL' || e.target.nodeName === 'INPUT')) {
         pantrySubmitEle.style.backgroundColor = 'khaki';
         pantrySubmitEle.style.fontWeight = 'bold';
-      }
-      else {
+
         if (e.target.parentElement) {
           inputEle = e.target.parentElement.querySelector('input')
-          if (inputEle) {
+          if (inputEle && e.target.nodeName !== 'INPUT') {
             inputEle.checked = !inputEle.checked
           }
         }

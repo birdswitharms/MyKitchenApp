@@ -21,7 +21,7 @@ class RecipesController < ApplicationController
     end
 
     if params[:term]
-      @all_recipes = Recipe.where('name LIKE ?', "%#{params[:term]}%")
+      @all_recipes = Recipe.where('LOWER(name) LIKE ?', "%#{params[:term].downcase}%")
     end
 
   end
@@ -130,78 +130,6 @@ class RecipesController < ApplicationController
       end
       @recipe.ingredients << ingredient
     }
-  end
-
-  def createx
-    @recipe = Recipe.new(recipe_params)
-    @recipe.update(user: current_user)
-
-      if @recipe.save
-        params[:recipe][:steps].each do |key, value|
-          step = Step.new(content: value.downcase, recipe_id: @recipe.id)
-          if step.save
-            @recipe.steps << step
-          else
-            flash[:errors] = @recipe.errors.full_messages
-          end
-        end
-
-        params[:recipe][:ingredient].each do |key, value|
-          puts "*"*20
-          puts "Run #{key}"
-          puts "*"*20
-
-          food = Food.find_by(name: value.capitalize)
-          if food
-            # need to implement measurement_unit
-            ingredient = Ingredient.new(food_id: food.id, measurement_unit: params[:recipe][:measurement][key])
-            existing_ingredient = Ingredient.find_by(food: ingredient.food, measurement_unit: ingredient.measurement_unit)
-            if (existing_ingredient)
-              ingredient = existing_ingredient
-            else
-              if ingredient.save
-
-              else
-                flash[:errors] = ingredient.errors.full_messages
-              end
-            end
-          else
-            flash[:errors] = "Food not found, Recipe was not created."
-            @recipe.destroy
-          end
-
-          # !@recipe.ingredients.include?(ingredient)
-          if @recipe && ingredient
-            @recipe.ingredients << ingredient
-          else
-            puts "="*20
-            if @recipe.errors.full_messages
-              flash[:errors] = @recipe.errors.full_messages
-            end
-            puts "="*20
-          end
-        end
-
-        if flash[:errors] && flash[:errors].any?
-          puts "$"*20
-          puts flash[:errors]
-        else
-          flash[:notice] = "New recipe successfully added"
-        end
-         redirect_to root_path
-      else
-        puts "="*20
-        flash[:errors] = @recipe.errors.full_messages
-        puts "="*20
-        redirect_to root_path
-
-      end
-      appliances = Recipe.show_appliances(@recipe)
-      unless appliances.any?
-        appliances.each { |appliance|
-          @recipe.appliances << appliance
-        }
-      end
   end
 
   def favorite
