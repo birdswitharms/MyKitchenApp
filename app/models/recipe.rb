@@ -2,9 +2,6 @@ require 'uri'
 
 class Recipe < ApplicationRecord
   validates :name, presence: true, uniqueness: true
-  # need to make custom validation to make sure there are self.steps and self.ingredients
-  # validates :steps, presence: true
-  # validates :ingredients, presence: true
   validate :have_steps
   validate :have_ingredients
 
@@ -15,7 +12,6 @@ class Recipe < ApplicationRecord
   has_many :foods, through: :ingredients
   has_many :favorites
   has_many :reviews
-  has_many :appliances_recipes
   has_many :histories
   belongs_to :user
 
@@ -76,7 +72,7 @@ class Recipe < ApplicationRecord
             ingredient = actual_ingredient
           else
             puts "*"*20
-            puts "ERROR WAS MAIN"
+            puts "Update ingredient"
             puts "*"*20
             if ingredient.update!(measurement_unit: current_food["serving_qty"].to_s + " " + current_food["serving_unit"].to_s)
             nutrition_details(ingredient, current_food)
@@ -257,11 +253,14 @@ class Recipe < ApplicationRecord
     puts "*"*20
     puts "CREATE APPLIANCES"
     appliances = Recipe.show_appliances(new_recipe)
-    unless appliances.any?
+    # binding.pry
+    if appliances.any?
+      puts "APPLIANCES FOUND"
       appliances.each { |appliance|
-        # new_recipe.appliances << appliance
         appliance.recipes << new_recipe
       }
+    else
+      puts "APPLIANCES NOT FOUND"
     end
   end
 
@@ -279,7 +278,7 @@ class Recipe < ApplicationRecord
             ingredient.save
           else
             puts "*"*20
-            puts "ERROR WAS IN FIX"
+            puts "Ingredient updates with api"
             puts "*"*20
             if ingredient.update!(measurement_unit: food["serving_qty"].to_s + " " + food["serving_unit"].to_s)
               puts "Ingredient Successful inside fix_ingredients"
@@ -301,13 +300,28 @@ class Recipe < ApplicationRecord
     puts "Show Appliances"
     matches = []
     Appliance.all.each { |appliance|
-      steps = recipe.steps.where("content LIKE (?)", "%#{appliance.name}%")
-      if steps.any?
-        steps.each { |step|
+      recipe.steps.each{ |step|
+        # binding.pry
+        if step.content.include?(appliance.name.downcase)
           matches << appliance
-        }
-      end
+        end
+      }
+      # steps = recipe.steps.where("lower(content) LIKE ?", "%#{appliance.name.downcase}%")
+      # steps = recipe.steps.where("lower(content) LIKE (?)", "%#{appliance.name.downcase}%")
+      # if appliance.name == 'food processor'
+      # end
+      # if steps.any?
+      #   puts "*"*20
+      #   puts "#{steps} Matching #{appliance} found"
+      #   matches << appliance
+      # else
+      #   puts "*"*20
+      #   puts "no steps Matching Appliances"
+      # end
     }
+    puts "*"*20
+    puts "MATCHES"
+    ap matches
     return matches.uniq
   end
 
@@ -390,7 +404,7 @@ class Recipe < ApplicationRecord
   end
 
   def self.valid_recipes_with_appliances(user)
-    r = select { |recipe| (recipe.appliances - user.appliances).any? }
+    r = select { |recipe| (recipe.appliances - user.appliances).empty? }
     ap "*"*20
     ap "Recipes with appliances"
     # ap r
