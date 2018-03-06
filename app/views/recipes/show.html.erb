@@ -6,7 +6,7 @@
     <%= image_tag(sanitize(@recipe.image_url), :class => "recipe_image") %>
   </span>
 
-  <p class="sub_header"><strong>Steps</strong></p>
+  <p class="sub_header"><strong>Steps:</strong></p>
 
   <div class="steps">
     <% @steps.each_with_index do |step, i| %>
