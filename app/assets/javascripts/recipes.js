@@ -127,6 +127,9 @@ document.addEventListener('DOMContentLoaded', function(e){
       measurement_field.name = "recipe[measurement]["+ingredient_counter+"]";
       ingredient_field.id = "ingredient"+ingredient_counter;
       ingredient_field.placeholder = "ex. Chicken"
+      ingredient_field.classList.add("ingredient_search_input")
+      // ingredient_field.style.width = "132px"
+      ingredient_field.autocomplete = "off";
       measurement_field.id = "measurement"+ingredient_counter;
       var p = document.createElement('p');
       p.innerText = "Ingredient "+ingredient_counter+": ";
@@ -139,7 +142,12 @@ document.addEventListener('DOMContentLoaded', function(e){
       p.append(cln);
       p.append(" ");
       p.append(ingredient_field);
+      // ingredient_div.append(p);
 
+      ingredient_field.addEventListener('blur', addBlur);
+      ingredient_field.addEventListener('focus', addFocus);
+      // searcher(document);
+      return
     });
   };
 

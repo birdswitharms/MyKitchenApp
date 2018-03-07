@@ -3,16 +3,25 @@
 <br>
 <center>
   <div class="pantry">
-    <%= form_tag user_appliances_path(current_user), method: :patch do %>
-    <% @appliances.each do |appliance| %>
-      <p>
-        <%= check_box_tag appliance.name.downcase %>
-        <%= label_tag appliance.name %>
-      </p>
-    <% end %>
+    <%= form_tag user_appliances_path(current_user), method: :patch, :id => 'pantry_form' do %>
     <p>
-      <%= submit_tag "Add to my Kitchen!" %>
+      <%= submit_tag "Add to my Kitchen!", :id => 'pantry_submit_button'%>
     </p>
+    <input type="text" name="" value="" id='ingredient_search' autocomplete="off">
+
+    <% @appliances.each do |appliance| %>
+      <% if current_user && current_user.appliances.include?(appliance) %>
+        <p>
+          <%= check_box_tag(appliance.name.downcase, 1, true) %>
+          <%= label_tag appliance.name %>
+        </p>
+      <% else %>
+        <p>
+          <%= check_box_tag(appliance.name.downcase, 1, false) %>
+          <%= label_tag appliance.name %>
+        </p>
+      <% end %>
+    <% end %>
   <% end %>
   <br>
 
