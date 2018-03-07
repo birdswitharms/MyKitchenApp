@@ -93,4 +93,10 @@ class UsersController < ApplicationController
     @planner = current_user.weekly_planners
   end
 
+  def save_weeklyplanner
+    puts "*"*20
+    puts "test test "*3
+    puts "*"*20
+  end
+
 end

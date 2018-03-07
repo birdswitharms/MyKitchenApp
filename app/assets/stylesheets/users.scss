@@ -52,28 +52,39 @@
   height: 100%;
   width: (95%/7);
   text-align: center;
+  // border: 1px solid black;
 }
 
 .breakfast, .lunch, .dinner {
+  margin-top: 2em;
   width: 99%;
-  height: 30%;
+  height: 40%;
+  // border: 1px solid black;
 }
 
 .weeklyplanner span {
-  width: 90%;
-  height: 70%;
+  width: 80%;
+  height: 90%;
   display: inline-block;
+  border: 1px solid black;
 }
 
 .recipedroppable {
-  width: 11%;
-  height: 13%;
+  display: inline-block;
+  text-align: center;
+  width: 5%;
   padding: 10px;
   float: left;
   margin: 10px;
-  border: 1px solid black;
+  // border: 1px solid black;
 }
 
 .weeklyplanner h4 {
   margin-bottom: 2em;
+  // border: 1px solid black;
+}
+
+#save_weeklyplanner {
+  margin-left: 10em;
+  margin-top: 10em;
 }

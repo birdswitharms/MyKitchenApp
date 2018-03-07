@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   post 'recipe/:id/review' => 'recipes#review', as: 'review_recipe'
   post 'recipe/:id/weeklyplanner' => 'recipes#add_weeklyplanner', as: 'add_to_weekly'
 
+
+
   resources :users, only: [:new, :create]
 
   get 'users/kitchen' => 'users#kitchen'
@@ -30,6 +32,7 @@ Rails.application.routes.draw do
   patch 'user/appliances' => 'users#update_appliances'
   patch 'users/kitchen' => 'users#update', as: 'update_pantry'
   post 'users/shoppinglist' => 'users#remove_shoppinglist', as: 'removed_foods'
+  post 'user/weeklyplanner' => 'users#save_weeklyplanner', as: 'save_weeklyplanner'
 
   resources :sessions, only: [:new, :create, :destroy]
 
