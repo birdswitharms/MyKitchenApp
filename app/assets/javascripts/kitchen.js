@@ -68,18 +68,21 @@ document.addEventListener('DOMContentLoaded', function(e) {
         addRemoveBtn = null;
       }
         if (e.key === 'Backspace') {
-          currentMatches = search(ingredientSearchEle.value.slice(0,-1), ingredientList)
+          var searchString = ingredientSearchEle.value.slice(0,-1)
+          var currentMatches = search(searchString, ingredientList)
         }
         else {
-          currentMatches = search(ingredientSearchEle.value + e.key, ingredientList)
+          var searchString = ingredientSearchEle.value + e.key
+          var currentMatches = search(searchString, ingredientList)
         }
 
       searchContainerDiv.innerHTML = '';
 
       if (currentMatches) {
         currentMatches.forEach(function(match, index) {
-          div = document.createElement('div');
-          div.innerText = match;
+          var div = document.createElement('div');
+          var regex = new RegExp(searchString, 'gi');
+          div.innerHTML = match.replace(regex, `<span class="hl">${searchString}</span>`);
           // div.style.zIndex = 2;
           // div.style.position = 'absolute';
           div.style.backgroundColor = 'white';
