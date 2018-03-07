@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   post 'recipe/:id/maderecipe' => 'recipes#user_made', as: 'made_recipe'
   post 'recipe/:id/favorite' => 'recipes#favorite', as: 'favorite_recipe'
   post 'recipe/:id/review' => 'recipes#review', as: 'review_recipe'
+  post 'recipe/:id/weeklyplanner' => 'recipes#add_weeklyplanner', as: 'add_to_weekly'
 
   resources :users, only: [:new, :create]
 

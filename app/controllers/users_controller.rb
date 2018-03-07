@@ -89,4 +89,8 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def weeklyplanner
+    @planner = current_user.weekly_planners
+  end
+
 end

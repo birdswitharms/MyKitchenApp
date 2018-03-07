@@ -13,6 +13,7 @@ class Recipe < ApplicationRecord
   has_many :favorites
   has_many :reviews
   has_many :histories
+  has_many :weekly_planners
   belongs_to :user
 
   def have_steps

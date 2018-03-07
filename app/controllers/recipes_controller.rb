@@ -2,7 +2,7 @@ require 'uri'
 
 class RecipesController < ApplicationController
 
-  before_action :load_recipe, only: [:show, :review, :add_shoppinglist, :addsome_shoppinglist, :user_made]
+  before_action :load_recipe, only: [:show, :review, :add_shoppinglist, :addsome_shoppinglist, :user_made, :add_weeklyplanner]
 
 
 
@@ -217,6 +217,21 @@ class RecipesController < ApplicationController
       end
     end
       redirect_to root_path
+  end
+
+  def add_weeklyplanner
+    @planner = WeeklyPlanner.new(recipe_id: @recipe.id, user: current_user)
+    if @planner.save
+      puts "="*20
+      puts "Recipe added to Weekly Planner"
+      puts "="*20
+      redirect_to root_path
+    else
+      puts "="*20
+      puts "Recipe failed to save to Weekly Planner"
+      flash[:errors] = @planner.errors.full_messages
+      puts "="*20
+    end
   end
 
 private

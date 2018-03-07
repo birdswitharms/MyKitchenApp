@@ -52,8 +52,6 @@
   height: 100%;
   width: (95%/7);
   text-align: center;
-  text-decoration: underline;
-  border: 1px solid black;
 }
 
 .breakfast, .lunch, .dinner {
@@ -65,5 +63,17 @@
   width: 90%;
   height: 70%;
   display: inline-block;
+}
+
+.recipedroppable {
+  width: 11%;
+  height: 13%;
+  padding: 10px;
+  float: left;
+  margin: 10px;
   border: 1px solid black;
+}
+
+.weeklyplanner h4 {
+  margin-bottom: 2em;
 }
