@@ -14,6 +14,7 @@ gem 'pg', '=0.21'
 gem 'listen','>= 3.0.5', '< 3.2'
 gem 'hamburgers'
 gem "font-awesome-rails"
+gem 'jquery-ui-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use Puma as the app server

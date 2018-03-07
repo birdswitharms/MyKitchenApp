@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226165730) do
+ActiveRecord::Schema.define(version: 20180306211656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -141,6 +141,15 @@ ActiveRecord::Schema.define(version: 20180226165730) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "weekly_planners", force: :cascade do |t|
+    t.bigint "recipe_id"
+    t.bigint "user_id"
+    t.integer "day"
+    t.integer "meal"
+    t.index ["recipe_id"], name: "index_weekly_planners_on_recipe_id"
+    t.index ["user_id"], name: "index_weekly_planners_on_user_id"
+  end
+
   add_foreign_key "appliances_recipes", "appliances"
   add_foreign_key "appliances_recipes", "recipes"
   add_foreign_key "appliances_users", "appliances"
@@ -156,4 +165,6 @@ ActiveRecord::Schema.define(version: 20180226165730) do
   add_foreign_key "reviews", "users"
   add_foreign_key "shoppinglists", "foods"
   add_foreign_key "shoppinglists", "users"
+  add_foreign_key "weekly_planners", "recipes"
+  add_foreign_key "weekly_planners", "users"
 end

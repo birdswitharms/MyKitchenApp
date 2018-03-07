@@ -52,7 +52,7 @@
 
 # PRIORITY List - Features
 
-* As a user I can plan my recipes for the week - DROPPED
-* As a visitor I am able to search by calories per serving - DROPPED
-* As a visitor I can change how much of the recipe I want to create and will update the ingredients accordingly - DROPPED
-* As a user I can edit an existing recipe and make it my own custom recipe - DROPPED
+* As a user I can plan my recipes for the week - ANDREW
+* As a visitor I am able to search by calories per serving
+* As a visitor I can change how much of the recipe I want to create and will update the ingredients accordingly
+* As a user I can edit an existing recipe and make it my own custom recipe

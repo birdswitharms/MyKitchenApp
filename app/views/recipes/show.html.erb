@@ -33,6 +33,10 @@
         <%= submit_tag 'Foods not owned to Shoping List', :class => "call_to_action" %>
       <% end %>
 
+      <%= form_tag add_to_weekly_path(@recipe.id) do %>
+        <%= submit_tag 'Add recipe to Weekly Planner', :class => "call_to_action" %>
+      <% end %>
+
       <%= form_tag made_recipe_path(@recipe.id) do %>
         <%= submit_tag 'I made this Recipe!', :class => "call_to_action" %>
       <% end %>
