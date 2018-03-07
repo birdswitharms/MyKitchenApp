@@ -71,10 +71,11 @@
 
 .recipedroppable {
   display: inline-block;
+  position: absolute;
+  z-index: 100;
   text-align: center;
   width: 5%;
   padding: 10px;
-  float: left;
   margin: 10px;
   // border: 1px solid black;
 }
