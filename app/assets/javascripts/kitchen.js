@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
     // console.(IngredientArr);
     // console.(document.querySelector('#ingredient1'));
     if (document.querySelector('#ingredient_list_')) {
-      var ingredientList = document.querySelector('#ingredient_list_').value.split(',').sort()
+      var ingredientList = document.querySelector('#ingredient_list_').value.split('~').sort()
     }
     else {
       var ingredientList = []

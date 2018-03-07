@@ -37,6 +37,13 @@
   text-align: left;
 }
 
+#logo {
+  z-index: 100;
+  position: absolute;
+  max-width: 17%;
+  max-height: 17%;
+}
+
 .flash div {
   display: inline-block;
   margin: auto;

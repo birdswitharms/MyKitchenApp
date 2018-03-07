@@ -42,7 +42,9 @@
     </div>
 
     <nav>
-      <h1><%= link_to("MyKitchenApp", root_path, :id => 'LogoHeader') %></h1></center>
+      <%= link_to(image_tag("logo.png", :id => 'logo'), root_path, :id => 'LogoHeader')  %>
+
+      <!-- <h1><%= link_to("MyKitchenApp", root_path, :id => 'LogoHeader') %></h1></center> -->
 
       <button class="hamburger hamburger--spin" type="button" id="hamburger">
         <span class="hamburger-box">
