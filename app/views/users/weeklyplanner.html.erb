@@ -1,118 +1,124 @@
 <br>
 <center><h2 class="header">Weekly Planner</h2></center>
 <br><br>
-<div class="weeklyplanner">
 
+<div class="weeklyplanner">
   <div class="dayplanner" id="weeklysunday">
     <h4>Sunday</h4>
     <div class="breakfast" id="sundaybreakfast">
       Breakfast
-      <span class="ui-widget-header"></span>
+      <span class="ui-widget-header"><%= hidden_field_tag('0') %></span>
     </div>
     <div class="lunch">
       Lunch
-      <span class="ui-widget-header"></span>
+      <span class="ui-widget-header"><%= hidden_field_tag('1') %></span>
     </div>
     <div class="dinner">
       Dinner
-      <span class="ui-widget-header"></span>
+      <span class="ui-widget-header"><%= hidden_field_tag('2') %></span>
     </div>
   </div>
   <div class="dayplanner" id="weeklymonday">
     <h4>Monday</h4>
     <div class="breakfast" id="mondaybreakfast">
       Breakfast
-      <span class="ui-widget-header"></span>
+      <span class="ui-widget-header"><%= hidden_field_tag('3') %></span>
     </div>
     <div class="lunch">
       Lunch
-      <span class="ui-widget-header"></span>
+      <span class="ui-widget-header"><%= hidden_field_tag('4') %></span>
     </div>
     <div class="dinner">
       Dinner
-      <span class="ui-widget-header"></span>
+      <span class="ui-widget-header"><%= hidden_field_tag('5') %></span>
     </div>
   </div>
   <div class="dayplanner" id="weeklytuesday">
     <h4>Tuesday</h4>
     <div class="breakfast" id="tuesdaybreakfast">
       Breakfast
-      <span class="ui-widget-header"></span>
+      <span class="ui-widget-header"><%= hidden_field_tag('6') %></span>
     </div>
     <div class="lunch">
       Lunch
-      <span class="ui-widget-header"></span>
+      <span class="ui-widget-header"><%= hidden_field_tag('7') %></span>
     </div>
     <div class="dinner">
       Dinner
-      <span class="ui-widget-header"></span>
+      <span class="ui-widget-header"><%= hidden_field_tag('8') %></span>
     </div>
   </div>
   <div class="dayplanner" id="weeklywednesday">
     <h4>Wednesday</h4>
     <div class="breakfast" id="wednesdaybreakfast">
       Breakfast
-      <span class="ui-widget-header"></span>
+      <span class="ui-widget-header"><%= hidden_field_tag('9') %></span>
     </div>
     <div class="lunch">
       Lunch
-      <span class="ui-widget-header"></span>
+      <span class="ui-widget-header"><%= hidden_field_tag('10') %></span>
     </div>
     <div class="dinner">
       Dinner
-      <span class="ui-widget-header"></span>
+      <span class="ui-widget-header"><%= hidden_field_tag('11') %></span>
     </div>
   </div>
   <div class="dayplanner" id="weeklythursday">
     <h4>Thursday</h4>
     <div class="breakfast " id="thursdaybreakfast">
       Breakfast
-      <span class="ui-widget-header"></span>
+      <span class="ui-widget-header"><%= hidden_field_tag('12') %></span>
     </div>
     <div class="lunch">
       Lunch
-      <span class="ui-widget-header"></span>
+      <span class="ui-widget-header"><%= hidden_field_tag('13') %></span>
     </div>
     <div class="dinner">
       Dinner
-      <span class="ui-widget-header"></span>
+      <span class="ui-widget-header"><%= hidden_field_tag('14') %></span>
     </div>
   </div>
   <div class="dayplanner" id="weeklyfriday">
     <h4>Friday</h4>
     <div class="breakfast" id="fridaybreakfast">
       Breakfast
-      <span class="ui-widget-header"></span>
+      <span class="ui-widget-header"><%= hidden_field_tag('15') %></span>
     </div>
     <div class="lunch">
       Lunch
-      <span class="ui-widget-header"></span>
+      <span class="ui-widget-header"><%= hidden_field_tag('16') %></span>
     </div>
     <div class="dinner">
       Dinner
-      <span class="ui-widget-header"></span>
+      <span class="ui-widget-header"><%= hidden_field_tag('17') %></span>
     </div>
   </div>
   <div class="dayplanner" id="weeklysaturday">
     <h4>Saturday</h4>
     <div class="breakfast" id="saturdaybreakfast">
       Breakfast
-      <span class="ui-widget-header"></span>
+      <span class="ui-widget-header"><%= hidden_field_tag('18') %></span>
     </div>
     <div class="lunch">
       Lunch
-      <span class="ui-widget-header"></span>
+      <span class="ui-widget-header"><%= hidden_field_tag('19') %></span>
     </div>
     <div class="dinner">
       Dinner
-      <span class="ui-widget-header"></span>
+      <span class="ui-widget-header"><%= hidden_field_tag('20') %></span>
     </div>
   </div>
-
-<% @planner.each do |plan| %>
-  <div class="recipedroppable ui-widget-content">
-    <%= plan.recipe.name %>
-  </div>
-<% end %>
-
 </div>
+
+
+<%= form_tag save_weeklyplanner_path do %>
+
+  <% @planner.each do |plan| %>
+    <div class="recipedroppable ui-widget-content">
+      <%= plan.recipe.name %>
+      <%= hidden_field_tag(plan.recipe.name,plan.position) %>
+    </div>
+  <% end %>
+
+  <%= submit_tag 'Save Weekly Planner', :id => 'save_weeklyplanner' %>
+<% end %>

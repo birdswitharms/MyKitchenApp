@@ -144,8 +144,7 @@ ActiveRecord::Schema.define(version: 20180306211656) do
   create_table "weekly_planners", force: :cascade do |t|
     t.bigint "recipe_id"
     t.bigint "user_id"
-    t.integer "day"
-    t.integer "meal"
+    t.integer "position"
     t.index ["recipe_id"], name: "index_weekly_planners_on_recipe_id"
     t.index ["user_id"], name: "index_weekly_planners_on_user_id"
   end
