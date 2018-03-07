@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', function(e){
   if (loginEle) {
     loginEle.addEventListener('click', function(event) {
       event.preventDefault();
-      hamburger.click();
+      if (window.innerWidth < 960) {
+        hamburger.click();
+      }
       $.ajax({
         url: '/sessions/new',
         method: 'GET'

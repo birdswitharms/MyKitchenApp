@@ -66,7 +66,7 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @foods = Food.all.map(&:name).join(",")
+    @foods = Food.all.map(&:name).join("~")
   end
 
   def create
