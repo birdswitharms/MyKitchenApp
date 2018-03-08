@@ -84,16 +84,25 @@ article span {
 }
 
 .call_to_action {
+  background-color: #EAEAFD;
   width: 100%;
-  height: 2em;
+  height: 3em;
   font-weight: 700;
+  border: 1px solid #EAEAFD;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 12px 0 rgba(0, 0, 0, 0.19);
+}
+
+.call_to_action:hover {
+  background-color: #DFDFFD;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 12px 0 rgba(0, 0, 0, 0.19);
 }
 
 .bottom_menu {
   display: inline-block;
   background-color: GhostWhite;
   position: fixed;
-  bottom: -150px;
+  bottom: -200px;
   width: 100%;
   transition: .3s all;
   left: 0px;
@@ -121,6 +130,7 @@ article span {
   margin-right: 3%;
   margin-top: 1em;
   margin-bottom: 1em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .nutritioncontainer {
@@ -214,6 +224,7 @@ article span {
 
   #youtube_iframe {
     width: 60%;
+    // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     // margin-right: 25%;
   }
 
@@ -275,9 +286,9 @@ article span {
     font-size: 13px;
   }
 
-  #review_button_menu{
-    height: 21px;
-  }
+  // #review_button_menu{
+  //   height: 21px;
+  // }
 
   #review_close {
     position: fixed;
