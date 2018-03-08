@@ -21,8 +21,9 @@
             <%= submit_tag 'Save Recipe To Favourites', :class => "call_to_action"%>
           <% end %>
         <% end  %>
-
-      <%= submit_tag 'Post Review', :class => "call_to_action", :id => 'review_button_menu' %>
+      <form>
+        <%= submit_tag 'Post Review', :class => "call_to_action", :id => 'review_button_menu' %>
+      </form>
       <%= hidden_field_tag 'recipe_id', @recipe.id %>
 
       <%= form_tag saved_foods_path(@recipe.id) do %>
@@ -34,7 +35,7 @@
       <% end %>
 
       <%= form_tag add_to_weekly_path(@recipe.id) do %>
-        <%= submit_tag 'Add recipe to Weekly Planner', :class => "call_to_action" %>
+       <%= submit_tag 'Add recipe to Weekly Planner', :class => "call_to_action" %>
       <% end %>
 
       <%= form_tag made_recipe_path(@recipe.id) do %>
