@@ -14,3 +14,35 @@
 //= require rails-ujs
 //= require jquery-ui
 //= require_tree .
+
+document.addEventListener('DOMContentLoaded', function(e){
+  const topMenuLinks = document.querySelectorAll('.menu > a');
+  const highlight = document.createElement('span');
+  highlight.classList.add('top_highlighted');
+  highlight.style.display = 'none';
+  // highlight.style.zIndex = 3;
+  document.body.append(highlight);
+
+  window.onresize = function() {
+    highlight.style.display = 'none';
+  }
+
+  function highlightLink() {
+      // console.log(this);
+      const linkCoords = this.getBoundingClientRect();
+      // console.log(linkCoords);
+      const coords = {
+        width: linkCoords.width,
+        height: linkCoords.height,
+        top: linkCoords.top + window.scrollY,
+        left: linkCoords.left + window.scrollX
+      }
+      highlight.style.width = `${coords.width}px`;
+      highlight.style.height = `${coords.height}px`;
+      highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
+
+      highlight.style.display = 'block';
+
+    }
+  topMenuLinks.forEach(a => a.addEventListener('mouseenter', highlightLink));
+});
