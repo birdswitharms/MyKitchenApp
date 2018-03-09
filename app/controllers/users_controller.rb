@@ -112,4 +112,9 @@ class UsersController < ApplicationController
     redirect_to user_weeklyplanner_path
   end
 
+  def clear_weeklyplanner
+    current_user.weekly_planners.destroy_all
+    redirect_to user_weeklyplanner_path
+  end
+
 end

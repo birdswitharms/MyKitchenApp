@@ -111,6 +111,10 @@
 </div>
 
 
+<%= form_tag clear_weeklyplanner_path do %>
+  <%= submit_tag 'Clear Weekly Planner', :id => 'clear_weeklyplanner' %>
+<% end %>
+
 <%= form_tag save_weeklyplanner_path, :id => 'planner_form' do %>
 
   <% @planner.each do |plan| %>
