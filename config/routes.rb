@@ -32,7 +32,9 @@ Rails.application.routes.draw do
   patch 'user/appliances' => 'users#update_appliances'
   patch 'users/kitchen' => 'users#update', as: 'update_pantry'
   post 'users/shoppinglist' => 'users#remove_shoppinglist', as: 'removed_foods'
-  post 'user/weeklyplanner' => 'users#save_weeklyplanner', as: 'save_weeklyplanner'
+  post 'user/save_weeklyplanner' => 'users#save_weeklyplanner', as: 'save_weeklyplanner'
+  post 'user/clear_weeklyplanner' => 'users#clear_weeklyplanner', as: 'clear_weeklyplanner'
+
 
   resources :sessions, only: [:new, :create, :destroy]
 
