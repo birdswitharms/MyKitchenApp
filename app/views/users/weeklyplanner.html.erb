@@ -111,12 +111,13 @@
 </div>
 
 
-<%= form_tag save_weeklyplanner_path do %>
+<%= form_tag save_weeklyplanner_path, :id => 'planner_form' do %>
 
   <% @planner.each do |plan| %>
     <div class="recipedroppable ui-widget-content">
       <%= plan.recipe.name %>
-      <%= hidden_field_tag(plan.recipe.name,plan.position) %>
+      <%= hidden_field_tag("planner[#{plan.position}][#{plan.recipe.name}]",plan.position) %>
+      <b id="plus_button">✚</b>
     </div>
   <% end %>
 

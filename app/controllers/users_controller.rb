@@ -94,9 +94,22 @@ class UsersController < ApplicationController
   end
 
   def save_weeklyplanner
-    puts "*"*20
-    puts "test test "*3
-    puts "*"*20
+    current_user.weekly_planners.destroy_all
+
+    params[:planner].each do |key, value|
+      plan = WeeklyPlanner.new(user: current_user, recipe: Recipe.find_by(name: value.keys), position: key)
+      if plan.save
+        puts "*"*20
+        puts "Plan has saved"
+        puts "*"*20
+      else
+        puts "*"*20
+        puts "Plan failed the save"
+        puts plan.errors.full_messages
+        puts "*"*20
+      end
+    end
+    redirect_to user_weeklyplanner_path
   end
 
 end
