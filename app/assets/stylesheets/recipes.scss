@@ -59,6 +59,11 @@
   border-radius: 3px;
   margin: 1em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: GhostWhite;
+}
+
+article h3, p {
+  background-color: inherit;
 }
 
 article span {
@@ -181,7 +186,17 @@ article span {
   font-size: 22px;
 }
 
+
+.active {
+  transform: scale(1.1);
+}
+
 @media ( min-width: 960px ) {
+
+  .active {
+    transform: scale(1.1);
+  }
+
 
   .thumbnail {
     max-width: 100%;
@@ -197,7 +212,14 @@ article span {
     border-radius: 3px;
     margin: 1em;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all 0.3s;
   }
+
+  .container article:hover {
+    transform: scale(1.03);
+  }
+
+
 
   #button {
     display: none;
