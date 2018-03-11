@@ -1,4 +1,15 @@
-# MVP
+# My Kitchen App
+  * My Kitchen App is not a unique app, but it showcases the many skills and technologies we learned while learning web development at Bitmaker Labs for 3 months as full-time students learning to become full-stack developers.
+
+  * My Kitchen App uses Ruby on Rails and Postgres for the back-end
+  * A small amount of jQuery and Ajax, with a lot of vanilla JavaScript and CSS for the front-end
+  * The recipes are pulled from an API (themealdb), where we take that JSON data and save it to our database, and parse it to create the ingredients and food for our Application.
+  * We then send the ingredients for each recipe through another API (nutrionix) to calculate the total calories that recipe generates.
+
+***  
+
+
+# MVP (Minimal Viable Product)
 
 * As a visitor I am allowed to sign up and login - DONE
 * As a visitor I am allowed to see all recipes - DONE
@@ -27,12 +38,12 @@
 * As a user I can see a history of recipes I cooked - DONE
 * As a user, when I complete a recipe I cooked, it should ask the user to manually update 'My Kitchen' - DONE
 
-
+***
 
 # AFTER DUE | To-Do List
 
 * As a user I can edit an existing recipe and make it my own custom recipe - DROPPED
-  * As a user I can plan my recipes for the week - DROPPED
+* As a user I can plan my recipes for the week - DROPPED
 * As a visitor I am able to see similar recipes on the recipe details page - DROPPED
 * As a visitor I am able to search by calories per serving - DROPPED
 * As a visitor I can change how much of the recipe I want to create and will update the ingredients accordingly - DROPPED
