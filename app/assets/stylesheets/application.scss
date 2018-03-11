@@ -61,10 +61,14 @@
   background-color: inherit;
 }
 
+.active {
+  transform: scale(1.1);
+}
+
 *, body {
   // box-sizing: border-box;
   margin: 0;
-  background-color: GhostWhite;
+  background-color: #efeffc;
   font-family: 'Noto Sans', Helvetica, sans-serif;
 }
 
@@ -308,6 +312,10 @@ nav h1 {
     // position: absolute;
     // left: 46%;
     // margin-top: 10px;
+  }
+
+  .active {
+    transform: scale(1.1);
   }
 
   #adv_search_menu {
