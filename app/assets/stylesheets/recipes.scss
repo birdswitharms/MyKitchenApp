@@ -38,6 +38,7 @@
 .recipe_image {
   max-width: 80%;
   display: block;
+  margin-bottom: 1em;
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px;
@@ -105,7 +106,7 @@ article span {
 
 .bottom_menu {
   display: inline-block;
-  background-color: GhostWhite;
+  background-color: #efeffc;
   position: fixed;
   bottom: -200px;
   width: 100%;
@@ -126,7 +127,7 @@ article span {
 }
 
 .nutrition {
-  background-color: GhostWhite;
+  background-color: #efeffc;
 }
 
 #youtube_iframe {
@@ -141,6 +142,7 @@ article span {
 .nutritioncontainer {
   // position: relative;
   // left: 3%;
+  background-color: #efeffc;
   width: 100%;
   display: inline-block;
   overflow: hidden;
@@ -217,6 +219,7 @@ article span {
 
   .container article:hover {
     transform: scale(1.03);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
   }
 
 

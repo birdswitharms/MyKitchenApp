@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function(e){
       highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
 
       highlight.style.display = 'block';
-
+      highlight.style.background = 'GhostWhite';
     }
   topMenuLinks.forEach(a => a.addEventListener('mouseenter', highlightLink));
 });
