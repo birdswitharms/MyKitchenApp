@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function(e){
     });
   };
 
-  if (submit_review) {
+  if (bottom_menu) {
     submit_review.addEventListener('click', function(event) {
       event.preventDefault();
       $.ajax({
