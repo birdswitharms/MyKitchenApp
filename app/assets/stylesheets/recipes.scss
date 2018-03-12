@@ -163,9 +163,9 @@ article span {
 }
 
 #review_text {
+  text-align: center;
   width: 60%;
   padding: 2em;
-  background-color: GhostWhite;
   border-radius: 5px;
   border: 1px solid black;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -176,12 +176,13 @@ article span {
 
 #review_close {
   position: relative;
-  right: -256px;
-  top: -27px;
+  right: -72%;
+  top: -25px;
 }
 
 #comment {
-  width: 238px;
+  background: GhostWhite;
+  width: 98%;
 }
 
 #nutrition_calories {
@@ -191,6 +192,11 @@ article span {
 
 .active {
   transform: scale(1.1);
+}
+
+#post_review_header {
+  margin-bottom: 30px;
+  display: inline-block;
 }
 
 @media ( min-width: 960px ) {
@@ -317,17 +323,12 @@ article span {
 
   #review_close {
     position: fixed;
-    right: 17%;
-    top: 36%;
-  }
-
-  #post_review_header {
-    margin-bottom: 30px;
-    display: inline-block;
+    right: 18.5%;
+    top: 37%;
   }
 
   #review_form {
-    width: 50%;
+    width: 100%;
   }
 
 }
