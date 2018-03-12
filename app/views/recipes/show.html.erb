@@ -94,7 +94,7 @@
     <i class="fa fa-times" aria-hidden="true" id="review_close"></i>
     <h3 id="post_review_header">Post a Review</h3>
     <%= form_tag review_recipe_path(@recipe.id), :id => 'review_form' do %>
-      <span class="call_to_action">
+      <span>
         <%= text_area_tag 'comment', nil, size: "53x7" %>
       </span>
       <br>
