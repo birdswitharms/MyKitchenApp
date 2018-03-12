@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function(e){
   nutritionDiv = document.querySelector('.nutrition')
 
   if (nutritionDiv) {
-    nutritionDiv.style.backgroundColor = 'GhostWhite';
+    nutritionDiv.style.backgroundColor = '#efeffc';
     potassiumPercent = parseFloat(document.querySelector('#nutrition_potassium').innerText) / dailyPotassiumInMg * 100
     $(nutritionDiv).nutritionLabel({
       'showServingUnitQuantity' : false,
