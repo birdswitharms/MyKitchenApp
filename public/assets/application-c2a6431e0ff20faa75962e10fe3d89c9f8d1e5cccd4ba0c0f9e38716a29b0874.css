@@ -3396,7 +3396,7 @@
 /* line 5, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/kitchen.scss */
 .ingredient_search_result {
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Noto Sans', Helvetica, sans-serif;
   font-size: 1em;
   padding: 0.25em;
   border-bottom: 1px solid black;
@@ -3428,7 +3428,7 @@
  ***************************************************************************************************************************************************+
 */
 
-@import url("https://fonts.googleapis.com/css?family=Archivo+Black");.nutritionLabel input.unitQuantityBox.ui-input-text{margin-top:0;border-radius:0;height:auto;box-sizing:content-box;-webkit-box-sizing:content-box;-moz-box-sizing:content-box}.nutritionLabel input.unitQuantityBox.ui-shadow-inset{box-shadow:none}.nutritionLabel{font-size:90%;margin-bottom:1.1em;padding:.68em;color:#333;font-family:Arial,Helvetica,sans-serif;border:2px solid #000;line-height:normal}.nutritionLabel .title{line-height:.83em;font-size:2.7em;padding-bottom:4px;font-family:'Archivo Black';white-space:nowrap;letter-spacing:-2px}.nutritionLabel .m{font-size:.9em}.nutritionLabel .serving{font-size:1.1em;line-height:1.28em}.nutritionLabel .name{font-size:1.1em;line-height:1.3em}.nutritionLabel .name.inline{padding-top:.2em;padding-top:.25em \9}.nutritionLabel .dvCalorieDiet,.nutritionLabel #calcDisclaimer{font-size:.9em}.nutritionLabel .line{border-top:1px solid #333;padding:1px 0}.nutritionLabel .line.last{border-bottom:1px solid #333}.nutritionLabel .line.indent{margin-left:15px}.nutritionLabel .dv{float:right}.nutritionLabel .dv:before{content:'\0000a0'}.nutritionLabel .bar1{height:10px;line-height:0;font-size:1px;background:#333;margin-top:3px}.nutritionLabel .bar2{height:5px;line-height:0;font-size:1px;background:#333}.nutritionLabel .dvCalorieDiet{color:#777}.nutritionLabel .calorieNote{padding:.60em 0 0 .70em}.nutritionLabel .star{margin-left:-7px}.nutritionLabel .tblCalorieDiet th{font-size:.7em;border-bottom:1px solid #333;text-align:left;color:#777}.nutritionLabel .tblCalorieDiet{width:100%}.nutritionLabel .tblCalorieDiet td{padding:0;line-height:normal;font-size:.7em;color:#777}.nutritionLabel .ar{text-align:right}.nutritionLabel .fr{float:right}.nutritionLabel .fl{float:left}.nutritionLabel #calcDisclaimer{color:#777}.notApplicable{color:gray;font-weight:bold;font-size:1.2em;cursor:default;margin-top:.2em}.naTooltip{position:absolute;display:none;border:1px solid black;padding:2px;text-align:center;height:18px;width:120px;background-color:#ffc;z-index:10000}.nutritionLabel .spaceAbove{height:10px}.nutritionLabel .setter{width:12px;padding:3px 0 0 0;position:absolute;left:0;top:0;z-index:100}.nutritionLabel .setter a{display:block;width:9px;height:7px;font-size:1px;line-height:0}.nutritionLabel a.unitQuantityUp{padding-bottom:1px;background:transparent url("images/up.png") left top no-repeat;z-index:9999}.nutritionLabel a.unitQuantityDown{padding-top:1px;background:transparent url("images/down.png") left bottom no-repeat;z-index:9999}.nutritionLabel input.unitQuantityBox{width:25px;height:20px;padding:2px;font-size:.9em!important;margin-left:15px;margin-bottom:0;line-height:15px}.nutritionLabel input.unitQuantityBox.arrowsAreHidden{margin-left:0}.nutritionLabel .rel{position:relative}.nutritionLabel .servingSizeField{float:left;margin-top:.2em;margin-bottom:0;margin-right:.4em}.nutritionLabel .servingUnit{float:left;padding:0;margin-top:.3em;margin-bottom:.2em}.nutritionLabel .servingWeightGrams{padding:0 0 0 .3em;margin-top:.3em;margin-bottom:.2em}.nutritionLabel .servingSizeText{padding-right:.3em;margin-top:.3em}.nutritionLabel .servingUnitQuantity{margin-top:.3em;padding-right:.3em}.cf:before,.cf:after{content:" ";display:table}.cf:after{clear:both}.cf{*zoom:1}.nutritionLabel .servingSizeText{display:inline-block}.ingredientListDiv.scroll{overflow-y:scroll!important}#calcDisclaimer.scroll{overflow-y:scroll!important}#calcDisclaimer{line-height:normal}.nutritionLabel .ingredientListDiv{padding-top:10px}.nf{border:1px solid #000;padding:6px;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:14px}.nf-line{border-top:1px solid #000;padding-top:1px;padding-bottom:1px;font-size:.94em}.nf-title,.nf-servingUnitQuantity,.nf-highlight,.nf-serving,.nf-amount-per-serving,.nf-calories{font-family:'Archivo Black',sans-serif}.nf-title{font-size:2.15em;line-height:1.15em;margin-top:-6px}.nf-per-container{font-size:1.15em;line-height:normal}.nf-serving{font-size:1.2em;line-height:normal}.nf-amount-per-serving{font-size:.94em}.nf-calories{font-size:22px;padding:5px;line-height:1em}.nf-percent-dv{font-size:.84em}.nf-indent2{margin-left:28px}.nf-indent{padding-left:16px}.nf-vitamin-column{font-size:.94em;padding:1px 0;border-bottom:1px solid #000}.nf-footnote{padding-top:4px;margin-left:5px;font-size:.85em;line-height:1em}.nf-footnote:before{content:"*";float:left;margin-left:-5px}.nf-text-right{text-align:right}.nf-pr{float:right}.nf-bar1{height:5px}.nf-bar2{height:10px}.nf-bar1,.nf-bar2{background-color:#000}.clear:before,.clear:after{content:" ";display:table}.clear:after{clear:both}.nf-ingredientListDiv{padding-top:8px}.nf-ingredientListDiv.scroll{overflow-y:scroll!important}#nf-calcDisclaimer.scroll{overflow-y:scroll!important}.nf-tblCalorieDiet{margin-top:5px;width:100%}.nf-tblCalorieDiet tr th,.nf-tblCalorieDiet tr td{font-size:.80em}.nf-customFooter,.nf-homeLinkPrint{font-size:.80em}.nf-arrow-up,.nf-arrow-down{width:0;height:0;border-style:solid}.nf-arrows{float:left;padding:4px 5px 0 0}.nf-arrow-up{margin-bottom:3px;border-width:0 5px 6px 5px;border-color:transparent transparent #333 transparent}.nf-arrow-down{margin-bottom:-2px;border-width:6px 5px 0 5px;border-color:#333 transparent transparent transparent}.nf-unitQuantityBox,.nf-modifier-field{width:26px;text-align:center;line-height:normal;border:1px solid #666;font-family:Arial,Helvetica,sans-serif;font-size:1em;float:left;padding:0;margin-top:3px}.nf-item-name{margin-left:50px;line-height:1.25em;padding-top:4px;padding-bottom:3px}.nutritionLabel .nf-item-name.inline{padding-top:.2em;padding-top:.25em \9}.nutritionLabel input.nf-unitQuantityBox.arrowsAreHidden{margin-left:0}div.nf-unitQuantityUp:hover,div.nf-unitQuantityDown:hover{cursor:pointer}.customFooter,.nf-customFooter{padding-top:10px}.nf-servingUnitQuantity{display:inline-block}.nf-item-name.nf-fixed-serving{margin-left:35px}.nf-item-name.no-indent{margin-left:0}.nf-arrowsAreHidden+input+.nf-item-name{margin-left:35px}div,span{outline:0}.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);border:0}
+@import url("https://fonts.googleapis.com/css?family=Archivo+Black");.nutritionLabel input.unitQuantityBox.ui-input-text{margin-top:0;border-radius:0;height:auto;box-sizing:content-box;-webkit-box-sizing:content-box;-moz-box-sizing:content-box}.nutritionLabel input.unitQuantityBox.ui-shadow-inset{box-shadow:none}.nutritionLabel{font-size:90%;margin-bottom:1.1em;padding:.68em;color:#333;font-family:Arial,Helvetica,sans-serif;border:2px solid #000;line-height:normal}.nutritionLabel .title{line-height:.83em;font-size:2.7em;padding-bottom:4px;font-family:'Archivo Black';white-space:nowrap;letter-spacing:-2px}.nutritionLabel .m{font-size:.9em}.nutritionLabel .serving{font-size:1.1em;line-height:1.28em}.nutritionLabel .name{font-size:1.1em;line-height:1.3em}.nutritionLabel .name.inline{padding-top:.2em;padding-top:.25em \9}.nutritionLabel .dvCalorieDiet,.nutritionLabel #calcDisclaimer{font-size:.9em}.nutritionLabel .line{border-top:1px solid #333;padding:1px 0}.nutritionLabel .line.last{border-bottom:1px solid #333}.nutritionLabel .line.indent{margin-left:15px}.nutritionLabel .dv{float:right}.nutritionLabel .dv:before{content:'\0000a0'}.nutritionLabel .bar1{height:10px;line-height:0;font-size:1px;background:#333;margin-top:3px}.nutritionLabel .bar2{height:5px;line-height:0;font-size:1px;background:#333}.nutritionLabel .dvCalorieDiet{color:#777}.nutritionLabel .calorieNote{padding:.60em 0 0 .70em}.nutritionLabel .star{margin-left:-7px}.nutritionLabel .tblCalorieDiet th{font-size:.7em;border-bottom:1px solid #333;text-align:left;color:#777}.nutritionLabel .tblCalorieDiet{width:100%}.nutritionLabel .tblCalorieDiet td{padding:0;line-height:normal;font-size:.7em;color:#777}.nutritionLabel .ar{text-align:right}.nutritionLabel .fr{float:right}.nutritionLabel .fl{float:left}.nutritionLabel #calcDisclaimer{color:#777}.notApplicable{color:gray;font-weight:bold;font-size:1.2em;cursor:default;margin-top:.2em}.naTooltip{position:absolute;display:none;border:1px solid black;padding:2px;text-align:center;height:18px;width:120px;background-color:#efeffc;z-index:10000}.nutritionLabel .spaceAbove{height:10px}.nutritionLabel .setter{width:12px;padding:3px 0 0 0;position:absolute;left:0;top:0;z-index:100}.nutritionLabel .setter a{display:block;width:9px;height:7px;font-size:1px;line-height:0}.nutritionLabel a.unitQuantityUp{padding-bottom:1px;background:transparent url("images/up.png") left top no-repeat;z-index:9999}.nutritionLabel a.unitQuantityDown{padding-top:1px;background:transparent url("images/down.png") left bottom no-repeat;z-index:9999}.nutritionLabel input.unitQuantityBox{width:25px;height:20px;padding:2px;font-size:.9em!important;margin-left:15px;margin-bottom:0;line-height:15px}.nutritionLabel input.unitQuantityBox.arrowsAreHidden{margin-left:0}.nutritionLabel .rel{position:relative}.nutritionLabel .servingSizeField{float:left;margin-top:.2em;margin-bottom:0;margin-right:.4em}.nutritionLabel .servingUnit{float:left;padding:0;margin-top:.3em;margin-bottom:.2em}.nutritionLabel .servingWeightGrams{padding:0 0 0 .3em;margin-top:.3em;margin-bottom:.2em}.nutritionLabel .servingSizeText{padding-right:.3em;margin-top:.3em}.nutritionLabel .servingUnitQuantity{margin-top:.3em;padding-right:.3em}.cf:before,.cf:after{content:" ";display:table}.cf:after{clear:both}.cf{*zoom:1}.nutritionLabel .servingSizeText{display:inline-block}.ingredientListDiv.scroll{overflow-y:scroll!important}#calcDisclaimer.scroll{overflow-y:scroll!important}#calcDisclaimer{line-height:normal}.nutritionLabel .ingredientListDiv{padding-top:10px}.nf{border:1px solid #000;padding:6px;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:14px}.nf-line{border-top:1px solid #000;padding-top:1px;padding-bottom:1px;font-size:.94em}.nf-title,.nf-servingUnitQuantity,.nf-highlight,.nf-serving,.nf-amount-per-serving,.nf-calories{font-family:'Archivo Black',sans-serif}.nf-title{font-size:2.15em;line-height:1.15em;margin-top:-6px}.nf-per-container{font-size:1.15em;line-height:normal}.nf-serving{font-size:1.2em;line-height:normal}.nf-amount-per-serving{font-size:.94em}.nf-calories{font-size:22px;padding:5px;line-height:1em}.nf-percent-dv{font-size:.84em}.nf-indent2{margin-left:28px}.nf-indent{padding-left:16px}.nf-vitamin-column{font-size:.94em;padding:1px 0;border-bottom:1px solid #000}.nf-footnote{padding-top:4px;margin-left:5px;font-size:.85em;line-height:1em}.nf-footnote:before{content:"*";float:left;margin-left:-5px}.nf-text-right{text-align:right}.nf-pr{float:right}.nf-bar1{height:5px}.nf-bar2{height:10px}.nf-bar1,.nf-bar2{background-color:#000}.clear:before,.clear:after{content:" ";display:table}.clear:after{clear:both}.nf-ingredientListDiv{padding-top:8px}.nf-ingredientListDiv.scroll{overflow-y:scroll!important}#nf-calcDisclaimer.scroll{overflow-y:scroll!important}.nf-tblCalorieDiet{margin-top:5px;width:100%}.nf-tblCalorieDiet tr th,.nf-tblCalorieDiet tr td{font-size:.80em}.nf-customFooter,.nf-homeLinkPrint{font-size:.80em}.nf-arrow-up,.nf-arrow-down{width:0;height:0;border-style:solid}.nf-arrows{float:left;padding:4px 5px 0 0}.nf-arrow-up{margin-bottom:3px;border-width:0 5px 6px 5px;border-color:transparent transparent #333 transparent}.nf-arrow-down{margin-bottom:-2px;border-width:6px 5px 0 5px;border-color:#333 transparent transparent transparent}.nf-unitQuantityBox,.nf-modifier-field{width:26px;text-align:center;line-height:normal;border:1px solid #666;font-family:Arial,Helvetica,sans-serif;font-size:1em;float:left;padding:0;margin-top:3px}.nf-item-name{margin-left:50px;line-height:1.25em;padding-top:4px;padding-bottom:3px}.nutritionLabel .nf-item-name.inline{padding-top:.2em;padding-top:.25em \9}.nutritionLabel input.nf-unitQuantityBox.arrowsAreHidden{margin-left:0}div.nf-unitQuantityUp:hover,div.nf-unitQuantityDown:hover{cursor:pointer}.customFooter,.nf-customFooter{padding-top:10px}.nf-servingUnitQuantity{display:inline-block}.nf-item-name.nf-fixed-serving{margin-left:35px}.nf-item-name.no-indent{margin-left:0}.nf-arrowsAreHidden+input+.nf-item-name{margin-left:35px}div,span{outline:0}.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);border:0}
 /* line 5, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 #ingredients_ul {
   text-align: left;
@@ -3440,91 +3440,136 @@
 /* line 12, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 #initial_select {
   width: 90px;
+  background: GhostWhite;
 }
 
-/* line 16, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 17, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 .header {
   display: none;
 }
 
-/* line 20, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 21, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 .review_time {
   margin-bottom: 1em;
   font-size: 13px;
 }
 
-/* line 25, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 26, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 .review {
   margin-top: 1em;
   margin-bottom: 1em;
 }
 
-/* line 30, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 31, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 .thumbnail {
   max-width: 100%;
 }
 
-/* line 34, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 35, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 .thumbnail_name {
   padding-top: 10px;
 }
 
-/* line 38, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 39, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 .recipe_image {
   max-width: 80%;
   display: block;
+  margin-bottom: 1em;
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-/* line 48, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 50, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 .just_center {
   display: inline-block;
   margin: auto;
 }
 
-/* line 53, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 55, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 .container {
   text-align: center;
 }
 
-/* line 57, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 59, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+.input {
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  background: GhostWhite;
+  width: 25%;
+}
+
+/* line 66, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+.measurement_input {
+  width: 5%;
+}
+
+/* line 70, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+.input-btn {
+  border-radius: 5px;
+  padding: 7px;
+  background: GhostWhite;
+  transition: all 0.2s;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-transform: translateZ(0) scale(1, 1);
+}
+
+/* line 79, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+.input-btn:hover, .btn:hover, #adv_search:hover, #normal_search_btn:hover, #adv_search:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.3), 0 1px 5px 0 rgba(0, 0, 0, 0.29);
+}
+
+/* line 84, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 .container article {
   display: inline-block;
   border-radius: 3px;
   margin: 1em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: GhostWhite;
 }
 
-/* line 64, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 92, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+article h3, p {
+  background-color: inherit;
+}
+
+/* line 96, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 article span {
   text-align: center;
 }
 
-/* line 68, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 100, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 .recipe_header {
   padding-top: 3.5em;
   padding-bottom: 1em;
 }
 
-/* line 73, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 105, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 .content {
   padding: 10px;
   margin-left: 10px;
   margin-right: 10px;
 }
 
-/* line 79, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 111, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 #allrecipes {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 25%;
+  bottom: 200px;
+  margin-bottom: 50px;
 }
 
-/* line 86, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 117, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+.btn {
+  padding: 1em;
+  border-radius: 6px;
+  background-color: GhostWhite;
+  transition: all 0.2s;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-transform: translateZ(0) scale(1, 1);
+}
+
+/* line 126, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 .call_to_action {
   background-color: #EAEAFD;
   width: 100%;
@@ -3535,16 +3580,16 @@ article span {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 12px 0 rgba(0, 0, 0, 0.19);
 }
 
-/* line 96, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 136, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 .call_to_action:hover {
   background-color: #DFDFFD;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 12px 0 rgba(0, 0, 0, 0.19);
 }
 
-/* line 101, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 141, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 .bottom_menu {
   display: inline-block;
-  background-color: GhostWhite;
+  background-color: #efeffc;
   position: fixed;
   bottom: -200px;
   width: 100%;
@@ -3552,26 +3597,26 @@ article span {
   left: 0px;
 }
 
-/* line 111, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 151, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 .bottom_menu_show {
   transition: .3s all;
   left: 0px;
   bottom: 0px !important;
 }
 
-/* line 117, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 157, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 #button {
   position: fixed;
   right: 0.5em;
   bottom: 0.5em;
 }
 
-/* line 123, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 163, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 .nutrition {
-  background-color: GhostWhite;
+  background-color: #efeffc;
 }
 
-/* line 127, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 167, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 #youtube_iframe {
   width: 94%;
   margin-left: 3%;
@@ -3581,34 +3626,35 @@ article span {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-/* line 136, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 176, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 .nutritioncontainer {
+  background-color: #efeffc;
   width: 100%;
   display: inline-block;
   overflow: hidden;
 }
 
-/* line 144, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 185, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 .reviews-div {
   text-align: left;
   padding: 1.5em;
   border-radius: 5px;
-  background-color: white;
+  background-color: GhostWhite;
   border: 1px solid black;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   width: 60%;
 }
 
-/* line 154, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 195, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 .reviews-div p, time {
   background-color: white;
 }
 
-/* line 158, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 199, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 #review_text {
+  text-align: center;
   width: 60%;
   padding: 2em;
-  background-color: GhostWhite;
   border-radius: 5px;
   border: 1px solid black;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -3617,91 +3663,105 @@ article span {
   left: 18%;
 }
 
-/* line 170, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 211, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 #review_close {
   position: relative;
-  right: -256px;
-  top: -27px;
+  right: -72%;
+  top: -25px;
 }
 
-/* line 176, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 217, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 #comment {
-  width: 238px;
+  background: GhostWhite;
+  width: 98%;
 }
 
-/* line 180, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+/* line 222, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
 #nutrition_calories {
   font-size: 22px;
 }
 
+/* line 226, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+#post_review_header {
+  margin-bottom: 30px;
+  display: inline-block;
+}
+
 @media (min-width: 960px) {
-  /* line 186, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+  /* line 233, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
   .thumbnail {
     max-width: 100%;
   }
 
-  /* line 190, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+  /* line 237, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
   .container {
     text-align: center;
   }
 
-  /* line 194, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+  /* line 241, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
   .container article {
     display: inline-block;
     width: 25%;
     border-radius: 3px;
     margin: 1em;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all 0.3s;
   }
 
-  /* line 202, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+  /* line 250, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+  .container article:hover {
+    transform: scale(1.01);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3), 0 8px 16px 0 rgba(0, 0, 0, 0.29);
+  }
+
+  /* line 255, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
   #button {
     display: none;
   }
 
-  /* line 206, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+  /* line 259, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
   .steps {
     width: 70%;
     margin: auto;
   }
 
-  /* line 211, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+  /* line 264, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
   .nutritioncontainer {
     width: 48%;
     display: inline-block;
     overflow: hidden;
   }
 
-  /* line 219, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+  /* line 272, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
   .video {
     width: 100%;
     display: inline-block;
     margin-bottom: 2em;
   }
 
-  /* line 225, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+  /* line 278, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
   #youtube_iframe {
     width: 60%;
   }
 
-  /* line 231, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+  /* line 284, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
   li {
     display: inline-block;
     width: 40%;
   }
 
-  /* line 236, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+  /* line 289, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
   ul li:before {
     content: '\2022';
     margin-right: 0.5em;
   }
 
-  /* line 243, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+  /* line 296, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
   .menu a {
     font-size: 14px;
   }
 
-  /* line 247, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+  /* line 300, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
   #ingredients_ul {
     display: inline-block;
     position: relative;
@@ -3710,7 +3770,7 @@ article span {
     width: 42%;
   }
 
-  /* line 255, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+  /* line 308, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
   .nutritioncontainer {
     width: 40%;
     text-align: left;
@@ -3719,17 +3779,7 @@ article span {
     overflow: hidden;
   }
 
-  /* line 264, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
-  #allrecipes {
-    position: relative;
-    bottom: 200px;
-    margin-bottom: 50px;
-    padding: 1em;
-    border-radius: 6px;
-    background-color: white;
-  }
-
-  /* line 273, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+  /* line 316, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
   .bottom_menu {
     display: block;
     width: 100%;
@@ -3738,7 +3788,7 @@ article span {
     bottom: 0px;
   }
 
-  /* line 281, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+  /* line 324, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
   .bottom_menu > * {
     display: inline-block;
     width: 30%;
@@ -3747,22 +3797,16 @@ article span {
     font-size: 13px;
   }
 
-  /* line 293, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+  /* line 336, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
   #review_close {
     position: fixed;
-    right: 17%;
-    top: 36%;
+    right: 18.5%;
+    top: 37%;
   }
 
-  /* line 299, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
-  #post_review_header {
-    margin-bottom: 30px;
-    display: inline-block;
-  }
-
-  /* line 304, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
+  /* line 342, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/recipes.scss */
   #review_form {
-    width: 50%;
+    width: 100%;
   }
 }
 /* line 5, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
@@ -3794,23 +3838,29 @@ article span {
 }
 
 /* line 28, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
+.pantry input {
+  border-radius: 5px;
+  background-color: ghostwhite;
+}
+
+/* line 33, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
 .signup {
   width: 100%;
   margin-top: 5em;
 }
 
-/* line 33, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
+/* line 38, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
 .signup form {
   width: 13%;
   margin: auto;
 }
 
-/* line 38, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
+/* line 43, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
 .signup form > * {
   margin-bottom: 1em;
 }
 
-/* line 43, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
+/* line 48, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
 .weeklyplanner {
   margin: auto;
   height: 250px;
@@ -3818,7 +3868,7 @@ article span {
   margin-top: 3em;
 }
 
-/* line 50, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
+/* line 55, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
 .dayplanner {
   display: inline-block;
   height: 100%;
@@ -3826,14 +3876,14 @@ article span {
   text-align: center;
 }
 
-/* line 58, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
+/* line 63, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
 .breakfast, .lunch, .dinner {
   margin-top: 2em;
   width: 99%;
   height: 40%;
 }
 
-/* line 65, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
+/* line 70, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
 .weeklyplanner span {
   width: 80%;
   height: 90%;
@@ -3841,26 +3891,43 @@ article span {
   border: 1px solid black;
 }
 
-/* line 72, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
+/* line 77, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
 .recipedroppable {
   display: inline-block;
   position: absolute;
   z-index: 100;
   text-align: center;
-  width: 5%;
+  width: 6%;
   padding: 10px;
   margin: 10px;
 }
 
-/* line 83, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
+/* line 88, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
 .weeklyplanner h4 {
   margin-bottom: 2em;
 }
 
-/* line 88, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
+/* line 93, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
 #save_weeklyplanner {
-  margin-left: 10em;
-  margin-top: 10em;
+  position: absolute;
+  bottom: 6%;
+  right: 40%;
+}
+
+/* line 99, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
+#clear_weeklyplanner {
+  position: absolute;
+  bottom: 6%;
+  right: 60%;
+}
+
+/* line 105, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/users.scss */
+#plus_button {
+  background: inherit;
+  color: green;
+  margin-top: 3px;
+  padding: 1px 7px;
+  border: 1px solid lightgrey;
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -8810,7 +8877,7 @@ article span {
   position: relative;
   top: 50px;
   width: 100%;
-  z-index: 10;
+  z-index: 6;
   text-transform: uppercase;
   text-align: left;
 }
@@ -8834,8 +8901,8 @@ article span {
 #logo {
   z-index: 100;
   position: absolute;
-  max-width: 17%;
-  max-height: 17%;
+  max-width: 15%;
+  max-height: 15%;
 }
 
 /* line 55, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
@@ -8851,26 +8918,25 @@ article span {
 }
 
 /* line 65, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
-*, body {
-  margin: 0;
-  font-family: Helvetica, Arial, monospace;
-  background-color: GhostWhite;
+.active {
+  transform: scale(1.1);
 }
 
-/* line 72, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 69, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+*, body {
+  margin: 0;
+  background-color: #efeffc;
+  font-family: 'Noto Sans', Helvetica, sans-serif;
+}
+
+/* line 76, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 a {
   text-decoration: none;
   color: inherit;
   font-weight: bold;
 }
 
-/* line 80, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
-a:hover {
-  color: white;
-  text-shadow: -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333, 1px 1px 0 #333, 0px 0px 5px #333;
-}
-
-/* line 90, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 82, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 #search_container {
   margin-top: 0.4em;
   position: relative;
@@ -8878,63 +8944,78 @@ a:hover {
   overflow: hidden;
 }
 
-/* line 97, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
-a#LogoHeader:hover {
-  color: white;
+/* line 89, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+#normal_search_btn {
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 0.5em;
+  background: GhostWhite;
+  transition: all 0.2s;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-transform: translateZ(0) scale(1, 1);
 }
 
-/* line 101, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
-#LogoHeader {
-  text-decoration: none;
-  color: black;
-}
-
-/* line 106, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 99, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 #emptywarning {
   text-align: center;
   margin: 1em 1em;
 }
 
-/* line 111, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 104, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 #someingredients {
   text-align: center;
 }
 
-/* line 115, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
-.menu {
-  width: 100%;
-  display: inline-block;
-  background-color: GhostWhite;
+/* line 108, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+.top_highlighted {
+  transition: all 0.2s;
   position: absolute;
-  top: -500px;
+  top: 0;
+  background-color: transparent;
+  left: 0;
+  z-index: -1;
+  border-radius: 5px;
+  display: block;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* line 122, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+.menu {
+  display: block;
+  width: 100%;
+  background-color: transparent;
+  position: absolute;
+  z-index: 3;
+  top: -550px;
   transition: .3s all;
+  overflow: hidden;
 }
 
-/* line 124, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 133, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 .menu_show {
-  top: 0px !important;
-  z-index: 2;
+  position: absolute;
+  top: 0px;
+  z-index: 3;
 }
 
-/* line 129, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 140, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 .menu a {
   display: block;
-  padding: 15px;
+  position: relative;
+  padding: 10px;
   text-transform: uppercase;
   text-decoration: none;
   text-align: center;
   width: 100%;
-  border-bottom: 1px solid black;
-  background-color: GhostWhite;
+  z-index: 3;
 }
 
-/* line 140, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 152, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 nav {
   padding-bottom: 2em;
-  border-bottom: 1px solid lightgrey;
 }
 
-/* line 145, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 157, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 nav h1 {
   font-size: 1em;
   padding: 1em;
@@ -8942,31 +9023,38 @@ nav h1 {
   display: inline-block;
 }
 
-/* line 152, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 164, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 #term {
-  width: 95px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  background: GhostWhite;
 }
 
-/* line 156, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 170, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+#term:focus {
+  border-color: blue;
+}
+
+/* line 174, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 #adv_search {
   display: none;
 }
 
-/* line 160, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 178, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 #normal_search_div {
   top: 14px;
   position: relative;
   display: inline;
 }
 
-/* line 166, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 184, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 #normal_search {
   display: inline;
   position: relative;
   left: 3px;
 }
 
-/* line 173, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 191, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 #search_right_align {
   float: right;
   padding-top: 0.15em;
@@ -8974,54 +9062,49 @@ nav h1 {
   position: relative;
 }
 
-/* line 180, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 198, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 .form {
   display: inline-block;
   margin: auto;
   width: 100%;
 }
 
-/* line 186, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 204, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 #recipe_form {
   width: 65%;
   margin: auto;
 }
 
-/* line 191, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 209, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 .form input {
   margin-bottom: 2em;
 }
 
-/* line 194, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 212, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 .form button {
   margin-bottom: 2em;
 }
 
-/* line 198, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 216, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 #whitespace {
-  background-color: GhostWhite;
+  background-color: #efeffc;
   width: 100%;
   height: 40px;
 }
 
-/* line 204, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
-#topmenu {
-  border-top: 1px solid black;
-}
-
-/* line 208, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 222, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 .sub_header {
   padding-top: 20px;
   padding-bottom: 40px;
   text-align: center;
 }
 
-/* line 214, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 228, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 .fa {
   background-color: transparent;
 }
 
-/* line 218, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 232, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 .fa-times {
   background-color: transparent;
   color: red;
@@ -9030,12 +9113,12 @@ nav h1 {
   top: -0.6em;
 }
 
-/* line 226, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 240, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 .modal {
   display: none;
 }
 
-/* line 230, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 244, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 .modalattr {
   display: block;
   position: fixed;
@@ -9049,131 +9132,158 @@ nav h1 {
   border: 1px solid black;
 }
 
-/* line 243, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 257, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 .stop-scrolling {
   height: 100%;
   overflow: hidden;
 }
 
-/* line 248, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 262, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 .hidden {
   display: none;
 }
 
-/* line 252, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 266, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 .hide {
   visibility: hidden;
 }
 
-/* line 256, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 270, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 .nutritioncontainer {
   display: inline-block;
   margin: auto;
 }
 
-/* line 261, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+/* line 275, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
 #navlogin {
   display: none;
 }
 
 @media (min-width: 960px) {
-  /* line 267, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+  /* line 281, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
   .container {
     margin-top: 1em;
   }
 
-  /* line 271, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+  /* line 285, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
   nav {
     padding-bottom: 1.5em;
   }
 
-  /* line 275, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
-  #LogoHeader {
-    text-decoration: none;
-    color: black;
-  }
-
-  /* line 280, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+  /* line 289, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
   #emptywarning {
     text-align: center;
     margin: 2em;
   }
 
-  /* line 285, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+  /* line 294, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
   #adv_search {
     display: inline-block;
-    display: inline-block;
     position: relative;
-    top: 4px;
+    font-size: 12px;
+    top: 0px;
     left: 0.5em;
+    padding: 0.5em;
+    background: GhostWhite;
+    border: 1px solid lightgrey;
+    border-radius: 6px;
+    transition: all 0.2s;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-transform: translateZ(0) scale(1, 1);
   }
 
-  /* line 296, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+  /* line 309, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+  .active {
+    transform: scale(1.1);
+  }
+
+  /* line 313, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
   #adv_search_menu {
     display: none;
   }
 
-  /* line 300, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+  /* line 317, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
   #topmenu {
     border-top: none;
   }
 
-  /* line 304, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+  /* line 321, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
   nav h1 {
     font-size: 1.5em;
     padding: 0.25em;
     float: left;
   }
 
-  /* line 310, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+  /* line 327, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
   #search_right_align {
     float: right;
     right: 1em;
     position: relative;
   }
 
-  /* line 316, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+  /* line 333, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
   #normal_search_wrapper {
     display: inline-block;
     height: 100%;
   }
 
-  /* line 323, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+  /* line 340, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
   #whitespace {
     display: none;
   }
 
-  /* line 327, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+  /* line 344, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+  .top_highlighted {
+    z-index: 2;
+    background-color: #EAEAFD;
+    display: none;
+  }
+
+  /* line 350, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
   .menu {
-    display: block;
-    background-color: GhostWhite;
-    top: 72px;
-    width: 100%;
+    top: 65px;
     margin-bottom: 2em;
     text-align: center;
+    border-bottom: 1px solid lightgrey;
   }
 
-  /* line 336, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+  /* line 358, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
   .menu a {
+    box-sizing: padding-box;
     display: inline;
-    padding: 15px;
-    text-transform: uppercase;
-    text-decoration: none;
-    text-align: center;
-    width: 100%;
-    background-color: GhostWhite;
     border-bottom: none;
-    z-index: 5;
+    background: transparent;
+    font-size: 10px;
+    transition: all 0.2s;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-transform: translateZ(0) scale(1, 1);
   }
 
-  /* line 348, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+  /* line 369, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+  .menu a:hover {
+    top: -1px;
+  }
+
+  /* line 378, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
   #navlogin {
     display: hidden;
   }
 
-  /* line 352, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+  /* line 382, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
   .fa {
     right: -99%;
+  }
+}
+@media (min-width: 1100px) {
+  /* line 391, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+  .menu a {
+    font-size: 13px;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 399, /Users/jc/Desktop/bitmaker/projects/MyKitchenApp/app/assets/stylesheets/application.scss */
+  .menu a {
+    font-size: 15px;
   }
 }
 /*!
