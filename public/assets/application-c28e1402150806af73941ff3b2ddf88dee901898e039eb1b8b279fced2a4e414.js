@@ -32316,7 +32316,7 @@ document.addEventListener('DOMContentLoaded', function(e){
   nutritionDiv = document.querySelector('.nutrition')
 
   if (nutritionDiv) {
-    nutritionDiv.style.backgroundColor = 'GhostWhite';
+    nutritionDiv.style.backgroundColor = '#efeffc';
     potassiumPercent = parseFloat(document.querySelector('#nutrition_potassium').innerText) / dailyPotassiumInMg * 100
     $(nutritionDiv).nutritionLabel({
       'showServingUnitQuantity' : false,
@@ -34667,33 +34667,33 @@ document.addEventListener('DOMContentLoaded', function(e){
 	};//end of => NutritionLabel.prototype
 
 })(jQuery);
-document.addEventListener('DOMContentLoaded', function(e){
+document.addEventListener('DOMContentLoaded', function (e) {
 
-  var step_counter = 2;
-  var ingredient_counter = 2;
-  var step_button = document.getElementById('add-step-button');
-  var step_div = document.getElementById('step-div');
-  var ingredient_button = document.getElementById('add-ingredient-button');
-  var ingredient_div = document.getElementById('ingredient-div');
-  var include_ingredient_div = document.getElementById('include-ingredient-div');
-  var exclude_ingredient_div = document.getElementById('exclude-ingredient-div');
-  var include_ingredient_button = document.getElementById('include-ingredient-button');
-  var exclude_ingredient_button = document.getElementById('exclude-ingredient-button');
-  var hamburger = document.getElementById('hamburger');
-  var menu = document.querySelector('.menu');
-  var bottom_button = document.getElementById('button');
-  var bottom_menu = document.querySelector('.bottom_menu');
-  var review_button_menu = document.getElementById('review_button_menu');
-  if (document.getElementById('recipe_id')) {
-    var hidden_recipe_id = document.getElementById('recipe_id').value
-  };
-  var review_text = document.getElementById('review_text');
-  var review_close = document.getElementById('review_close');
-  var submit_review = document.getElementById('submit_review');
-  var review_form = document.getElementById('review_form');
-  var review_div = document.querySelector('.reviews-div');
-  var measurements = ['a whole', 'a half', '1/8 teaspoon', '1/4 teaspoon', '1/2 teaspoon', 'teaspoon', '1/8 tablespoon', '1/4 tablespoon', '1/2 tablespoon', 'tablespoon', '1/8 cup', '1/4 cup', '1/2 cup', 'cup', '1/4 pint', '1/2 pint', 'pint', '1/4 gallon', '1/2 gallon', 'gallon', 'fluid ounce', '1/4 quart', '1/2 quart', 'quart', '1/4 liter', '1/2 liter', 'liter', 'ounce', 'grams', 'lbs', 'kgs'];
-  var initial_select = document.getElementById('initial_select');
+    var step_counter = 2;
+    var ingredient_counter = 2;
+    var step_button = document.getElementById('add-step-button');
+    var step_div = document.getElementById('step-div');
+    var ingredient_button = document.getElementById('add-ingredient-button');
+    var ingredient_div = document.getElementById('ingredient-div');
+    var include_ingredient_div = document.getElementById('include-ingredient-div');
+    var exclude_ingredient_div = document.getElementById('exclude-ingredient-div');
+    var include_ingredient_button = document.getElementById('include-ingredient-button');
+    var exclude_ingredient_button = document.getElementById('exclude-ingredient-button');
+    var hamburger = document.getElementById('hamburger');
+    var menu = document.querySelector('.menu');
+    var bottom_button = document.getElementById('button');
+    var bottom_menu = document.querySelector('.bottom_menu');
+    var review_button_menu = document.getElementById('review_button_menu');
+    if (document.getElementById('recipe_id')) {
+      var hidden_recipe_id = document.getElementById('recipe_id').value
+    };
+    var review_text = document.getElementById('review_text');
+    var review_close = document.getElementById('review_close');
+    var submit_review = document.getElementById('submit_review');
+    var review_form = document.getElementById('review_form');
+    var review_div = document.querySelector('.reviews-div');
+    var measurements = ['a whole', 'a half', '1/8 teaspoon', '1/4 teaspoon', '1/2 teaspoon', 'teaspoon', '1/8 tablespoon', '1/4 tablespoon', '1/2 tablespoon', 'tablespoon', '1/8 cup', '1/4 cup', '1/2 cup', 'cup', '1/4 pint', '1/2 pint', 'pint', '1/4 gallon', '1/2 gallon', 'gallon', 'fluid ounce', '1/4 quart', '1/2 quart', 'quart', '1/4 liter', '1/2 liter', 'liter', 'ounce', 'grams', 'lbs', 'kgs'];
+    var initial_select = document.getElementById('initial_select');
 
   if (initial_select) {
     initial_select.style.width = '90px';
@@ -34722,7 +34722,7 @@ document.addEventListener('DOMContentLoaded', function(e){
     });
   };
 
-  if (submit_review) {
+  if (bottom_menu) {
     submit_review.addEventListener('click', function(event) {
       event.preventDefault();
       $.ajax({
@@ -34779,7 +34779,8 @@ document.addEventListener('DOMContentLoaded', function(e){
       step_field.name = "recipe[steps]["+step_counter+"]";
       step_field.id = "step"+step_counter;
       var p = document.createElement('p');
-      p.innerText = "Step "+step_counter+" :";
+      p.innerText = "Step "+step_counter+": ";
+      step_field.classList.add("input");
       step_counter++;
       step_div.append(p);
       p.append(step_field);
@@ -34791,9 +34792,12 @@ document.addEventListener('DOMContentLoaded', function(e){
       var measurement_select = document.createElement('select');
 
       ingredient_field.type = "textarea";
+      ingredient_field.classList.add("input");
       measurement_field.type = "number";
       ingredient_field.name = "recipe[ingredient]["+ingredient_counter+"]";
       measurement_field.name = "recipe[measurement]["+ingredient_counter+"]";
+      measurement_field.classList.add("input");
+      measurement_field.classList.add("measurement_input");
       ingredient_field.id = "ingredient"+ingredient_counter;
       ingredient_field.placeholder = "ex. Chicken"
       ingredient_field.classList.add("ingredient_search_input")
@@ -34827,6 +34831,7 @@ document.addEventListener('DOMContentLoaded', function(e){
       step_field.type = "textarea";
       step_field.name = "include["+step_counter+"]";
       step_field.id = "include-ingredient"+step_counter;
+      step_field.classList.add("input");
       var p = document.createElement('p');
       step_counter++;
       include_ingredient_div.append(p);
@@ -34838,6 +34843,7 @@ document.addEventListener('DOMContentLoaded', function(e){
       step_field.type = "textarea";
       step_field.name = "exclude["+ingredient_counter+"]";
       step_field.id = "exclude-ingredient"+ingredient_counter;
+      step_field.classList.add("input");
       var p = document.createElement('p');
       ingredient_counter++;
       exclude_ingredient_div.append(p);
@@ -34847,10 +34853,30 @@ document.addEventListener('DOMContentLoaded', function(e){
 
 });
 document.addEventListener('DOMContentLoaded', function(){
-
+  var counter = 10;
+  const re = /(\d+)\./;
   const mealslots = document.querySelectorAll('.ui-widget-header');
   const weeklyplanners = document.querySelectorAll('.ui-widget-content');
+  const plusButton = document.querySelectorAll('#plus_button');
+  const weeklyplannerForm = document.querySelector('#planner_form');
 
+  mealslots.forEach(slot => {
+    slot.addEventListener('change', function(event){
+      // console.log(event);
+      // console.log(event.toElement.children[0].name);
+      // console.log(`planner[${event.target.children[0].name}][${event.toElement.innerText}]`);
+
+      if (event.toElement.children[0].value !== event.target.children[0].name) {
+        event.toElement.children[0].value = event.target.children[0].name
+        console.log(event.toElement.children[0]);
+        // event.toElement.children[0].name = `planner[${event.target.children[0].name}][${event.toElement.innerText}]`;
+
+        // console.log('planner # after: '+event.toElement.children[0].value); // droppable recipe
+      }
+    })
+  })
+
+// makes objects droppable
   $(function(event) {
     $( ".recipedroppable" ).draggable({
 
@@ -34858,37 +34884,78 @@ document.addEventListener('DOMContentLoaded', function(){
     $( ".ui-widget-header" ).droppable({
       drop: function(event, ui) {
           $(this).addClass("ui-state-highlight")
-          // console.log(this.lastChild.id);
-      }
+          // console.log(event);
+          // console.log('mealslot # : '+event.target.children[0].name); // mealslot
+          // console.log('planner #: '+event.toElement.children[0].value); // droppable recipe
+          var innerText = event.toElement.innerText
+          var newText = innerText.substring(0, innerText.length - 2)
+          // console.log(newText);
+          if (event.toElement.children[0].value !== event.target.children[0].name) {
+            event.toElement.children[0].value = event.target.children[0].name
+            event.toElement.children[0].name = `planner[${event.target.children[0].name}][${newText}]`;
+          }
+        }
     });
   });
 // check current weekly_planners day/position within the object
-
-
-
-// for each with index
-
-
-
-// add event listeners for a 'drop event'
-
 weeklyplanners.forEach(planner => {
   mealslots.forEach((slot, i) => {
     // console.dir(mealslots[i]);
-    if (planner.children[0].value === mealslots[i].children[0].id) {
+    if (planner.children[0].value === mealslots[i].children[0].id) { // checks to see if mealslot and weekly planner position is the same
       const right = mealslots[i].getBoundingClientRect().x;
       const top = mealslots[i].getBoundingClientRect().y;
       planner.style.left = `${right}px`;
       planner.style.top = `${top}px`;
       $(mealslots[i]).addClass("ui-state-highlight")
     }
-
   });
-
-  // console.dir(planner.children[0].value);
-  // console.log(mealslots[index].children);
-
 });
+
+if (plusButton) {
+  plusButton.forEach(button => {
+    button.addEventListener('click', addEvents);
+  });
+}
+
+function addEvents() {
+    var clone = this.offsetParent.cloneNode();
+    var text = this.offsetParent.firstChild.cloneNode();
+    var hiddenInput = this.offsetParent.children[0].cloneNode();
+    var plusButtonParent = this.offsetParent.children[1].cloneNode();
+    plusButtonParent.addEventListener('click', addEvents);
+    plusButtonParent.innerText = this.offsetParent.children[1].innerText
+    clone.appendChild(text);
+    clone.appendChild(hiddenInput);
+    clone.appendChild(plusButtonParent);
+
+    // console.log(clone.style.left);
+    // console.log(parseInt(clone.style.left) + 10);
+
+    // clone.style.top = `${parseInt(re.exec(clone.style.top)) + 10}px`;
+    clone.style.top = `${parseInt(clone.style.top) + 10}px`;
+
+    // clone.style.left = `${parseInt(re.exec(clone.style.left)) + 10}px`;
+    clone.style.left = `${parseInt(clone.style.left + 10) + 10}px`;
+
+    weeklyplannerForm.appendChild(clone);
+    $(function(event) {
+      $( ".recipedroppable" ).draggable({
+        drop: function(event, ui) {
+            $(this).addClass("ui-state-highlight")
+            // console.log(event);
+            // console.log('mealslot # : '+event.target.children[0].name); // mealslot
+            // console.log('planner #: '+event.toElement.children[0].value); // droppable recipe
+            if (event.toElement.children[0].value !== event.target.children[0].name) {
+              event.toElement.children[0].value = event.target.children[0].name
+              event.toElement.children[0].name = `planner[${event.target.children[0].name}][${newText}]`;
+            }
+          }
+        });
+      });
+    };
+
+
+
 
 
 
@@ -34909,4 +34976,35 @@ weeklyplanners.forEach(planner => {
 
 
 
-;
+
+document.addEventListener('DOMContentLoaded', function(e){
+  const topMenuLinks = document.querySelectorAll('.menu > a');
+  const highlight = document.createElement('span');
+  highlight.classList.add('top_highlighted');
+  highlight.style.display = 'none';
+  // highlight.style.zIndex = 3;
+  document.body.append(highlight);
+
+  window.onresize = function() {
+    highlight.style.display = 'none';
+  }
+
+  function highlightLink() {
+      // console.log(this);
+      const linkCoords = this.getBoundingClientRect();
+      // console.log(linkCoords);
+      const coords = {
+        width: linkCoords.width,
+        height: linkCoords.height,
+        top: linkCoords.top + window.scrollY,
+        left: linkCoords.left + window.scrollX
+      }
+      highlight.style.width = `${coords.width}px`;
+      highlight.style.height = `${coords.height}px`;
+      highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
+
+      highlight.style.display = 'block';
+      highlight.style.background = 'GhostWhite';
+    }
+  topMenuLinks.forEach(a => a.addEventListener('mouseenter', highlightLink));
+});
