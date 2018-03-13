@@ -150,7 +150,7 @@ a {
 
 nav {
   padding-bottom: 2em;
-  // border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
 }
 
 nav h1 {
@@ -351,7 +351,7 @@ nav h1 {
     top: 65px;
     margin-bottom: 2em;
     text-align: center;
-    border-bottom: 1px solid lightgrey;
+    // border-bottom: 1px solid lightgrey;
   }
 
   .menu a {
@@ -382,7 +382,6 @@ nav h1 {
     right: -99%;
   }
 
-
 }
 
 @media ( min-width: 1100px ) {
@@ -393,7 +392,7 @@ nav h1 {
 
 }
 
-@media ( min-width: 1200px ) {
+@media ( min-width: 1250px ) {
 
   .menu a {
     font-size: 15px;
