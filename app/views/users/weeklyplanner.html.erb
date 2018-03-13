@@ -1,7 +1,4 @@
 <br>
-<center><h2 class="header">Weekly Planner</h2></center>
-<br><br>
-
 <div class="weeklyplanner">
   <div class="dayplanner" id="weeklysunday">
     <h4>Sunday</h4>
@@ -112,7 +109,7 @@
 
 
 <%= form_tag clear_weeklyplanner_path do %>
-  <%= submit_tag 'Clear Weekly Planner', :id => 'clear_weeklyplanner' %>
+  <%= submit_tag 'Clear Weekly Planner', :class => "input input-btn", :id => 'clear_weeklyplanner' %>
 <% end %>
 
 <%= form_tag save_weeklyplanner_path, :id => 'planner_form' do %>
@@ -125,5 +122,5 @@
     </div>
   <% end %>
 
-  <%= submit_tag 'Save Weekly Planner', :id => 'save_weeklyplanner' %>
+  <%= submit_tag 'Save Weekly Planner', :class => "input input-btn", :id => 'save_weeklyplanner' %>
 <% end %>
