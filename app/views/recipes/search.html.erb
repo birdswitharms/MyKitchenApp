@@ -5,18 +5,18 @@
 <%= form_tag recipes_advsearch_path do %>
   <h3>Include Ingredients</h3>
   <div id="include-ingredient-div">
-    <p><input type="textarea" name="include[1]" id="include-ingredient1" ></p>
+    <p><input type="textarea" name="include[1]" id="include-ingredient1" class="input" ></p>
   </div>
-  <p><button type="button" name="button" id="include-ingredient-button">Include New Ingredient</button></p>
+  <p><button type="button" name="button" id="include-ingredient-button" class="btn">Include New Ingredient</button></p>
 
   <br>
 
   <h3>Exclude Ingredients</h3>
   <div id="exclude-ingredient-div">
-    <p><input type="textarea" name="exclude[1]" id="exclude-ingredient1" ></p>
+    <p><input type="textarea" name="exclude[1]" id="exclude-ingredient1" class="input" ></p>
   </div>
-  <p><button type="button" name="button" id="exclude-ingredient-button">Exclude New Ingredient</button></p>
+  <p><button type="button" name="button" id="exclude-ingredient-button" class="btn">Exclude New Ingredient</button></p>
 
-  <%= submit_tag 'Search' %>
+  <%= submit_tag 'Search', :class => "btn" %>
 <% end %>
 </center>

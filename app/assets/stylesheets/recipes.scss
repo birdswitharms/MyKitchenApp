@@ -101,10 +101,15 @@ article span {
 }
 
 #allrecipes {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 25%;
+  // position: relative;
+  bottom: 200px;
+  margin-bottom: 50px;
+}
+
+.btn {
+  padding: 1em;
+  border-radius: 6px;
+  background-color: GhostWhite;
 }
 
 .call_to_action {
@@ -305,21 +310,6 @@ article span {
     position: relative;
     right: -10%;
     overflow: hidden;
-  }
-
-  .btn {
-    padding: 1em;
-    border-radius: 6px;
-    background-color: GhostWhite;
-  }
-
-  #allrecipes {
-    position: relative;
-    bottom: 200px;
-    margin-bottom: 50px;
-    // padding: 1em;
-    // border-radius: 6px;
-    // background-color: GhostWhite;
   }
 
   .bottom_menu {
