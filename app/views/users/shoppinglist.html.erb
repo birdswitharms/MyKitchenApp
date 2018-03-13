@@ -1,13 +1,7 @@
 <br><br><br>
 <h3 class="sub_header">Shopping List</h3>
 <br>
-<center>
-<br><br><br><br>
-<%= form_tag removed_foods_path do %>
-  <%= submit_tag 'Clear my Shopping List!' %>
-<% end %>
-</center>
-<br><br>
+
 <center>
   <div class="pantry">
     <% @list.each do |listitem| %>
@@ -16,4 +10,10 @@
     <br>
     <% end %>
   </div>
+</center>
+<br>
+<center>
+  <%= form_tag removed_foods_path do %>
+    <%= submit_tag 'Clear my Shopping List!' %>
+  <% end %>
 </center>

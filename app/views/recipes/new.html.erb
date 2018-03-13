@@ -5,27 +5,27 @@
   <%= form_for :recipe, html: {id: 'recipe_form'} do |f| %>
     <%= hidden_field(:ingredient_list,nil, :value => @foods) %>
     <p>
-      <%= f.label :name  %>
-      <%= f.text_field :name %>
+      <%= f.label :name  %>:
+      <%= f.text_field :name, :class => 'input' %>
     </p>
     <p>
-      <%= f.label :image_url  %>
-      <%= f.text_field :image_url %>
+      <%= f.label :image_url  %>:
+      <%= f.text_field :image_url, :class => 'input'  %>
     </p>
     <p>
-      <%= f.label :youtube_url  %>
-      <%= f.text_field :youtube_url %>
+      <%= f.label :youtube_url  %>:
+      <%= f.text_field :youtube_url, :class => 'input'  %>
     </p>
     <div id="step-div">
-      <p>Step 1: <input type="textarea" name="recipe[steps][1]" id="step1" ></p>
+      <p>Step 1: <input type="textarea" name="recipe[steps][1]" id="step1" class="input"></p>
     </div>
-    <button type="button" name="button" id="add-step-button">Add a new Step</button>
+    <button type="button" name="button" id="add-step-button" class="input-btn">Add a new Step</button>
     <div id="ingredient-div">
-      <p>Ingredient 1: <input type="number" name="recipe[measurement][1]" id="measurementval1" >
-        <select name="measurement_select_1" id='initial_select'></select> <input type="textarea" name="recipe[ingredient][1]" id="ingredient1" placeholder="ex. Chicken" autocomplete="off" class="ingredient_search_input"></p>
+      <p>Ingredient 1: <input type="number" name="recipe[measurement][1]" id="measurementval1" class="input measurement_input" >
+        <select name="measurement_select_1" id='initial_select'></select> <input type="textarea" name="recipe[ingredient][1]" id="ingredient1" placeholder="ex. Chicken" autocomplete="off" class="ingredient_search_input input"></p>
     </div>
-    <p><button type="button" name="button" id="add-ingredient-button">Add a new Ingredient</button></p>
-    <%= f.submit %>
+    <p><button type="button" name="button" id="add-ingredient-button" class="input-btn">Add a new Ingredient</button></p>
+    <%= f.submit :class => "input-btn" %>
     </p>
   <% end %>
 </div>

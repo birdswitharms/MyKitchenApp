@@ -87,12 +87,20 @@
 
 #save_weeklyplanner {
   position: absolute;
-  bottom: 10%;
+  bottom: 6%;
   right: 40%;
 }
 
 #clear_weeklyplanner {
   position: absolute;
-  bottom: 10%;
+  bottom: 6%;
   right: 60%;
+}
+
+#plus_button {
+  background: inherit;
+  color: green;
+  margin-top: 3px;
+  padding: 1px 7px;
+  border: 1px solid lightgrey;
 }

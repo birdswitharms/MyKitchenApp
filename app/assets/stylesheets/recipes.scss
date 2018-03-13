@@ -11,6 +11,7 @@
 
 #initial_select {
   width: 90px;
+  background: GhostWhite;
 }
 
 .header {
@@ -53,6 +54,23 @@
 
 .container {
   text-align: center;
+}
+
+.input {
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  background: GhostWhite;
+  width: 25%;
+}
+
+.measurement_input {
+  width: 5%;
+}
+
+.input-btn {
+  border-radius: 5px;
+  padding: 7px;
+  background: GhostWhite;
 }
 
 .container article {
@@ -152,7 +170,7 @@ article span {
   text-align: left;
   padding: 1.5em;
   border-radius: 5px;
-  background-color: white;
+  background-color: GhostWhite;
   border: 1px solid black;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   width: 60%;
@@ -225,10 +243,8 @@ article span {
 
   .container article:hover {
     transform: scale(1.03);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3), 0 8px 16px 0 rgba(0, 0, 0, 0.29);
   }
-
-
 
   #button {
     display: none;
@@ -291,14 +307,19 @@ article span {
     overflow: hidden;
   }
 
+  .btn {
+    padding: 1em;
+    border-radius: 6px;
+    background-color: GhostWhite;
+  }
 
   #allrecipes {
     position: relative;
     bottom: 200px;
     margin-bottom: 50px;
-    padding: 1em;
-    border-radius: 6px;
-    background-color: white;
+    // padding: 1em;
+    // border-radius: 6px;
+    // background-color: GhostWhite;
   }
 
   .bottom_menu {

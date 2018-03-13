@@ -1,30 +1,30 @@
-document.addEventListener('DOMContentLoaded', function(e){
+document.addEventListener('DOMContentLoaded', function (e) {
 
-  var step_counter = 2;
-  var ingredient_counter = 2;
-  var step_button = document.getElementById('add-step-button');
-  var step_div = document.getElementById('step-div');
-  var ingredient_button = document.getElementById('add-ingredient-button');
-  var ingredient_div = document.getElementById('ingredient-div');
-  var include_ingredient_div = document.getElementById('include-ingredient-div');
-  var exclude_ingredient_div = document.getElementById('exclude-ingredient-div');
-  var include_ingredient_button = document.getElementById('include-ingredient-button');
-  var exclude_ingredient_button = document.getElementById('exclude-ingredient-button');
-  var hamburger = document.getElementById('hamburger');
-  var menu = document.querySelector('.menu');
-  var bottom_button = document.getElementById('button');
-  var bottom_menu = document.querySelector('.bottom_menu');
-  var review_button_menu = document.getElementById('review_button_menu');
-  if (document.getElementById('recipe_id')) {
-    var hidden_recipe_id = document.getElementById('recipe_id').value
-  };
-  var review_text = document.getElementById('review_text');
-  var review_close = document.getElementById('review_close');
-  var submit_review = document.getElementById('submit_review');
-  var review_form = document.getElementById('review_form');
-  var review_div = document.querySelector('.reviews-div');
-  var measurements = ['a whole', 'a half', '1/8 teaspoon', '1/4 teaspoon', '1/2 teaspoon', 'teaspoon', '1/8 tablespoon', '1/4 tablespoon', '1/2 tablespoon', 'tablespoon', '1/8 cup', '1/4 cup', '1/2 cup', 'cup', '1/4 pint', '1/2 pint', 'pint', '1/4 gallon', '1/2 gallon', 'gallon', 'fluid ounce', '1/4 quart', '1/2 quart', 'quart', '1/4 liter', '1/2 liter', 'liter', 'ounce', 'grams', 'lbs', 'kgs'];
-  var initial_select = document.getElementById('initial_select');
+    var step_counter = 2;
+    var ingredient_counter = 2;
+    var step_button = document.getElementById('add-step-button');
+    var step_div = document.getElementById('step-div');
+    var ingredient_button = document.getElementById('add-ingredient-button');
+    var ingredient_div = document.getElementById('ingredient-div');
+    var include_ingredient_div = document.getElementById('include-ingredient-div');
+    var exclude_ingredient_div = document.getElementById('exclude-ingredient-div');
+    var include_ingredient_button = document.getElementById('include-ingredient-button');
+    var exclude_ingredient_button = document.getElementById('exclude-ingredient-button');
+    var hamburger = document.getElementById('hamburger');
+    var menu = document.querySelector('.menu');
+    var bottom_button = document.getElementById('button');
+    var bottom_menu = document.querySelector('.bottom_menu');
+    var review_button_menu = document.getElementById('review_button_menu');
+    if (document.getElementById('recipe_id')) {
+      var hidden_recipe_id = document.getElementById('recipe_id').value
+    };
+    var review_text = document.getElementById('review_text');
+    var review_close = document.getElementById('review_close');
+    var submit_review = document.getElementById('submit_review');
+    var review_form = document.getElementById('review_form');
+    var review_div = document.querySelector('.reviews-div');
+    var measurements = ['a whole', 'a half', '1/8 teaspoon', '1/4 teaspoon', '1/2 teaspoon', 'teaspoon', '1/8 tablespoon', '1/4 tablespoon', '1/2 tablespoon', 'tablespoon', '1/8 cup', '1/4 cup', '1/2 cup', 'cup', '1/4 pint', '1/2 pint', 'pint', '1/4 gallon', '1/2 gallon', 'gallon', 'fluid ounce', '1/4 quart', '1/2 quart', 'quart', '1/4 liter', '1/2 liter', 'liter', 'ounce', 'grams', 'lbs', 'kgs'];
+    var initial_select = document.getElementById('initial_select');
 
   if (initial_select) {
     initial_select.style.width = '90px';
@@ -110,7 +110,8 @@ document.addEventListener('DOMContentLoaded', function(e){
       step_field.name = "recipe[steps]["+step_counter+"]";
       step_field.id = "step"+step_counter;
       var p = document.createElement('p');
-      p.innerText = "Step "+step_counter+" :";
+      p.innerText = "Step "+step_counter+": ";
+      step_field.classList.add("input");
       step_counter++;
       step_div.append(p);
       p.append(step_field);
@@ -122,9 +123,12 @@ document.addEventListener('DOMContentLoaded', function(e){
       var measurement_select = document.createElement('select');
 
       ingredient_field.type = "textarea";
+      ingredient_field.classList.add("input");
       measurement_field.type = "number";
       ingredient_field.name = "recipe[ingredient]["+ingredient_counter+"]";
       measurement_field.name = "recipe[measurement]["+ingredient_counter+"]";
+      measurement_field.classList.add("input");
+      measurement_field.classList.add("measurement_input");
       ingredient_field.id = "ingredient"+ingredient_counter;
       ingredient_field.placeholder = "ex. Chicken"
       ingredient_field.classList.add("ingredient_search_input")
@@ -158,6 +162,7 @@ document.addEventListener('DOMContentLoaded', function(e){
       step_field.type = "textarea";
       step_field.name = "include["+step_counter+"]";
       step_field.id = "include-ingredient"+step_counter;
+      step_field.classList.add("input");
       var p = document.createElement('p');
       step_counter++;
       include_ingredient_div.append(p);
@@ -169,6 +174,7 @@ document.addEventListener('DOMContentLoaded', function(e){
       step_field.type = "textarea";
       step_field.name = "exclude["+ingredient_counter+"]";
       step_field.id = "exclude-ingredient"+ingredient_counter;
+      step_field.classList.add("input");
       var p = document.createElement('p');
       ingredient_counter++;
       exclude_ingredient_div.append(p);

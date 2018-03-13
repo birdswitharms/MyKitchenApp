@@ -2,12 +2,12 @@
 <center><h2 class="header">Profile</h2>
 <br>
 <br>
-<h3 class="sub_header">Recipe's Made</h3>
+<h3 class="sub_header"><u>Recipe's Made</u></h3>
   <% @history.each do |historyitem| %>
     <p><%= link_to historyitem.recipe.name, recipe_path(historyitem.recipe.id) %></p>
   <% end %>
 <br><br>
-<h3 class="sub_header">Recipe's Created</h3>
+<h3 class="sub_header"><u>Recipe's Created</u></h3>
   <% @recipes_created.each do |recipe| %>
     <p><%= link_to recipe.name, recipe_path(recipe.id) %></p>
     <br>
