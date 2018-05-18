@@ -1,15 +1,4 @@
 class SessionsController < ApplicationController
-  def new
-    respond_to do |format|
-      format.html {
-        if request.xhr?
-          render partial: 'new'
-        else
-          render :new
-        end
-      }
-    end
-  end
 
   def create
     @user = User.find_by(name: params[:name])
@@ -19,7 +8,7 @@ class SessionsController < ApplicationController
       redirect_to root_path
     else
       flash.now[:alert] = ["Login failed, name and/or password are incorrect"]
-      render :new
+      redirect_to root_path
     end
   end
 
@@ -27,4 +16,5 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_path
   end
+
 end

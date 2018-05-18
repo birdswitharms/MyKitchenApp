@@ -171,9 +171,6 @@ class Recipe < ApplicationRecord
       sugars:              ingredient_list.sum{ |e| e.sugars || 0.0},
       protein:             ingredient_list.sum{ |e| e.protein || 0.0}
     }
-    # puts "*"*20
-    # puts "Nutrition"
-    # ap nutrition
     return nutrition
   end
 
@@ -200,23 +197,10 @@ class Recipe < ApplicationRecord
       new_recipe = Recipe.new(name: recipe['strMeal'].chomp, youtube_url: youtube , image_url: img, user: User.first)
     end
 
-    # debug
-    # if new_recipe.save
-    #   puts "Recipe Successful"
+
       recipe['strInstructions'].split(/[\r\n]+/).each { |instruction|
         new_recipe.steps.new(content: instruction.downcase)
-        # step = Step.new(content: instruction.downcase, recipe: new_recipe.id)
-        # puts "*"*20
-        # if step.save
-          # puts "Step Successful"
-        # else
-          # puts "Step Failed"
-        # end
       }
-    # else
-    #   puts "Recipe Failed"
-    #   puts new_recipe.errors.full_messages
-    # end
     return new_recipe
   end
 
@@ -245,7 +229,6 @@ class Recipe < ApplicationRecord
     end
     puts "*"*20
     puts "PUSHING NEW INGREDIENT TO TEMP"
-    # temp_ingredients << new_ingredient
 
     return new_ingredient
   end
@@ -254,7 +237,6 @@ class Recipe < ApplicationRecord
     puts "*"*20
     puts "CREATE APPLIANCES"
     appliances = Recipe.show_appliances(new_recipe)
-    # binding.pry
     if appliances.any?
       puts "APPLIANCES FOUND"
       appliances.each { |appliance|
@@ -302,23 +284,10 @@ class Recipe < ApplicationRecord
     matches = []
     Appliance.all.each { |appliance|
       recipe.steps.each{ |step|
-        # binding.pry
         if step.content.include?(appliance.name.downcase)
           matches << appliance
         end
       }
-      # steps = recipe.steps.where("lower(content) LIKE ?", "%#{appliance.name.downcase}%")
-      # steps = recipe.steps.where("lower(content) LIKE (?)", "%#{appliance.name.downcase}%")
-      # if appliance.name == 'food processor'
-      # end
-      # if steps.any?
-      #   puts "*"*20
-      #   puts "#{steps} Matching #{appliance} found"
-      #   matches << appliance
-      # else
-      #   puts "*"*20
-      #   puts "no steps Matching Appliances"
-      # end
     }
     puts "*"*20
     puts "MATCHES"
