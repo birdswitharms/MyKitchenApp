@@ -35,48 +35,63 @@ class Recipe < ApplicationRecord
       return nil
     end
 
+    # Query json api for recipe data based on user's input
     response_json = requestapi(recipe_string)
 
-    response_json['meals'].each {|recipe|
-      next unless recipe
+    # Look through all the meals the api returns
+    response_json['meals'].each {|recipe_json|
+      next unless recipe_json
+
+      # create an empty list of ingredients
       temp_ingredients = []
-      new_recipe = create_recipe(recipe)
 
-      20.times{ |n|
-        next if recipe['strMeasure' + (n + 1).to_s].nil?
-        next if recipe['strIngredient' + (n + 1).to_s].nil?
+      # take the json representation of the recipe, wrap it in our model
+      recipe = create_recipe(recipe_json)
 
-        measurement = recipe['strMeasure' + (n + 1).to_s].capitalize
-        ingredient = recipe['strIngredient' + (n + 1).to_s].capitalize
-        if (measurement == '') || (ingredient == '')
-          next
-        end
-        t = create_ingredient_and_food(n, recipe, measurement, ingredient)
-        new_ingredient = t
-        temp_ingredients << t
+      # recipes have 20 ingredients & measurements (api detail) and they are stored under numbered names
+      # iterate over each of them, creating database records and Ingredient models, and adding the models to the list
+      20.times{|n|
+        # get the measurement and ingredient name
+        measurement = recipe['strMeasure' + (n + 1).to_s]
+        ingredient_name = recipe['strIngredient' + (n + 1).to_s]
+
+        # skip igredients with nil or empty string as measurement or ingredient name
+        # (sometimes the api does this :<)
+        next if measurement.nil?
+        next if ingredient_name.nil?
+        next if measurement == ''
+        next if ingredient_name == ''
+
+        # Create the Ingredient and Food records in the database, returning our Ingredient model
+        ingredient = create_ingredient_and_food(n, recipe, measurement.capitalize, ingredient_name.capitalize)
+
+        # Add this to our list of ingredients
+        temp_ingredients << ingredient
       }
 
-      # new_ingredient.calories = json.asdasd
-      response = Ingredient.get_nutrition(temp_ingredients)
+      # Call into the nutrition API to get the nutritional info of each of our ingredients
+      nutrition_json = Ingredient.get_nutrition(temp_ingredients)
+
       puts "*"*20
       ap "TEMP ingredients length: #{temp_ingredients.length}"
-      ap "response foods length: #{response["foods"].length}"
+      ap "response foods length: #{nutrition_json["foods"].length}"
       puts "*"*20
-      if temp_ingredients.length == response["foods"].length
+
+      # Proceed only if we get the expected number of nutrition info entries from the api
+      if temp_ingredients.length == nutrition_json["foods"].length
+        # Iterate over the ingredients, looking at each corresponding nutrition info entry
         temp_ingredients.each_with_index { |ingredient, index|
-          current_food = response["foods"][index]
+          current_food = nutrition_json["foods"][index]
 
+          # Search the database for an ingredient that is this kind of food and the desired measurement
+          # If we don't already have the ingredient in the database, save this one to the database
           measurement_string = current_food["serving_qty"].to_s + " " + current_food["serving_unit"].to_s
-          actual_ingredient = Ingredient.find_by(food: ingredient.food, measurement_unit: measurement_string)
-
-          if actual_ingredient
-            ingredient = actual_ingredient
-          else
+          unless Ingredient.find_by(food: ingredient.food, measurement_unit: measurement_string)
             puts "*"*20
             puts "Update ingredient"
             puts "*"*20
             if ingredient.update!(measurement_unit: current_food["serving_qty"].to_s + " " + current_food["serving_unit"].to_s)
-            nutrition_details(ingredient, current_food)
+              nutrition_details(ingredient, current_food)
               puts "Ingredient Successful"
             else
               puts "Ingredient Failed"
@@ -84,6 +99,7 @@ class Recipe < ApplicationRecord
             end
           end
         }
+      # If we don't get the expected number of nutrition info entries, fix the ingredients
       else
         fix_ingredients(temp_ingredients, response["foods"])
         puts "*"*20
@@ -92,29 +108,29 @@ class Recipe < ApplicationRecord
       end
       puts "*"*20
       puts "PUSHING TEMP INGREDIENTS TO RECIPE"
-      # ap new_recipe.ingredients
+      # ap recipe.ingredients
       puts "*"*20
-      # ap temp_ingredients - new_recipe.ingredients
+      # ap temp_ingredients - recipe.ingredients
         # binding.pry
       temp_ingredients.each { |ingredient|
         # ap ingredient
-        unless new_recipe.ingredients.include?(ingredient)
+        unless recipe.ingredients.include?(ingredient)
           begin
-            new_recipe.ingredients << ingredient
+            recipe.ingredients << ingredient
           rescue
             puts " Ingredient already exists, skipping temp ingredient "
           end
         end
       }
-        # new_recipe.ingredients << (temp_ingredients - new_recipe.ingredients)
+        # recipe.ingredients << (temp_ingredients - recipe.ingredients)
 
-      create_appliances(new_recipe)
+      create_appliances(recipe)
 
-      if new_recipe.save
+      if recipe.save
         puts "Recipe successful"
       else
         puts "Recipe failed"
-        puts new_recipe.errors.full_messages
+        puts recipe.errors.full_messages
       end
 
     }
@@ -128,8 +144,7 @@ class Recipe < ApplicationRecord
     return JSON.parse(response.body)
   end
 
-  def self.nutrition_details(ingredient, nutrition_json_ingredient)
-    food = nutrition_json_ingredient
+  def self.nutrition_details(ingredient, food)
     ingredient.calories = food["nf_calories"]
     ingredient.total_fat = food["nf_total_fat"]
     ingredient.saturated_fat = food["nf_saturated_fat"]
